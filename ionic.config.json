@@ -1,0 +1,7 @@
+{
+  "name": "mybaystate",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
