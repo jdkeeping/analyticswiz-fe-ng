@@ -1,15 +1,20 @@
 {
   "name": "mybaystate",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "8.0.0",
+  "author": "Baystate Health",
+  "homepage": "https://www.baystatehealth.org",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "ion-start": "npx ionic serve",
+    "version": "node scripts/bump-version.js",
+    "postversion": "git push && git push --tags",
+    "deploy-to-cloudfront:dev": "./scripts/deploy-to-cloudfront.sh dev worktips",
+    "deploy-to-cloudfront:prod": "./scripts/deploy-to-cloudfront.sh prod worktips"
   },
   "private": true,
   "dependencies": {
@@ -22,12 +27,14 @@
     "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
     "@capacitor/app": "6.0.0",
+    "@capacitor/browser": "^6.0.0",
     "@capacitor/core": "6.0.0",
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.0",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
     "ionicons": "^7.2.1",
+    "moment": "^2.30.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

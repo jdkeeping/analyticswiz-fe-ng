@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'org.baystatehealth.mybaystatehealth',
   appName: 'mybaystate',
   webDir: 'www'
 };
