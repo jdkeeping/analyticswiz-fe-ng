@@ -13,6 +13,7 @@
     formControlName="userId"
     type="text"
     label="User ID"
+    autocomplete="username"
     [submitAttempted]="submitAttempted"
     [validationMessages]="validationMessages"
   ></bh-input>
@@ -21,10 +22,11 @@
     formControlName="password"
     type="password"
     label="Password"
+    autocomplete="password"
     [submitAttempted]="submitAttempted"
     [validationMessages]="validationMessages"
   ></bh-input>
-  <ion-button expand="block" (click)="signIn()">
+  <ion-button expand="block" (click)="signIn()" [ngClass]="{'opacity-50': isSigningIn}">
     <ng-container *ngIf="!isSigningIn">Sign in</ng-container>
     <ion-spinner name="dots" *ngIf="isSigningIn"></ion-spinner>
   </ion-button>

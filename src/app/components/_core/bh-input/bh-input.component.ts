@@ -50,6 +50,7 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit {
   @Input() minWidth;
   @Input() step;
   @Input() required;
+  @Input() autocomplete;
   @Input() validationMessages: any;
   @Input() submitAttempted = false;
   @Input() helperText: string;
