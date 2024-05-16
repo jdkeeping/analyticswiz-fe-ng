@@ -1,0 +1,24 @@
+.icon-container {
+  padding: 24px;
+  text-align: center;
+
+  ion-icon {
+    font-size: 128px;
+  }
+}
+
+.button-wrapper {
+  text-align: center;
+  padding: 24px 0;
+
+  ion-button {
+    display: block;
+    margin: 16px auto;
+    max-width: 250px;
+  }
+}
+
+.form-group-box {
+  max-width: 800px;
+  margin: 0 auto;
+}

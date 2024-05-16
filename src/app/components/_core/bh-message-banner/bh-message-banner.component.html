@@ -1,0 +1,11 @@
+<div class="message" [ngClass]="type">
+  <div class="message-inner">
+    <div class="m-icon" *ngIf="ionIcon">
+      <ion-icon [name]="ionIcon"></ion-icon>
+    </div>
+    <div class="m-text">
+      <h6 *ngIf="heading" [innerHtml]="heading"></h6>
+      <p *ngIf="message" [innerHtml]="message"></p>
+    </div>
+  </div>
+</div>

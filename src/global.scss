@@ -25,6 +25,12 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+/* BH-Starter CSS utils */
+@import "theme/canned.scss";
+@import "theme/base.all.scss";
+@import "theme/base.mobile.scss";
+@import "theme/base.desktop.scss";
+
 /**
  * Ionic Dark Mode
  * -----------------------------------------------------
@@ -34,4 +40,8 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+// @import '@ionic/angular/css/palettes/dark.system.css';
+
+* {
+  font-family: 'Figtree', sans-serif;
+}

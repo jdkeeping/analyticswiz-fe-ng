@@ -1,0 +1,63 @@
+<form [formGroup]="formGroup">
+  <div class="input-wrapper">
+    <!-- Text Input -->
+    <ion-input
+      *ngIf="type === 'text'"
+      [formControlName]="formControlName"
+      [label]="label"
+      label-placement="stacked"
+      fill="outline"
+      mode="md"
+      [placeholder]="placeholder"
+      (ionBlur)="blurInput(formControlName)"
+      (ionChange)="valueChanged(index, label, $event)"
+      (keydown)="handleKeyDown($event, 'txt')"
+      (keyup)="handleKeyUp($event, 'txt')"
+      (paste)="handlePaste($event, 'txt')"
+    ></ion-input>
+
+    <!-- Password Input -->
+    <ion-input
+      *ngIf="type === 'password'"
+      type="password"
+      [formControlName]="formControlName"
+      [label]="label"
+      label-placement="stacked"
+      fill="outline"
+      mode="md"
+      [placeholder]="placeholder"
+      (ionBlur)="blurInput(formControlName)"
+      (ionChange)="valueChanged(index, label, $event)"
+      (keydown)="handleKeyDown($event, 'txt')"
+      (keyup)="handleKeyUp($event, 'txt')"
+      (paste)="handlePaste($event, 'txt')"
+    >
+      <ion-input-password-toggle
+        slot="end"
+        color="dark"
+      ></ion-input-password-toggle>
+    </ion-input>
+
+    <!-- Validation Messages -->
+    <div class="validation-errors">
+      <ng-container
+        *ngFor="let validation of validationMessages[formControlName]"
+      >
+        <div
+          class="ve-message"
+          *ngIf="
+            formGroup
+              .get(formControlName)
+              .hasError(validation.type.toLowerCase()) &&
+            (formGroup.get(formControlName).dirty ||
+              formGroup.get(formControlName).touched ||
+              submitAttempted)
+          "
+        >
+          <!-- <ion-icon name="alert-circle-outline"></ion-icon> -->
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</form>

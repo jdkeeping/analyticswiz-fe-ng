@@ -1,0 +1,631 @@
+/**
+ * ID: bh-canned-classes-scss
+ * Name: canned.scss
+ * Description: Canned reusable classes stylesheet
+ * Version: 4
+ *
+ * ==============================
+ * Change Log
+ * ==============================
+ * 2021-07-02 - MW - v1: Initial dev
+ * 2021-07-13 - MW - v2: Adjust cta-button style
+ * 2021-07-27 - MW - v3: Added missing alert danger class
+ * 2022-05-25 - MW - v4: Split global.scss into base.scss, base.mobile.scss, canned.scss
+ */
+
+ /*
+ * Canned Classes CSS
+ * ----------------------------------------------------------------------------
+ * Highly reusable canned classes that can be applied to elements
+ * without writing specific classes.
+ */
+
+ .faded {
+  opacity: 0.5;
+}
+
+/* Font colors */
+
+.font-color-primary {
+  --color: var(--ion-color-primary) !important;
+  color: var(--ion-color-primary) !important;
+}
+
+.font-color-secondary {
+  --color: var(--ion-color-secondary) !important;
+  color: var(--ion-color-secondary) !important;
+}
+
+.font-color-white,
+.font-color-white * {
+  --color: #fff !important;
+  color: #fff !important;
+}
+
+.font-color-warning,
+.font-color-warning * {
+  --color: var(--ion-color-warning-shade) !important;
+  color: var(--ion-color-warning-shade) !important;
+}
+
+.font-color-success,
+.font-color-success * {
+  --color: var(--ion-color-success) !important;
+  color: var(--ion-color-success) !important;
+}
+
+.font-color-danger,
+.font-color-danger * {
+  --color: var(--ion-color-danger) !important;
+  color: var(--ion-color-danger) !important;
+}
+
+.afternoon .font-color-danger,
+.night .font-color-danger {
+  // color: rgb(255, 191, 191) !important;
+}
+
+.font-color-dark,
+.font-color-dark * {
+  --color: var(--ion-color-dark) !important;
+  color: var(--ion-color-dark) !important;
+}
+
+.font-color-gray,
+.font-color-gray * {
+  color: #666 !important;
+  --color: #666 !important;
+}
+/* Font weights */
+
+.font-weight-light {
+  font-weight: 300 !important;
+}
+
+.font-weight-regular {
+  font-weight: 400 !important;
+}
+
+.font-weight-semibold {
+  font-weight: 600 !important;
+}
+
+.font-weight-bold {
+  font-weight: 800 !important;
+}
+
+/* Font sizes */
+
+.font-size-small {
+  font-size: 14px !important;
+}
+
+.font-size-medium {
+  font-size: 16px;
+}
+
+.font-size-large {
+  font-size: 18px;
+}
+
+.text-transform-capitalize {
+  text-transform: capitalize;
+}
+
+.text-transform-lowercase {
+  text-transform: lowercase;
+}
+
+.text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+.background-transparent {
+  background: transparent;
+  --background: transparent;
+}
+
+/* Heading styles */
+
+.heading-toolbar {
+  display: flex;
+  flex-direction: row;
+
+  h1 {
+    flex: 1 1 auto;
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+
+    ion-button[size="small"] {
+      --padding-start: 0;
+      --padding-end: 0;
+      margin-right: 12px;
+    }
+  }
+}
+
+/* padding */
+
+.padding-0 {
+  padding: 0;
+}
+
+.padding-8 {
+  padding: 8px;
+}
+
+.padding-12 {
+  padding: 12px;
+}
+
+.padding-16 {
+  padding: 16px !important;
+}
+
+.padding-24 {
+  padding: 24px;
+}
+
+.padding-32 {
+  padding: 32px;
+}
+
+.padding-48 {
+  padding: 48px;
+}
+
+.padding-top-0 {
+  padding-top: 0 !important;
+}
+
+.padding-top-8 {
+  padding-top: 8px;
+}
+
+.padding-top-12 {
+  padding-top: 12px;
+}
+
+.padding-top-16 {
+  padding-top: 16px;
+}
+
+.padding-top-24 {
+  padding-top: 24px;
+}
+
+.padding-top-32 {
+  padding-top: 32px;
+}
+
+.padding-top-48 {
+  padding-top: 48px;
+}
+
+.padding-right-0 {
+  padding-right: 0 !important;
+}
+
+.padding-right-8 {
+  padding-right: 8px;
+}
+
+.padding-right-12 {
+  padding-right: 12px;
+}
+
+.padding-right-16 {
+  padding-right: 16px;
+}
+
+.padding-right-24 {
+  padding-right: 24px;
+}
+
+.padding-right-32 {
+  padding-right: 32px;
+}
+
+.padding-right-48 {
+  padding-right: 48px;
+}
+
+.padding-bottom-8 {
+  padding-bottom: 8px;
+}
+
+.padding-bottom-12 {
+  padding-bottom: 12px;
+}
+
+.padding-bottom-16 {
+  padding-bottom: 16px;
+}
+
+.padding-bottom-24 {
+  padding-bottom: 24px;
+}
+
+.padding-bottom-32 {
+  padding-bottom: 32px;
+}
+
+.padding-bottom-48 {
+  padding-bottom: 48px;
+}
+
+.padding-left-0 {
+  padding-left: 0 !important;
+}
+
+.padding-left-8 {
+  padding-left: 8px;
+}
+
+.padding-left-12 {
+  padding-left: 12px;
+}
+
+.padding-left-16 {
+  padding-left: 16px;
+}
+
+.padding-left-24 {
+  padding-left: 24px;
+}
+
+.padding-left-32 {
+  padding-left: 32px;
+}
+
+.padding-left-48 {
+  padding-left: 48px;
+}
+
+/* margins */
+
+.margin-0 {
+  margin: 0;
+}
+
+.margin-8 {
+  margin: 8px;
+}
+
+.margin-12 {
+  margin: 12px;
+}
+
+.margin-16 {
+  margin: 16px;
+}
+
+.margin-24 {
+  margin: 24px;
+}
+
+.margin-32 {
+  margin: 32px;
+}
+
+.margin-40 {
+  margin: 40px;
+}
+
+.margin-48 {
+  margin: 48px;
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+
+.margin-top-8 {
+  margin-top: 8px;
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+.margin-top-16 {
+  margin-top: 16px;
+}
+
+.margin-top-24 {
+  margin-top: 24px;
+}
+
+.margin-top-32 {
+  margin-top: 32px;
+}
+
+.margin-top-48 {
+  margin-top: 48px !important;
+}
+
+.margin-top-56 {
+  margin-top: 56px !important;
+}
+
+.margin-top-64 {
+  margin-top: 64px !important;
+}
+
+.margin-right-24 {
+  margin-right: 24px;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-bottom-8 {
+  margin-bottom: 8px !important;
+}
+
+.margin-bottom-12 {
+  margin-bottom: 12px;
+}
+
+.margin-bottom-16 {
+  margin-bottom: 16px !important;
+}
+
+.margin-bottom-24 {
+  margin-bottom: 24px;
+}
+
+.margin-bottom-32 {
+  margin-bottom: 32px !important;
+}
+
+.margin-bottom-48 {
+  margin-bottom: 48px !important;
+}
+
+.margin-left-0 {
+  margin-left: 0 !important;
+}
+
+.margin-left-8 {
+  margin-left: 8px;
+}
+
+.margin-left-12 {
+  margin-left: 12px;
+}
+
+.margin-left-16 {
+  margin-left: 16px;
+}
+.margin-left-24 {
+  margin-left: 24px;
+}
+
+.margin-left-32 {
+  margin-left: 32px;
+}
+
+.margin-left-48 {
+  margin-left: 48px;
+}
+
+.margin-right-0 {
+  margin-right: 0 !important;
+}
+
+.margin-right-8 {
+  margin-right: 8px;
+}
+
+.margin-right-12 {
+  margin-right: 12px;
+}
+
+.margin-right-16 {
+  margin-right: 16px;
+}
+
+.margin-right-24 {
+  margin-right: 24px;
+}
+/* display */
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.display-none {
+  display: none !important;
+}
+
+/* box shadows */
+
+.box-shadow-none {
+  box-shadow: none;
+}
+
+.box-shadow-1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.box-shadow-1.hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.box-shadow-1.hover:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.box-shadow-2 {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.box-shadow-3 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.box-shadow-4 {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.box-shadow-5 {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+/* Text alignments */
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+/* Border radius */
+
+.border-radius-4 {
+  border-radius: 4px;
+}
+
+.border-radius-8 {
+  border-radius: 8px;
+}
+
+.border-radius-30 {
+  border-radius: 30px;
+}
+
+/* Positioning */
+
+.float-none {
+  float: none;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+/* Overflow */
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+/* z-index */
+
+.z-index--1 {
+  z-index: -1;
+}
+
+.z-index-0 {
+  z-index: 0;
+}
+
+.z-index-1 {
+  z-index: 1;
+}
+
+.z-index-10 {
+  z-index: 10;
+}
+
+.z-index-20 {
+  z-index: 20;
+}
+
+.z-index-30 {
+  z-index: 30;
+}
+
+.z-index-100 {
+  z-index: 100;
+}
+
+.z-index-9999 {
+  z-index: 9999;
+}
+
+/* Opacity values */
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+
+.opacity-05 {
+  opacity: 0.05;
+}
+
+.opacity-03 {
+  opacity: 0.03;
+}

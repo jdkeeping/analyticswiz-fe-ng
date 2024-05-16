@@ -1,0 +1,143 @@
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Open Sans", "Roboto", "Helvetica Neue", sans-serif;
+        font-weight: 300;
+        color: white;
+        min-width: 800px;
+      }
+      .message {
+        font-size: 20px;
+        font-family: "Open Sans", "Roboto", "Helvetica Neue", sans-serif;
+        font-weight: 300;
+        line-height: 1.5;
+        color: black;
+        text-align: center;
+      }
+      .header {
+        background-color: rgb(36, 56, 67);
+        margin: 0px;
+        padding: 4px 10px;
+      }
+      .top-logo {
+        width: 140px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 25px;
+        padding-left: 15px;
+      }
+      .top-title {
+        padding-left: 30px;
+        border-left: 1px solid white;
+        font-size: 24px;
+        font-weight: 300;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .top-link {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .top-menu {
+        padding: 0px 20px 0px 20px;
+      }
+
+      .scrolling-content {
+        background-size: cover;
+        min-height: 100%; /* backup for browsers that don't support calc() */
+        min-height: calc(100% - 61px);
+        display: flex;
+        align-content: center;
+        justify-items: center;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .inner-content {
+        padding: 0px;
+        min-height: 80%;
+        min-width: 50%;
+        max-width: 1000px;
+        border-radius: 8px;
+        background: white;
+        color: black;
+      }
+      h1 {
+        font-family: "Open Sans", "Roboto", "Helvetica Neue", sans-serif;
+        font-size: 36px;
+        font-weight: 300;
+        color: #0163be;
+        text-align: center;
+      }
+
+      .browsers {
+        margin: 46px auto;
+        width: 800px;
+      }
+      .browsers td {
+        font-size: 14px;
+        text-align: center;
+        vertical-align: top;
+        color: #000;
+      }
+
+      .browsers div:last-child {
+        margin-right: 0;
+      }
+      .browsers img {
+        width: 92px;
+        display: block;
+        margin: 24px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scrolling-content">
+      <div class="inner-content">
+        <table border="0px" cellspacing="50px">
+          <tr>
+            <td class="message">
+              <h1>
+                Your web browser does not work with <strong>WorkWell</strong>.
+              </h1>
+              <p>
+                For the best experience and security, we require that you use
+                one of these leading web browsers:
+              </p>
+              <table class="browsers">
+                <tr>
+                  <td>
+                    <img src="img/chrome.png" alt="Google Chrome logo" />
+                    Google Chrome
+                  </td>
+                  <td>
+                    <img src="img/edge.png" alt="Microsoft Edge logo" />
+                    Microsoft Edge
+                  </td>
+                  <td>
+                    <img src="img/safari.png" alt="Apple Safari logo" />
+                    Apple Safari
+                  </td>
+                  <td>
+                    <img src="img/firefox.png" alt="Mozilla Firefox logo" />
+                    Mozilla Firefox
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

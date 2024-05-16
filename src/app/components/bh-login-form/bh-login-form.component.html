@@ -1,0 +1,37 @@
+<h2>Sign in</h2>
+<form [formGroup]="form1" (keydown.enter)="signIn()">
+  <bh-message-banner
+    type="danger"
+    ionIcon="alert-circle-outline"
+    heading="Error"
+    [message]="errorMessage"
+    *ngIf="errorMessage"
+  >
+  </bh-message-banner>
+  <bh-input
+    [formGroup]="form1"
+    formControlName="userId"
+    type="text"
+    label="User ID"
+    [submitAttempted]="submitAttempted"
+    [validationMessages]="validationMessages"
+  ></bh-input>
+  <bh-input
+    [formGroup]="form1"
+    formControlName="password"
+    type="password"
+    label="Password"
+    [submitAttempted]="submitAttempted"
+    [validationMessages]="validationMessages"
+  ></bh-input>
+  <ion-button expand="block" (click)="signIn()">
+    <ng-container *ngIf="!isSigningIn">Sign in</ng-container>
+    <ion-spinner name="dots" *ngIf="isSigningIn"></ion-spinner>
+  </ion-button>
+  <ion-button routerUrl="/help-credentials" expand="block" fill="clear">
+    Forgot username or password?
+  </ion-button>
+  <ion-button routerUrl="/help" expand="block" fill="clear">
+    Get help using {{ env?.appDescription }}
+  </ion-button>
+</form>
