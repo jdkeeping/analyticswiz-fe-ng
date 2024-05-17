@@ -1,0 +1,76 @@
+/**
+ * ID: bh-base-desktop-scss
+ * Name: base.desktop.scss
+ * Description: Desktop (wide viewports) specific variants of base stylesheet for Baystate Health themes
+ * Version: 4
+ *
+ * ==============================
+ * Change Log
+ * ==============================
+ * 2021-07-02 - MW - v1: Initial dev
+ * 2021-07-13 - MW - v2: Adjust cta-button style
+ * 2021-07-27 - MW - v3: Added missing alert danger class
+ * 2022-05-25 - MW - v4: Split global.scss into base.all.scss, base.desktop.scss, base.mobile.scss, canned.scss
+ */
+
+/*
+ * Base Mobile CSS
+ * ----------------------------------------------------------------------------
+ * Base theming variants for wide viewports (desktop).
+ */
+
+ @media (min-width: 768px) {
+
+  // ion-header:not(.modal-header) {
+  //   display: none;
+  // }
+
+  // ion-modal {
+  //   --border-radius: 16px;
+  // }
+
+  // .modal-wrapper.sc-ion-modal-md,
+  // modal-wrapper.sc-ion-modal-ios {
+  //   border-radius: 16px;
+  // }
+
+  // .wide-modal {
+  //   &.super-wide .modal-wrapper {
+  //     max-width: 1400px !important;
+  //   }
+
+  //   &.fullscreen .modal-wrapper {
+  //     max-width: unset !important;
+  //   }
+
+  //   .modal-wrapper {
+  //     width: 100%;
+  //     height: 100%;
+  //     max-width: 1400px;
+  //   }
+
+  //   &.floating {
+  //     .modal-wrapper {
+  //       width: 95%;
+  //       height: 95%;
+  //     }
+  //   }
+  // }
+
+  .desktop-only:not(.force-style-mobile) {
+    display: block;
+  }
+
+  .desktop-only-flex:not(.force-style-mobile) {
+    display: flex;
+  }
+
+  .desktop-only-inline:not(.force-style-mobile) {
+    display: inline-block;
+  }
+
+  .mobile-only:not(.force-style-mobile),
+  .mobile-only-flex:not(.force-style-mobile) {
+    display: none !important;
+  }
+}

@@ -1,5 +1,5 @@
 :host {
-  padding: 16px;
+  padding: 8px;
   display: inline-flex;
   align-items: center;
 }
@@ -8,7 +8,7 @@
   margin-right: 16px;
 
   img {
-    height: 30px;
+    height: 26px;
     display: inline-block;
   }
 }
@@ -16,7 +16,7 @@
 .app-name {
   display: flex;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
   padding-left: 16px;
   border-left: 1px solid rgba(255, 255, 255, .5);
   height: 100%;

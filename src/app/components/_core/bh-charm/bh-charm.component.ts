@@ -14,7 +14,8 @@ import { IonIcon } from "@ionic/angular/standalone";
   imports: [IonIcon,
     CommonModule,
     RouterModule,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    IonIcon
   ]
 })
 export class BhCharmComponent  implements OnInit {

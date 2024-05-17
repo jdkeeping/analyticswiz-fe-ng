@@ -4,3 +4,27 @@ ion-button {
   letter-spacing: normal;
   font-size: 17px;
 }
+
+ion-content {
+  &.safe-area-margin-top {
+    --padding-top: var(--ion-safe-area-top);
+  }
+
+  &.safe-area-margin-bottom {
+    --padding-bottom: var(--ion-safe-area-bottom);
+  }
+
+  &.transparent {
+    --background: transparent;
+  }
+}
+
+.safe-area-margin-top {
+  --padding-top: var(--ion-safe-area-top);
+  padding-top: var(--ion-safe-area-top);
+}
+
+.safe-area-margin-bottom {
+  --padding-bottom: var(--ion-safe-area-bottom);
+  padding-bottom: var(--ion-safe-area-bottom);
+}
