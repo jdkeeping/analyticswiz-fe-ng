@@ -1,0 +1,54 @@
+<bh-logo></bh-logo>
+<div class="nav">
+  <ul>
+    <li>
+      <a
+        routerLink="/tabs/cases"
+        bhAnalyticsClick
+        eventName="header-link-click"
+        eventDetail="Interface Cases"
+        [ngClass]="{ active: activePage === 'cases' }"
+        >Interface Cases</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/tabs/requests"
+        bhAnalyticsClick
+        eventName="header-link-click"
+        eventDetail="LIS Order Requests"
+        [ngClass]="{ active: activePage === 'requests' }"
+        >LIS Order Requests</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/tabs/auditing"
+        bhAnalyticsClick
+        eventName="header-link-click"
+        eventDetail="Auditing"
+        [ngClass]="{ active: activePage === 'auditing' }"
+        >Auditing</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/tabs/manage"
+        bhAnalyticsClick
+        eventName="header-link-click"
+        eventDetail="Manage"
+        [ngClass]="{ active: activePage === 'manage' }"
+        >Manage</a
+      >
+    </li>
+  </ul>
+</div>
+<div class="charms">
+  <bh-charm
+    type="user"
+    routerLink="/my-account"
+    label="User Menu"
+    eventName="header-charm"
+    eventDetail="user"
+  ></bh-charm>
+</div>

@@ -1,0 +1,25 @@
+<a
+  [routerLink]="routerLink"
+  class="user-badge"
+  bhAnalyticsClick
+  [eventName]="eventName"
+  [eventDetail]="eventDetail"
+  [attr.aria-label]="label"
+  [title]="label"
+>
+  {{ fnInitial + lnInitial }}
+  <ng-container *ngIf="type === 'user' && !fnInitial && !lnInitial"
+    ><ion-icon name="person-outline" aria-hidden="true"></ion-icon
+  ></ng-container>
+</a>
+
+<a
+  [routerLink]="routerLink"
+  bhAnalyticsClick
+  [eventName]="eventName"
+  [eventDetail]="eventDetail"
+  [attr.aria-label]="label"
+  [title]="label"
+>
+  <ion-icon [name]="ionIcon" aria-hidden="true"></ion-icon>
+</a>

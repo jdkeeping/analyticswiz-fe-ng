@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #312F7F 0%, #0D65AF 100%) 0% 0% no-repeat padding-box;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 8px;
+}
+
+.nav {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  flex: 1 1 auto;
+
+  li {
+    margin: 0 8px 0 0;
+    padding: 0;
+
+    a {
+      padding: 8px 12px;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+
+      &:hover {
+        background: rgba(0, 0, 0, .2);
+      }
+
+      &.active {
+        background: rgba(0, 0, 0, .4);
+      }
+    }
+  }
+}
