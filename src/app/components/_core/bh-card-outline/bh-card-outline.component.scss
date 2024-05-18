@@ -1,0 +1,42 @@
+:host {
+  padding: 24px;
+  margin-right: 16px;
+  border: 1px solid #54A446;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+}
+
+.border-blinder {
+  display: block;
+  height: 30px;
+  position: absolute;
+  width: 80%;
+  bottom: -5px;
+  right: -5px;
+  background: #fff;
+}
+
+h3 {
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.co-text {
+  flex: 1 1 auto;
+
+  p {
+    opacity: .6;
+
+  }
+}
+
+.co-metric {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 54px;
+  font-weight: bold;
+  height: 100%;
+  text-align: right;
+}

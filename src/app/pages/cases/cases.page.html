@@ -1,3 +1,15 @@
 <ion-content [fullscreen]="true">
   <bh-header></bh-header>
+  <bh-body>
+    <div class="metric-area">
+      <ng-container *ngFor="let m of metrics">
+        <bh-card-outline
+          [heading]="m.heading"
+          [body]="m.body"
+          [metricValue]="m.metricValue"
+        ></bh-card-outline>
+      </ng-container>
+    </div>
+  </bh-body>
+  <bh-footer></bh-footer>
 </ion-content>

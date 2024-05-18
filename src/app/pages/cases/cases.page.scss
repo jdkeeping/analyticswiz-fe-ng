@@ -1,0 +1,21 @@
+.metric-area {
+  display: flex;
+  padding: 48px 0 48px 16px;
+
+  bh-card-outline {
+    flex: 1 1 33%;
+  }
+}
+
+@media (max-width: 767px) {
+  .metric-area {
+    overflow-x: scroll;
+
+    bh-card-outline {
+      flex: none;
+      min-width: 80vw;
+      max-width: 80vw;;
+    }
+
+  }
+}
