@@ -6,6 +6,7 @@ import { SafePipe } from './safe.pipe';
 import { NgModule } from '@angular/core';
 import { FormatTimestampPipe } from './format-timestamp.pipe';
 import { CapitalizePipe } from './capitalize';
+import { FormatNumberPipe } from './format-number.pipe';
 
 /**
  * ID: bh-pipes-module
@@ -30,7 +31,8 @@ import { CapitalizePipe } from './capitalize';
         FormatPhonePipe,
         FormatSsnPipe,
         FormatStatePipe,
-        CapitalizePipe
+        CapitalizePipe,
+        FormatNumberPipe
     ],
     imports: [],
     exports: [
@@ -40,7 +42,8 @@ import { CapitalizePipe } from './capitalize';
         FormatPhonePipe,
         FormatSsnPipe,
         FormatStatePipe,
-        CapitalizePipe
+        CapitalizePipe,
+        FormatNumberPipe
     ]
 })
 export class PipesModule { }

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-card-outline',
@@ -9,13 +10,14 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ]
 })
 export class BhCardOutlineComponent  implements OnInit {
   @Input() heading: string;
   @Input() body: string;
-  @Input() metricValue: string | number;
+  @Input() metricValue: number;
 
   constructor() { }
 

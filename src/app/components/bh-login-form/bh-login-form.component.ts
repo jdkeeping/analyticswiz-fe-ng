@@ -69,7 +69,7 @@ export class BhLoginFormComponent implements OnInit {
           if (this.authService.targetUrl) {
             this.navService.navigateForward(this.authService.targetUrl);
           } else {
-            this.navService.navigateForward('/tabs/cases');
+            this.navService.navigateRoot('/tabs/cases');
           }
         } else {
           this.notifications.stopLoading();
