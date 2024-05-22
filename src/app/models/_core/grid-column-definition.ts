@@ -10,18 +10,16 @@
  * 2021-07-02 - MW - v1: Initial dev
  * 2021-07-13 - MW - v2: Added date properties for sorting and display
  */
- export interface BhDataGridColumnDefinition {
+ export interface GridColumnDefinition {
     fieldName: string;
     columnLabel: string;
     showColumn: boolean;
     isDate?: boolean;
     dateFormat?: string;
-    ionIcon?: string;
-    ionIconColor?: string;
-    showIconArg?: any;
-    showIconOnly?: boolean;
-    alwaysShowIcon?: boolean;
-    hasIconBadge?: boolean;
-    iconBadgeArgField?: string;
-    iconBadgeArgValue?: any;
+    isBooleanIconField?: boolean;
+    booleanTrueIconName?: string;
+    booleanTrueIconColor?: string;
+    booleanTrueIconArg?: any;
+    booleanFalseIconName?: string;
+    booleanFalseIconColor?: string;
 }

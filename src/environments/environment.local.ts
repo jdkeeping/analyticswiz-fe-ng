@@ -9,19 +9,19 @@ export const environment = {
   production: false,
 
   // App Name/ID
-  appName: 'LABSIGHT',
+  appName: 'LABMOUSE',
 
   // App Description (full name)
-  appDescription: 'LabSight',
+  appDescription: 'LabMouse',
 
   // App Version Number
   appVersion: '8.0.0',
 
   // App URL Scheme
-  appUrlScheme: 'labsight:',
+  appUrlScheme: 'labmouse:',
 
   // Web URL
-  webUrl: 'https://dev.labsight.apps.baystatehealth.org',
+  webUrl: 'https://dev.labmouse.apps.baystatehealth.org',
 
   // App's REST Service API Root URL
   apiUrl: 'https://mobiledev.api.baystatehealth.org/shuttleme',

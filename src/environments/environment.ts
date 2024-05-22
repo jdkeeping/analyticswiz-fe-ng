@@ -9,19 +9,19 @@ export const environment = {
   production: false,
 
   // App Name/ID
-  appName: 'LABSIGHT',
+  appName: 'LABMOUSE',
 
   // App Description (full name)
-  appDescription: 'LabSight',
+  appDescription: 'LabMouse',
 
   // App Version Number
   appVersion: '8.0.0',
 
   // App URL Scheme
-  appUrlScheme: 'labsight:',
+  appUrlScheme: 'labmouse:',
 
   // Web URL
-  webUrl: 'https://dev.labsight.apps.baystatehealth.org',
+  webUrl: 'https://dev.labmouse.apps.baystatehealth.org',
 
   // App's REST Service API Root URL
   apiUrl: 'https://mobiledev.api.baystatehealth.org/shuttleme',
@@ -36,13 +36,13 @@ export const environment = {
   ssoEnabled: false,
 
   // App's Uploaded Files Root URL
-  filesUrl: 'https://dev.labsight.apps.baystatehealth.org',
+  filesUrl: 'https://dev.labmouse.apps.baystatehealth.org',
 
   // Verlocker API URL
   verlockerUrl: 'https://mobiledev.api.baystatehealth.org/verlocker',
 
   // BH AppStore Deep Link URL
-  appstoreUrl: 'https://mobile.baystatehealth.org/labsight/',
+  appstoreUrl: 'https://mobile.baystatehealth.org/labmouse/',
 
   // Reset password link URL
   resetPwdUrl: 'https://baystatehealth.service-now.com/nav_to.do?uri=%2F$pwd_reset.do%3Fsysparm_url%3Dpassword_reset',

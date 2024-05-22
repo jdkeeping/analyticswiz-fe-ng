@@ -48,23 +48,16 @@
   --box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
-  /** contrast colors **/
-  --header-color: #ffffff;
-  --background-color: #ffffff;
-  --background-highlight-color: rgba(var(--ion-color-primary-rgb), 0.1);
-  --background-shading-color: #f7f7f7;
-  --shading-color: #f7f7f7;
-  --shading-highlight-color: #e0f5ff;
-  --shading-active-color: #eeeeee;
-  --item-color: #f2f2f2;
-  --item-highlight-color: #e0f5ff;
-  --item-active-color: #e6e6e6;
-  --app-border-color: rgba(0, 0, 0, 0.2);
-  --font-color: #000;
-  --font-shade-color: rgba(0, 0, 0, 0.7);
-  --font-fade-color: rgba(0, 0, 0, 0.5);
-  --transparent-shade-color: rgba(255, 255, 255, .7);
-  --transparent-fade-color: rgba(255, 255, 255, .5);
+  /** Shading colors: boxes, cards **/
+  --shade-step-1: #f7f7f7;
+  --shade-step-2: #f2f2f2;
+  --shade-step-3: #eeeeee;
+
+  /** Contast colors: fonts, borders, etc. **/
+  --contrast-color: #000;
+  --contrast-shade-color: rgba(0, 0, 0, 0.7);
+  --contrast-fade-color: rgba(0, 0, 0, 0.5);
+  --contrast-light-color: rgba(0, 0, 0, 0.2);
 
   --ion-color-primary: #0054e9;
 	--ion-color-primary-rgb: 0,84,233;

@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { TableMockData } from './../../models/_mock/table-mock-data';
+import { Component, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { BhHeaderComponent } from 'src/app/components/_core/bh-header/bh-header.component';
 import { BhCardOutlineComponent } from 'src/app/components/_core/bh-card-outline/bh-card-outline.component';
 import { CommonModule } from '@angular/common';
 import { BhBodyComponent } from 'src/app/components/_core/bh-body/bh-body.component';
 import { BhFooterComponent } from 'src/app/components/_core/bh-footer/bh-footer.component';
+import { BhGridComponent } from 'src/app/components/_core/bh-grid/bh-grid.component';
+import { GridColumnDefinition } from 'src/app/models/_core/grid-column-definition';
 
 @Component({
   selector: 'app-cases',
@@ -18,14 +20,14 @@ import { BhFooterComponent } from 'src/app/components/_core/bh-footer/bh-footer.
     IonToolbar,
     IonTitle,
     IonContent,
-    ExploreContainerComponent,
     BhHeaderComponent,
     BhCardOutlineComponent,
     BhBodyComponent,
-    BhFooterComponent
+    BhFooterComponent,
+    BhGridComponent
   ],
 })
-export class CasesPage {
+export class CasesPage implements OnInit {
   metrics: any[] = [
     {
       heading: 'New Cases',
@@ -43,5 +45,26 @@ export class CasesPage {
       metricValue: 1000
     }
   ];
-  constructor() { }
+
+  columnDefs: GridColumnDefinition[] = [];
+  data: any = [];
+
+  constructor(
+    private tableMockData: TableMockData
+  ) { }
+
+  ngOnInit() {
+    this.setMockData();
+  }
+
+  setMockData() {
+    this.columnDefs = this.tableMockData.columnDefinitions;
+    this.data = this.tableMockData.data;
+  }
+
+  selectCase(selection) {
+    if (Array.isArray(selection)) {
+
+    }
+  }
 }

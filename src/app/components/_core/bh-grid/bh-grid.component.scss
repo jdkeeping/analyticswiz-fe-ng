@@ -1,0 +1,148 @@
+:host {
+  display: flex;
+}
+
+table {
+  flex: 1 1 auto;
+  border-radius: 8px;
+  overflow: hidden;
+
+  thead tr {
+    border-bottom: 1px solid var(--contrast-light-color);
+
+    th {
+      text-align: left;
+      background: var(--shade-step-1);
+      font-size: 14px;
+
+      &:hover {
+        background: var(--shade-step-3);
+      }
+
+      &.icon-column {
+        width: 50px;
+        text-align: center;
+      }
+
+      a {
+        display: flex;
+        color: var(--contrast-color);
+        text-decoration: none;
+        padding: 16px 8px;
+
+        ion-icon {
+          margin-left: 8px;
+          opacity: 0;
+          transition: all 0.2s;
+
+          &.active {
+            opacity: 0.5;
+          }
+
+          &.reverse {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--contrast-light-color);
+    transition: all 0.2s;
+
+    &.new {
+      background: rgba(var(--ion-color-primary-rgb), 0.1);
+    }
+
+    &.clickable {
+      cursor: pointer;
+    }
+
+    &.selected,
+    &.selected:hover {
+      background: rgba(var(--ion-color-primary-rgb), 0.3);
+
+      &.multiselect {
+        td.icon-column {
+          ion-icon {
+            display: none;
+          }
+
+          ion-checkbox {
+            display: block;
+          }
+        }
+      }
+    }
+
+    &:hover {
+      background: var(--shade-step-2);
+
+      &.new {
+        background: rgba(var(--ion-color-primary-rgb), 0.2);
+      }
+
+      &.multiselect {
+        td.icon-column {
+
+          ion-icon {
+            display: none;
+          }
+
+          ion-checkbox {
+            display: block;
+          }
+        }
+
+      }
+
+    }
+
+    td {
+      padding: 12px 8px;
+
+      &.new {
+        font-weight: 600;
+        border-bottom-color: transparent;
+      }
+
+      &.icon-column {
+        width: 50px;
+        text-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ion-icon:not(.icon-badge) {
+          font-size: 20px;
+          color: var(--contrast-shade-color);
+        }
+
+        .icon-badge {
+          font-size: 18px;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
+        ion-checkbox {
+          display: none;
+          margin: 1px 0;
+        }
+      }
+
+      .boolean-icon {
+        ion-icon {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+.summary {
+  padding: 16px 8px;
+  color: var(--contrast-shade-color);
+}

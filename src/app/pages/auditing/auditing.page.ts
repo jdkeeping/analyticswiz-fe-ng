@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { BhHeaderComponent } from 'src/app/components/_core/bh-header/bh-header.component';
 
 @Component({

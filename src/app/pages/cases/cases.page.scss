@@ -7,6 +7,10 @@
   }
 }
 
+.grid-area {
+  padding: 0 16px 48px 16px;
+}
+
 @media (max-width: 767px) {
   .metric-area {
     overflow-x: scroll;

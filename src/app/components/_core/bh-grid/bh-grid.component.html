@@ -1,0 +1,90 @@
+<table>
+  <thead>
+    <tr>
+      <th class="icon-column" *ngIf="ionIcon || selectionMode === 'multi'">
+        &nbsp;
+      </th>
+      <ng-container *ngFor="let cd of columnDefinitions">
+        <th *ngIf="cd.showColumn">
+          <a href="javascript:void(0)" (click)="toggleSort(cd)">
+            {{ cd.columnLabel }}
+            <ion-icon
+              name="arrow-up-outline"
+              class="sort-direction-icon"
+              [ngClass]="{
+                reverse: sortDirection === 'down',
+                active: sortField === cd.fieldName
+              }"
+            ></ion-icon>
+          </a>
+        </th>
+      </ng-container>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      [ngClass]="{
+        new: d[statusField] === isNewStatusArg,
+        clickable: isClickable,
+        selected: d.gridItemSelected || (selectedData === d),
+        multiselect: selectionMode === 'multi'
+      }"
+      (click)="selectRow(d)"
+      *ngFor="let d of parsedData"
+    >
+      <td
+        class="icon-column"
+        [ngClass]="{ selected: d.gridItemSelected }"
+        *ngIf="ionIcon || selectionMode === 'multi'"
+      >
+        <!-- Multi-select mode -->
+        <ion-checkbox
+          [(ngModel)]="d.gridItemSelected"
+        ></ion-checkbox>
+
+        <!-- Standard icon -->
+        <ion-icon
+          [name]="ionIcon"
+          *ngIf="
+            d[statusField] !== isCompleteStatusArg &&
+            d[statusField] !== isNewStatusArg
+          "
+        ></ion-icon>
+
+        <!-- New Icon -->
+        <ion-icon
+          name="checkmark-circle"
+          color="success"
+          *ngIf="d[statusField] === isCompleteStatusArg"
+        ></ion-icon>
+
+        <!-- Completed icon -->
+        <ion-icon
+          name="ellipse"
+          color="danger"
+          *ngIf="d[statusField] === isNewStatusArg"
+        ></ion-icon>
+      </td>
+      <ng-container *ngFor="let cd of columnDefinitions; let i = index">
+        <td [ngClass]="{ 'new': d[statusField] === isNewStatusArg && i === 0 }">
+          <span class="boolean-icon" *ngIf="cd.isBooleanIconField">
+            <ion-icon
+              [name]="cd.booleanTrueIconName"
+              [color]="cd.booleanTrueIconColor"
+              *ngIf="d[cd.fieldName] === cd.booleanTrueIconArg"
+            ></ion-icon>
+            <ion-icon
+              [name]="cd.booleanFalseIconName"
+              [color]="cd.booleanFalseIconColor"
+              *ngIf="d[cd.fieldName] !== cd.booleanTrueIconArg"
+            ></ion-icon>
+          </span>
+          <span *ngIf="!cd.isDate && !cd.isBooleanIconField">{{ d[cd.fieldName] }}</span>
+          <span *ngIf="cd.isDate">{{
+            d[cd.fieldName] | formatDate : "YYYY-MM-DD HH:mm:ss"
+          }}</span>
+        </td>
+      </ng-container>
+    </tr>
+  </tbody>
+</table>

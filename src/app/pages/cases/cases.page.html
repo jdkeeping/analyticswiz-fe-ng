@@ -10,6 +10,19 @@
         ></bh-card-outline>
       </ng-container>
     </div>
+    <div class="grid-area">
+      <bh-grid
+        [columnDefinitions]="columnDefs"
+        [data]="data"
+        (clickEvent)="selectCase($event)"
+        ionIcon="tennisball-outline"
+        statusField="type"
+        isNewStatusArg="Grass"
+        sortField="name"
+        sortDirection="up"
+        selectionMode="multi"
+      ></bh-grid>
+    </div>
   </bh-body>
   <bh-footer></bh-footer>
 </ion-content>
