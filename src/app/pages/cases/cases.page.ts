@@ -67,4 +67,8 @@ export class CasesPage implements OnInit {
 
     }
   }
+
+  setView() {
+
+  }
 }

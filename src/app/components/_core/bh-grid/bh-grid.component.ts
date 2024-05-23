@@ -117,13 +117,6 @@ export class BhGridComponent implements OnChanges, AfterViewInit {
   selectRow(d) {
     this.clickEvent.emit(d);
     this.selectedData = d;
-
-    // if (this.selectionMode === 'single') {
-    // }
-
-    // if (this.selectionMode === 'multi') {
-    //   d.gridItemSelected = !d.gridItemSelected ? true : false;
-    // }
   }
 
   setSelection() {

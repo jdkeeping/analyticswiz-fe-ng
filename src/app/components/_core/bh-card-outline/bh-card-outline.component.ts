@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
@@ -14,13 +14,26 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     PipesModule
   ]
 })
-export class BhCardOutlineComponent  implements OnInit {
+export class BhCardOutlineComponent  implements OnInit, AfterViewInit {
   @Input() heading: string;
   @Input() body: string;
   @Input() metricValue: number;
+  @Output() clickEvent = new EventEmitter();
+  isClickable = false;
 
   constructor() { }
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    if (this.clickEvent.observed) {
+      this.isClickable = true;
+    }
+  }
+
+  onClick() {
+    this.clickEvent.emit();
+  }
+
 
 }
