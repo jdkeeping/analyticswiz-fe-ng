@@ -12,9 +12,14 @@ export const routes: Routes = [
           import('../cases/cases.page').then((m) => m.CasesPage),
       },
       {
-        path: 'requests',
+        path: 'requests-lis',
         loadComponent: () =>
-          import('../requests/requests.page').then((m) => m.RequestsPage),
+          import('../requests-lis/requests-lis.page').then((m) => m.RequestsLisPage),
+      },
+      {
+        path: 'requests-cis',
+        loadComponent: () =>
+          import('../requests-cis/requests-cis.page').then((m) => m.RequestsCisPage),
       },
       {
         path: 'auditing',

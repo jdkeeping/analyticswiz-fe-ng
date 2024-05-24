@@ -1,65 +1,79 @@
 <form [formGroup]="formGroup">
   <div class="input-wrapper">
+    <div class="input-label">
+      {{ label }}
+    </div>
     <!-- Text Input -->
-    <ion-input
+    <input
       *ngIf="type === 'text'"
+      [ngClass]="{
+        invalid: !formGroup.controls[formControlName].valid,
+        pristine: !formGroup.controls[formControlName].pristine,
+        untouched: !formGroup.controls[formControlName].untouched
+      }"
       [formControlName]="formControlName"
-      [label]="label"
       label-placement="stacked"
       fill="outline"
-      mode="md"
-      [placeholder]="placeholder"
+      [placeholder]="placeholder ? placeholder : ''"
       [autocomplete]="autocomplete"
-      (ionBlur)="blurInput(formControlName)"
-      (ionChange)="valueChanged(index, label, $event)"
+      (blur)="blurInput(formControlName)"
+      (change)="valueChanged(index, label, $event)"
       (keydown)="handleKeyDown($event, 'txt')"
       (keyup)="handleKeyUp($event, 'txt')"
       (paste)="handlePaste($event, 'txt')"
-    ></ion-input>
+    />
 
     <!-- Password Input -->
-    <ion-input
+    <input
       *ngIf="type === 'password'"
-      type="password"
+      [type]="revealPassword ? 'text' : 'password'"
       [formControlName]="formControlName"
-      [label]="label"
+      [ngClass]="{
+        invalid: !formGroup.controls[formControlName].valid,
+        pristine: !formGroup.controls[formControlName].pristine,
+        untouched: !formGroup.controls[formControlName].untouched
+      }"
       label-placement="stacked"
       fill="outline"
-      mode="md"
-      [placeholder]="placeholder"
+      [placeholder]="placeholder ? placeholder : ''"
       [autocomplete]="autocomplete"
-      (ionBlur)="blurInput(formControlName)"
-      (ionChange)="valueChanged(index, label, $event)"
+      (blur)="blurInput(formControlName)"
+      (change)="valueChanged(index, label, $event)"
       (keydown)="handleKeyDown($event, 'txt')"
       (keyup)="handleKeyUp($event, 'txt')"
       (paste)="handlePaste($event, 'txt')"
+    />
+    <!-- Reveal password button -->
+    <a
+      href="javascript:void(0)"
+      class="reveal-password-button"
+      (click)="revealPassword = !revealPassword"
+      *ngIf="type === 'password'"
     >
-      <ion-input-password-toggle
-        slot="end"
-        color="dark"
-      ></ion-input-password-toggle>
-    </ion-input>
+      <ion-icon name="eye-outline" *ngIf="!revealPassword"></ion-icon>
+      <ion-icon name="eye-off-outline" *ngIf="revealPassword"></ion-icon>
+    </a>
+  </div>
 
-    <!-- Validation Messages -->
-    <div class="validation-errors">
-      <ng-container
-        *ngFor="let validation of validationMessages[formControlName]"
+  <!-- Validation Messages -->
+  <div class="validation-errors">
+    <ng-container
+      *ngFor="let validation of validationMessages[formControlName]"
+    >
+      <div
+        class="ve-message"
+        *ngIf="
+          formGroup
+            .get(formControlName)
+            .hasError(validation.type.toLowerCase()) &&
+          (formGroup.get(formControlName).dirty ||
+            formGroup.get(formControlName).touched ||
+            submitAttempted)
+        "
       >
-        <div
-          class="ve-message"
-          *ngIf="
-            formGroup
-              .get(formControlName)
-              .hasError(validation.type.toLowerCase()) &&
-            (formGroup.get(formControlName).dirty ||
-              formGroup.get(formControlName).touched ||
-              submitAttempted)
-          "
-        >
-          <!-- <ion-icon name="alert-circle-outline"></ion-icon> -->
-          {{ validation.message }}
-        </div>
-      </ng-container>
-    </div>
+        <!-- <ion-icon name="alert-circle-outline"></ion-icon> -->
+        {{ validation.message }}
+      </div>
+    </ng-container>
   </div>
 </form>

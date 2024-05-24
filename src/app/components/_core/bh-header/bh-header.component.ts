@@ -19,7 +19,7 @@ import { BhCharmComponent } from '../bh-charm/bh-charm.component';
   ]
 })
 export class BhHeaderComponent  implements OnInit {
-  activePage: 'cases' | 'requests' | 'auditing' | 'manage';
+  activePage: 'cases' | 'requests-lis' | 'requests-cis' | 'auditing' | 'manage';
 
   constructor() { }
 
@@ -32,8 +32,11 @@ export class BhHeaderComponent  implements OnInit {
     if (path.indexOf('/tabs/cases') > -1) {
       this.activePage = 'cases';
     }
-    if (path.indexOf('/tabs/requests') > -1) {
-      this.activePage = 'requests';
+    if (path.indexOf('/tabs/requests-cis') > -1) {
+      this.activePage = 'requests-cis';
+    }
+    if (path.indexOf('/tabs/requests-lis') > -1) {
+      this.activePage = 'requests-lis';
     }
     if (path.indexOf('/tabs/auditing') > -1) {
       this.activePage = 'auditing';

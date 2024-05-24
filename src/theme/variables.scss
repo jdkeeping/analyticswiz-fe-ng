@@ -54,10 +54,10 @@
   --shade-step-3: #eeeeee;
 
   /** Contast colors: fonts, borders, etc. **/
-  --contrast-color: #000;
-  --contrast-shade-color: rgba(0, 0, 0, 0.7);
-  --contrast-fade-color: rgba(0, 0, 0, 0.5);
-  --contrast-light-color: rgba(0, 0, 0, 0.2);
+  --contrast-color-step-1: #000;
+  --contrast-color-step-2: rgba(0, 0, 0, 0.7);
+  --contrast-color-step-3: rgba(0, 0, 0, 0.5);
+  --contrast-color-step-4: rgba(0, 0, 0, 0.2);
 
   --ion-color-primary: #0054e9;
 	--ion-color-primary-rgb: 0,84,233;

@@ -1,12 +1,12 @@
 .footer {
   padding: 32px 16px 64px 16px;
   text-align: center;
-  border-top: 1px solid var(--contrast-light-color);
-  color: var(--contrast-fade-color);
+  border-top: 1px solid var(--contrast-color-step-4);
+  color: var(--contrast-color-step-4);
   font-size: 14px;
 
   a {
-    color: var(--contrast-color);
+    color: var(--contrast-color-step-1);
     display: inline-block;
     margin-right: 16px;
     margin-bottom: 16px;

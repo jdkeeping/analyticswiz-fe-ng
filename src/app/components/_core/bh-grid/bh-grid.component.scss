@@ -8,7 +8,7 @@ table {
   overflow: hidden;
 
   thead tr {
-    border-bottom: 1px solid var(--contrast-light-color);
+    border-bottom: 1px solid var(--contrast-color-step-3);
 
     th {
       text-align: left;
@@ -26,7 +26,7 @@ table {
 
       a {
         display: flex;
-        color: var(--contrast-color);
+        color: var(--contrast-color-step-1);
         text-decoration: none;
         padding: 16px 8px;
 
@@ -48,7 +48,7 @@ table {
   }
 
   tbody tr {
-    border-bottom: 1px solid var(--contrast-light-color);
+    border-bottom: 1px solid var(--contrast-color-step-4);
     transition: all 0.2s;
 
     &.new {
@@ -117,7 +117,7 @@ table {
 
         ion-icon:not(.icon-badge) {
           font-size: 20px;
-          color: var(--contrast-shade-color);
+          color: var(--contrast-color-step-2);
         }
 
         .icon-badge {
@@ -144,5 +144,5 @@ table {
 
 .summary {
   padding: 16px 8px;
-  color: var(--contrast-shade-color);
+  color: var(--contrast-color-step-2);
 }

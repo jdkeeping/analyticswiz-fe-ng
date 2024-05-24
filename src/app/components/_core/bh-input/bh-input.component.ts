@@ -66,6 +66,7 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit {
   parsedSelectOptions: SelectOption[] = [];
   isRequired = false;
   value;
+  revealPassword = false;
 
   constructor() { }
 

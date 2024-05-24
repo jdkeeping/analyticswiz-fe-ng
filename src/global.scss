@@ -44,4 +44,7 @@
 
 * {
   font-family: 'Figtree', sans-serif;
+  font-smooth: always;
+  --webkit-font-smoothing: subpixel-antialiased;
+  --moz-osx-font-smoothing: grayscale;
 }

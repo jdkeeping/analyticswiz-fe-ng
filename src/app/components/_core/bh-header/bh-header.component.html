@@ -13,27 +13,29 @@
     </li>
     <li>
       <a
-        routerLink="/tabs/requests"
+        routerLink="/tabs/requests-lis"
         analyticsClick
         eventName="header-link-click"
-        eventDetail="LIS Order Requests"
-        [ngClass]="{ active: activePage === 'requests' }"
-        >LIS Order Requests</a
+        eventDetail="LIS Requests"
+        [ngClass]="{ active: activePage === 'requests-lis' }"
+        >LIS Requests</a
       >
     </li>
     <li>
       <a
-        routerLink="/tabs/auditing"
+        routerLink="/tabs/requests-cis"
+        routerDirection="root"
         analyticsClick
         eventName="header-link-click"
-        eventDetail="Auditing"
-        [ngClass]="{ active: activePage === 'auditing' }"
-        >Auditing</a
+        eventDetail="CIS Requests"
+        [ngClass]="{ active: activePage === 'requests-cis' }"
+        >CIS Requests</a
       >
     </li>
     <li>
       <a
         routerLink="/tabs/manage"
+        routerDirection="root"
         analyticsClick
         eventName="header-link-click"
         eventDetail="Manage"

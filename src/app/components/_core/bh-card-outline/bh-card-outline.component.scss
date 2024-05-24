@@ -9,7 +9,7 @@ a {
   border-radius: 16px;
   position: relative;
   display: flex;
-  color: var(--contrast-color);
+  color: var(--contrast-color-step-1);
   text-decoration: none;
   pointer-events: none;
   cursor: default;
@@ -20,8 +20,8 @@ a {
 
     &:hover {
       .border-blinder {
-        width: 10%;
-        height: 15px;
+        width: 0;
+        height: 0x;
       }
     }
   }

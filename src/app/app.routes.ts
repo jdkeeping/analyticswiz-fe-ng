@@ -10,4 +10,12 @@ export const routes: Routes = [
     pathMatch: 'full',
     loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
   },
+  {
+    path: 'requests-lis',
+    loadComponent: () => import('./pages/requests-lis/requests-lis.page').then( m => m.RequestsLisPage)
+  },
+  {
+    path: 'requests-cis',
+    loadComponent: () => import('./pages/requests-cis/requests-cis.page').then( m => m.RequestsCisPage)
+  },
 ];
