@@ -12,6 +12,17 @@
       </ng-container>
     </div>
     <div class="grid-area">
+      <form [formGroup]="form1">
+        <bh-input
+          type="select"
+          [formGroup]="form1"
+          formControlName="status"
+          label="Status"
+          [selectOptions]="data"
+          selectLabelProperty="id"
+          selectLabelProperty="name"
+        ></bh-input>
+      </form>
       <bh-grid
         [columnDefinitions]="columnDefs"
         [data]="data"

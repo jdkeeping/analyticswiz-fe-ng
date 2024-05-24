@@ -53,10 +53,43 @@
       <ion-icon name="eye-outline" *ngIf="!revealPassword"></ion-icon>
       <ion-icon name="eye-off-outline" *ngIf="revealPassword"></ion-icon>
     </a>
+
+    <!-- Select -->
+    <select
+      *ngIf="type === 'select'"
+      [formControlName]="formControlName"
+      [ngClass]="{
+        invalid: !formGroup.controls[formControlName].valid,
+        pristine: !formGroup.controls[formControlName].pristine,
+        untouched: !formGroup.controls[formControlName].untouched
+      }"
+      label-placement="stacked"
+      fill="outline"
+      [autocomplete]="autocomplete"
+      (blur)="blurInput(formControlName)"
+      (change)="valueChanged(index, label, $event)"
+    >
+      <option value=""></option>
+      <option *ngFor="let opt of parsedSelectOptions" [value]="opt?.value">
+        {{ opt?.label }}
+      </option>
+    </select>
+    <div class="select-placeholder" *ngIf="type === 'select' && placeholder">
+      {{ placeholder }}
+    </div>
+    <div class="select-chevron" *ngIf="type === 'select'">
+      <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+  </div>
+
+  <!-- Combo Box -->
+  <div class="combo-box">
+    <select></select>
+    <input />
   </div>
 
   <!-- Validation Messages -->
-  <div class="validation-errors">
+  <div class="validation-errors" *ngIf="validationMessages">
     <ng-container
       *ngFor="let validation of validationMessages[formControlName]"
     >

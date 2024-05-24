@@ -8,6 +8,8 @@ import { BhBodyComponent } from 'src/app/components/_core/bh-body/bh-body.compon
 import { BhFooterComponent } from 'src/app/components/_core/bh-footer/bh-footer.component';
 import { BhGridComponent } from 'src/app/components/_core/bh-grid/bh-grid.component';
 import { GridColumnDefinition } from 'src/app/models/_core/grid-column-definition';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { BhInputComponent } from 'src/app/components/_core/bh-input/bh-input.component';
 
 @Component({
   selector: 'app-cases',
@@ -16,6 +18,8 @@ import { GridColumnDefinition } from 'src/app/models/_core/grid-column-definitio
   standalone: true,
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -24,7 +28,8 @@ import { GridColumnDefinition } from 'src/app/models/_core/grid-column-definitio
     BhCardOutlineComponent,
     BhBodyComponent,
     BhFooterComponent,
-    BhGridComponent
+    BhGridComponent,
+    BhInputComponent
   ],
 })
 export class CasesPage implements OnInit {
@@ -48,9 +53,18 @@ export class CasesPage implements OnInit {
 
   columnDefs: GridColumnDefinition[] = [];
   data: any = [];
+  form1: FormGroup = this.formBuilder.group({
+    status: [null],
+  });
+  submitAttempted = false;
+  validationMessages = {
+    userId: [{ type: 'required', message: 'Type your Baystate User ID.' }],
+    password: [{ type: 'required', message: 'Type your Baystate password.' }],
+  };
 
   constructor(
-    private tableMockData: TableMockData
+    private tableMockData: TableMockData,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {

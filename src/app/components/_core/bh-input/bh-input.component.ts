@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, forwardRef } from '@angular/core';
 import { IonInput, IonIcon, IonItem, IonInputPasswordToggle } from '@ionic/angular/standalone';
 import { ControlValueAccessor, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { SelectOption } from 'src/app/models/_core/select-option';
@@ -28,10 +28,10 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class BhInputComponent  implements ControlValueAccessor, OnInit {
+export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChanges {
   @Input() formGroup: FormGroup;
   @Input() formControlName: string;
-  @Input() type: 'text' | 'password';
+  @Input() type: 'text' | 'password' | 'select';
   @Input() label: string;
   @Input() placeholder: string;
   @Input() selectOptions: any[] = [];
@@ -67,10 +67,39 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit {
   isRequired = false;
   value;
   revealPassword = false;
+  viewOnlySelectLabel = '';
 
   constructor() { }
 
   ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.validateAttributes(changes);
+    if ('selectOptions' in changes) {
+      this.parseSelectOptions(this.viewOnlyValue);
+    }
+  }
+
+  validateAttributes(changes: SimpleChanges) {
+    if (!('formGroup' in changes)) {
+      console.error('bh-input: formGroup not provided.');
+    }
+    if (!('formControlName' in changes)) {
+      console.error('bh-input: formControlName not provided.');
+    }
+
+    if (this.type === 'select') {
+      if (!('selectOptions' in changes)) {
+        console.error('bh-input: selectOptions not provided for type of \'select\'.');
+      }
+      if (!('selectLabelProperty' in changes)) {
+        console.warn('bh-input: selectLabelProperty not provided for type of \'select\'.');
+      }
+      if (!('selectValueProperty' in changes)) {
+        console.warn('bh-input: selectValueProperty not provided for type of \'select\'.');
+      }
+    }
+  }
 
   registerOnChange(fn) {
     this.onChange = fn;
@@ -85,6 +114,25 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit {
   registerOnTouched(fn) {
     this.onTouched = fn;
   }
+
+  parseSelectOptions(value) {
+    console.log('parseSelectOptions: selectOptions', this.selectOptions);
+    if (this.selectOptions && this.selectOptions.length > 0) {
+      this.parsedSelectOptions = [];
+      this.selectOptions.forEach((s: any) => {
+        const selOption: SelectOption = {
+          label: s[this.selectLabelProperty] ? s[this.selectLabelProperty] : '(Error: Label property not found)',
+          detail: s[this.selectDetailProperty],
+          value: s[this.selectValueProperty] ? s[this.selectValueProperty] : '(Error: Value property not found)',
+          active: 1
+        };
+        this.parsedSelectOptions.push(selOption);
+      });
+      const selectedItem: SelectOption = this.parsedSelectOptions.filter(a => a.value && value && a.value.toString() === value.toString())[0];
+      this.viewOnlySelectLabel = selectedItem ? selectedItem.label : '';
+    }
+  }
+
 
   valueChanged(index: number, label: string, evt: any) {
     const value = evt.detail.value;

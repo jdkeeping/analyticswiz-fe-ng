@@ -41,7 +41,6 @@ export class BhGridComponent implements OnChanges, AfterViewInit {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges', changes);
     if ('columnDefinitions' in changes && this.columnDefinitions) {
       this.setColumnDefinitions();
     }
@@ -103,7 +102,6 @@ export class BhGridComponent implements OnChanges, AfterViewInit {
 
   sortData() {
     if (this.sortField && this.sortDirection) {
-      console.log('sorting', this.sortField, this.sortDirection, this.parsedData);
       this.parsedData.sort((a, b) =>{
         const propA = this.sortDirection === 'up' ? a[this.sortField] : b[this.sortField];
         const propB = this.sortDirection === 'up' ? b[this.sortField] : a[this.sortField];

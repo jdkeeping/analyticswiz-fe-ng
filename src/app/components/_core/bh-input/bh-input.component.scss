@@ -9,13 +9,14 @@
 
   .input-label {
     position: absolute;
+    z-index: 10;
     top: -6px;
     left: 10px;
     padding: 0 8px;
     background: #fff;
     border-radius: 4px;
     color: var(--contrast-color-step-2);
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .reveal-password-button {
@@ -48,6 +49,32 @@ input {
 
   &:focus {
     border-color: var(--ion-color-primary);
+  }
+}
+
+select {
+  background: transparent;
+  border: 1px solid var(--contrast-color-step-3);
+  padding: 14px 12px 12px 12px;
+  border-radius: 8px;
+  flex: 1 1 auto;
+  font-size: 17px;
+  outline: none;
+  appearance: none;
+}
+
+.select-placeholder {
+  color: var(--contrast-color-step-3);
+}
+
+.select-chevron {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  pointer-events: none;
+
+  ion-icon {
+    font-size: 20px;
   }
 }
 
