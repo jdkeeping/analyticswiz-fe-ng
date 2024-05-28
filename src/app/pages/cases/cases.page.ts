@@ -1,6 +1,6 @@
 import { TableMockData } from './../../models/_mock/table-mock-data';
 import { Component, OnInit } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonMenu, IonMenuToggle, IonButton, MenuController } from '@ionic/angular/standalone';
 import { BhHeaderComponent } from 'src/app/components/_core/bh-header/bh-header.component';
 import { BhCardOutlineComponent } from 'src/app/components/_core/bh-card-outline/bh-card-outline.component';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,7 @@ import { BhGridComponent } from 'src/app/components/_core/bh-grid/bh-grid.compon
 import { GridColumnDefinition } from 'src/app/models/_core/grid-column-definition';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BhInputComponent } from 'src/app/components/_core/bh-input/bh-input.component';
+import { BhEditorCaseComponent } from 'src/app/components/bh-editor-case/bh-editor-case.component';
 
 @Component({
   selector: 'app-cases',
@@ -23,13 +24,18 @@ import { BhInputComponent } from 'src/app/components/_core/bh-input/bh-input.com
     IonHeader,
     IonToolbar,
     IonTitle,
+    IonMenu,
+    IonMenuToggle,
+    IonButton,
     IonContent,
+    IonFooter,
     BhHeaderComponent,
     BhCardOutlineComponent,
     BhBodyComponent,
     BhFooterComponent,
     BhGridComponent,
-    BhInputComponent
+    BhInputComponent,
+    BhEditorCaseComponent
   ],
 })
 export class CasesPage implements OnInit {
@@ -66,7 +72,8 @@ export class CasesPage implements OnInit {
 
   constructor(
     private tableMockData: TableMockData,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private menuCtrl: MenuController
   ) { }
 
   ngOnInit() {
@@ -79,9 +86,7 @@ export class CasesPage implements OnInit {
   }
 
   selectCase(selection) {
-    if (Array.isArray(selection)) {
-
-    }
+    this.menuCtrl.open('editor');
   }
 
   setView() {

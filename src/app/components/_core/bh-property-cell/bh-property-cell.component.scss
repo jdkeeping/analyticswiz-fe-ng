@@ -1,0 +1,13 @@
+:host {
+  display: block;
+
+  .label {
+    font-size: 14px;
+    color: var(--contrast-color-step-2);
+    margin-bottom: 4px;
+  }
+
+  .value {
+    font-size: 16px;
+  }
+}

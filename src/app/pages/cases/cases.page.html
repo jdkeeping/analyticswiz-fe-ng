@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" id="main-content">
   <bh-header></bh-header>
   <bh-body>
     <div class="metric-area">
@@ -44,9 +44,18 @@
         isNewStatusArg="Grass"
         sortField="name"
         sortDirection="up"
-        selectionMode="multi"
       ></bh-grid>
     </div>
   </bh-body>
   <bh-footer></bh-footer>
 </ion-content>
+<ion-menu
+  menuId="editor"
+  side="end"
+  contentId="main-content"
+  [swipeGesture]="false"
+>
+  <ion-content>
+    <bh-editor-case></bh-editor-case>
+  </ion-content>
+</ion-menu>

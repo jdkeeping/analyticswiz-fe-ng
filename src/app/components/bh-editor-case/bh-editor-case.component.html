@@ -1,0 +1,65 @@
+<!-- Header -->
+<section class="header">
+  <div class="header-title">
+    <ion-icon name="document-text-outline"></ion-icon>
+    <strong>Case</strong>
+    <span>C-1000</span>
+  </div>
+  <div class="header-toolbar">
+    <ion-button>
+      <ion-icon name="pencil-outline" slot="start"></ion-icon>
+      Edit Request
+    </ion-button>
+  </div>
+</section>
+
+<!-- Tabs -->
+<ion-segment [(ngModel)]="activeSegment">
+  <ion-segment-button value="request">Request Info</ion-segment-button>
+  <ion-segment-button value="cases">Related Cases</ion-segment-button>
+</ion-segment>
+
+<!-- Views -->
+<section class="body">
+  <ng-container *ngIf="activeSegment === 'request'">
+    <bh-group-box>
+      <bh-property-row>
+        <bh-property-cell label="Updated by">
+          Matthew Welsh<br>
+          May 13, 2024 at 8:00 am
+        </bh-property-cell>
+
+        <bh-property-cell label="Created by">
+          Matthew Welsh<br>
+          May 12, 2024 at 11:00 am
+        </bh-property-cell>
+      </bh-property-row>
+
+      <bh-property-row>
+        <bh-property-cell label="Description">
+          Create Test Result 001032 - Glucose - 2345-7
+        </bh-property-cell>
+      </bh-property-row>
+
+      <bh-property-row>
+        <bh-property-cell label="Type">
+          Order Request
+        </bh-property-cell>
+      </bh-property-row>
+
+      <bh-property-row>
+        <form [formGroup]="form1">
+          <bh-input type="select" label="Status"></bh-input>
+        </form>
+      </bh-property-row>
+
+    </bh-group-box>
+  </ng-container>
+
+  <ng-container *ngIf="activeSegment === 'cases'">
+    <bh-group-box>
+
+    </bh-group-box>
+  </ng-container>
+
+</section>

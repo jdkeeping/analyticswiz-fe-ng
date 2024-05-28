@@ -1,6 +1,7 @@
 .metric-area {
   display: flex;
-  padding: 48px 0 48px 16px;
+  padding: 48px 0 24px 16px;
+  margin-bottom: 16px;
 
   bh-card-outline {
     flex: 1 1 33%;
@@ -19,6 +20,16 @@
   }
 }
 
+ion-menu {
+  --width: 50%;
+}
+
+bh-property-row {
+  bh-property-cell {
+    flex: 1 1 auto;
+  }
+}
+
 @media (max-width: 767px) {
   .metric-area {
     overflow-x: scroll;
@@ -28,6 +39,9 @@
       min-width: 80vw;
       max-width: 80vw;
     }
+  }
 
+  ion-menu {
+    --width: 90%;
   }
 }
