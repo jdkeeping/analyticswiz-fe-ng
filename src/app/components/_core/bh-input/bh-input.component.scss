@@ -55,7 +55,7 @@ input {
 select {
   background: transparent;
   border: 1px solid var(--contrast-color-step-3);
-  padding: 14px 12px 12px 12px;
+  padding: 14px 40px 12px 12px;
   border-radius: 8px;
   flex: 1 1 auto;
   font-size: 17px;
@@ -69,7 +69,7 @@ select {
 
 .select-chevron {
   position: absolute;
-  top: 16px;
+  top: 14px;
   right: 16px;
   pointer-events: none;
 
@@ -78,8 +78,33 @@ select {
   }
 }
 
-ion-input {
-  --border-radius: 8px !important;
+.combo-box {
+  border: 1px solid var(--contrast-color-step-3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  select {
+    border: none;
+    border-radius: 0;
+    min-width: 150px;
+  }
+
+  .combo-box-select-wrapper {
+    position: relative;
+    display: flex;
+  }
+
+  .combo-box-divider {
+    height: 35px;
+    border-right: 1px solid var(--contrast-color-step-3);
+  }
+
+  input {
+    border: none;
+    border-radius: 0;
+    padding-left: 16px;
+  }
 }
 
 .ve-message {

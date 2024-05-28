@@ -9,6 +9,14 @@
 
 .grid-area {
   padding: 0 16px 48px 16px;
+
+  form {
+    display: flex;
+
+    bh-input {
+      margin-right: 8px;
+    }
+  }
 }
 
 @media (max-width: 767px) {

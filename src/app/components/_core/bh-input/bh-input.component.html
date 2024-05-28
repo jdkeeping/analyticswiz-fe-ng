@@ -12,7 +12,6 @@
         untouched: !formGroup.controls[formControlName].untouched
       }"
       [formControlName]="formControlName"
-      label-placement="stacked"
       fill="outline"
       [placeholder]="placeholder ? placeholder : ''"
       [autocomplete]="autocomplete"
@@ -33,7 +32,6 @@
         pristine: !formGroup.controls[formControlName].pristine,
         untouched: !formGroup.controls[formControlName].untouched
       }"
-      label-placement="stacked"
       fill="outline"
       [placeholder]="placeholder ? placeholder : ''"
       [autocomplete]="autocomplete"
@@ -74,18 +72,57 @@
         {{ opt?.label }}
       </option>
     </select>
-    <div class="select-placeholder" *ngIf="type === 'select' && placeholder">
-      {{ placeholder }}
-    </div>
     <div class="select-chevron" *ngIf="type === 'select'">
       <ion-icon name="chevron-down-outline"></ion-icon>
+    </div>
+    <div class="select-placeholder" *ngIf="type === 'select' && placeholder">
+      {{ placeholder }}
     </div>
   </div>
 
   <!-- Combo Box -->
-  <div class="combo-box">
-    <select></select>
-    <input />
+  <div class="combo-box" *ngIf="type === 'combo-box'">
+    <div class="combo-box-select-wrapper">
+      <select
+        [formControlName]="cbSelectControlName"
+        [ngClass]="{
+          invalid: !formGroup.controls[formControlName].valid,
+          pristine: !formGroup.controls[formControlName].pristine,
+          untouched: !formGroup.controls[formControlName].untouched
+        }"
+        fill="outline"
+        [autocomplete]="autocomplete"
+        (blur)="blurInput(formControlName)"
+        (change)="valueChanged(index, label, $event)"
+      >
+        <option value="" selected >All</option>
+        <option *ngFor="let opt of parsedSelectOptions" [value]="opt?.value">
+          {{ opt?.label }}
+        </option>
+      </select>
+      <div class="select-chevron">
+        <ion-icon name="chevron-down-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="combo-box-divider"></div>
+
+    <input
+      [ngClass]="{
+        invalid: !formGroup.controls[formControlName].valid,
+        pristine: !formGroup.controls[formControlName].pristine,
+        untouched: !formGroup.controls[formControlName].untouched
+      }"
+      [formControlName]="formControlName"
+      fill="outline"
+      [placeholder]="placeholder ? placeholder : ''"
+      [autocomplete]="autocomplete"
+      (blur)="blurInput(formControlName)"
+      (change)="valueChanged(index, label, $event)"
+      (keydown)="handleKeyDown($event, 'txt')"
+      (keyup)="handleKeyUp($event, 'txt')"
+      (paste)="handlePaste($event, 'txt')"
+    />
   </div>
 
   <!-- Validation Messages -->

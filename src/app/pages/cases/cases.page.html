@@ -22,6 +22,18 @@
           selectLabelProperty="id"
           selectLabelProperty="name"
         ></bh-input>
+
+        <bh-input
+          type="combo-box"
+          [formGroup]="form1"
+          formControlName="filterText"
+          cbSelectControlName="filterSelect"
+          placeholder="Find that pokemon"
+          label="Find"
+          [selectOptions]="data"
+          selectLabelProperty="id"
+          selectLabelProperty="name"
+        ></bh-input>
       </form>
       <bh-grid
         [columnDefinitions]="columnDefs"

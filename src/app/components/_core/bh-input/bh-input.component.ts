@@ -31,7 +31,8 @@ import { CommonModule } from '@angular/common';
 export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChanges {
   @Input() formGroup: FormGroup;
   @Input() formControlName: string;
-  @Input() type: 'text' | 'password' | 'select';
+  @Input() cbSelectControlName: string;
+  @Input() type: 'text' | 'password' | 'select' | 'combo-box';
   @Input() label: string;
   @Input() placeholder: string;
   @Input() selectOptions: any[] = [];
@@ -82,22 +83,29 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
 
   validateAttributes(changes: SimpleChanges) {
     if (!('formGroup' in changes)) {
-      console.error('bh-input: formGroup not provided.');
+      console.error('bh-input error: formGroup property not provided.');
     }
     if (!('formControlName' in changes)) {
-      console.error('bh-input: formControlName not provided.');
+      console.error('bh-input error: formControlName property not provided.');
     }
 
     if (this.type === 'select') {
       if (!('selectOptions' in changes)) {
-        console.error('bh-input: selectOptions not provided for type of \'select\'.');
+        console.error('bh-input error: selectOptions property not provided for type of \'select\'.');
       }
       if (!('selectLabelProperty' in changes)) {
-        console.warn('bh-input: selectLabelProperty not provided for type of \'select\'.');
+        console.warn('bh-input warning: selectLabelProperty property not provided for type of \'select\'.');
       }
       if (!('selectValueProperty' in changes)) {
-        console.warn('bh-input: selectValueProperty not provided for type of \'select\'.');
+        console.warn('bh-input warning: selectValueProperty property not provided for type of \'select\'.');
       }
+    }
+
+    if (this.type === 'combo-box') {
+      if (!('cbSelectControlName' in changes)) {
+        console.error('bh-input error: cbSelectControlName property not provided for type of \'combo-box\'. Add a new form control to your FormGroup and use its name for this property.');
+      }
+
     }
   }
 

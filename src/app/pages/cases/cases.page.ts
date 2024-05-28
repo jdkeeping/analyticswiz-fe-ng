@@ -55,6 +55,8 @@ export class CasesPage implements OnInit {
   data: any = [];
   form1: FormGroup = this.formBuilder.group({
     status: [null],
+    filterSelect: [null],
+    filterText: [null]
   });
   submitAttempted = false;
   validationMessages = {
