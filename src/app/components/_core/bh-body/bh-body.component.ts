@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'bh-body',
@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class BhBodyComponent  implements OnInit {
+  @Input() padding = false;
 
   constructor() { }
 

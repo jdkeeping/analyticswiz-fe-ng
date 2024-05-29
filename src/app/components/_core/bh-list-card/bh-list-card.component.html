@@ -1,0 +1,23 @@
+<a
+  analyticsClick
+  href="javascript:void(0)"
+  [eventName]="eventName"
+  [eventDetail]="eventDetail"
+  (click)="onClick()"
+  [ngClass]="{'clickable': isClickable}"
+>
+  <div class="list-card-icon">
+    <ion-icon
+      [name]="ionIcon"
+      [src]="!ionIcon && ionIconSrc ? ionIconSrc : ''"
+      *ngIf="ionIcon || ionIconSrc"
+    ></ion-icon>
+  </div>
+  <div class="list-card-text">
+    <h5>{{ heading }}</h5>
+    <p>{{ detail }}</p>
+  </div>
+  <div class="list-card-chevron">
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </div>
+</a>

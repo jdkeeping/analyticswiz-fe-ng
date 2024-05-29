@@ -1,0 +1,44 @@
+<ion-content>
+  <bh-header></bh-header>
+  <bh-body [padding]="true">
+    <h2>Get Help</h2>
+    <bh-group-box>
+      <h3>Need technical support?</h3>
+      <bh-list-card
+        ionIcon="pricetag-outline"
+        heading="Submit Help Ticket"
+        detail="Submit a Help Ticket to the I&amp;T Service Desk"
+        eventName="Help: Submit Help Ticket"
+        (clickEvent)="open('ticket')"
+      ></bh-list-card>
+
+      <bh-list-card
+        ionIcon="call-outline"
+        heading="Call us"
+        detail="Call the I&amp;T Service Desk at 413-794-3000"
+        eventName="Help: Call"
+        (clickEvent)="open('call')"
+      ></bh-list-card>
+
+      <bh-list-card
+        ionIcon="mail-outline"
+        heading="Email us"
+        detail="Email the I&amp;T Service Desk at servicedesk@baystatehealth.org"
+        eventName="Help: Email"
+        (clickEvent)="open('email')"
+      ></bh-list-card>
+    </bh-group-box>
+
+    <bh-group-box>
+      <h3>Other Help Options</h3>
+      <bh-list-card
+        ionIcon="reload-outline"
+        heading="Check for updates"
+        detail="Check for the latest available version of this app."
+        eventName="Help: Check for updates"
+        (clickEvent)="open('check-for-updates')"
+      ></bh-list-card>
+    </bh-group-box>
+  </bh-body>
+  <bh-footer></bh-footer>
+</ion-content>

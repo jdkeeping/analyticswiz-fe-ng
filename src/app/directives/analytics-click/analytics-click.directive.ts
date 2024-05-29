@@ -15,6 +15,8 @@ export class AnalyticsClickDirective {
 
   @HostListener('click', ['$event'])
   onClick(ev: Event) {
-    this.analytics.clickEvent(this.eventName, this.eventDetail);
+    if (this.eventName) {
+      this.analytics.clickEvent(this.eventName, this.eventDetail);
+    }
   }
 }

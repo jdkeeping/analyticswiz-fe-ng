@@ -18,4 +18,8 @@ export const routes: Routes = [
     path: 'requests-cis',
     loadComponent: () => import('./pages/requests-cis/requests-cis.page').then( m => m.RequestsCisPage)
   },
+  {
+    path: 'help',
+    loadComponent: () => import('./pages/_core/help/help.page').then( m => m.HelpPage)
+  },
 ];

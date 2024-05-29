@@ -1,0 +1,53 @@
+:host {
+}
+
+a {
+  display: flex;
+  margin-bottom: 16px;
+  background: var(--contrast-color-step-5);
+  border-radius: 16px;
+  padding: 16px;
+  color: var(--contrast-color-step-1);
+  text-decoration: none;
+  transition: all .2s;
+
+  &.clickable:hover {
+    background: var(--contrast-color-step-4);
+  }
+}
+
+.list-card-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+
+  ion-icon {
+    font-size: 32px;
+    color: var(--ion-color-primary);
+  }
+}
+
+.list-card-text {
+  margin-right: 8px;
+  flex: 1 1 auto;
+
+  h5 {
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
+
+  p {
+    color: var(--contrast-color-step-2);
+    margin: 0 0 4px 0;
+  }
+}
+
+.list-card-chevron {
+  display: flex;
+  align-items: center;
+
+  ion-icon {
+    font-size: 18px;
+
+  }
+}
