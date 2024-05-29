@@ -14,14 +14,16 @@
 </section>
 
 <!-- Tabs -->
-<ion-segment [(ngModel)]="activeSegment">
-  <ion-segment-button value="request">Request Info</ion-segment-button>
-  <ion-segment-button value="cases">Related Cases</ion-segment-button>
+<ion-segment [(ngModel)]="activeSegment" mode="md">
+  <ion-segment-button value="case">Case Info</ion-segment-button>
+  <ion-segment-button value="error-report">Error Report</ion-segment-button>
+  <ion-segment-button value="patient">Patient</ion-segment-button>
+  <ion-segment-button value="hl7">HL7 Message</ion-segment-button>
 </ion-segment>
 
 <!-- Views -->
 <section class="body">
-  <ng-container *ngIf="activeSegment === 'request'">
+  <ng-container *ngIf="activeSegment === 'case'">
     <bh-group-box>
       <bh-property-row>
         <bh-property-cell label="Updated by">
@@ -36,27 +38,46 @@
       </bh-property-row>
 
       <bh-property-row>
-        <bh-property-cell label="Description">
+        <bh-property-cell label="Summary">
           Create Test Result 001032 - Glucose - 2345-7
         </bh-property-cell>
       </bh-property-row>
 
       <bh-property-row>
-        <bh-property-cell label="Type">
-          Order Request
+        <bh-property-cell label="Case Status">
+          Open
+        </bh-property-cell>
+        <bh-property-cell label="ESI Location">
+          BMP WEST SIDE ADULT
+        </bh-property-cell>
+        <bh-property-cell label="Patient">
+          <a href="javascript:void(0)">SMITH, JOHN</a>
         </bh-property-cell>
       </bh-property-row>
 
       <bh-property-row>
-        <form [formGroup]="form1">
-          <bh-input type="select" label="Status"></bh-input>
-        </form>
+        <bh-property-cell label="Type">
+          Interface Exception
+        </bh-property-cell>
+        <bh-property-cell label="ESI Status">
+          PROCESSED
+        </bh-property-cell>
+        <bh-property-cell label="Contributor System">
+          LABCORP_AMB
+        </bh-property-cell>
       </bh-property-row>
+    </bh-group-box>
 
+    <bh-group-box>
+      <h3 class="margin-top-0">Issues</h3>
+    </bh-group-box>
+
+    <bh-group-box>
+      <h3 class="margin-top-0">Notes</h3>
     </bh-group-box>
   </ng-container>
 
-  <ng-container *ngIf="activeSegment === 'cases'">
+  <ng-container *ngIf="activeSegment === 'error-report'">
     <bh-group-box>
 
     </bh-group-box>

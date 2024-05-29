@@ -27,8 +27,7 @@ import { BhInputComponent } from '../_core/bh-input/bh-input.component';
   ]
 })
 export class BhEditorCaseComponent  implements OnInit {
-  activeView: 'request' | 'related-editor' | 'related-cases' = 'request';
-  activeSegment: 'request' | 'cases' = 'request';
+  activeSegment: 'case' | 'error-report' | 'patient' | 'hl7' = 'case';
   form1: FormGroup = this.formBuilder.group({
     status: [null],
   });
