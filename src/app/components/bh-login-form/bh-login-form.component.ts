@@ -11,6 +11,7 @@ import { NotificationsService } from 'src/app/services/_core/notifications/notif
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 import { ModalController } from '@ionic/angular';
 import { BhMessageBannerComponent } from '../_core/bh-message-banner/bh-message-banner.component';
+import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
 
 @Component({
   selector: 'bh-login-form',
@@ -24,7 +25,8 @@ import { BhMessageBannerComponent } from '../_core/bh-message-banner/bh-message-
     ReactiveFormsModule,
     CommonModule,
     BhInputComponent,
-    BhMessageBannerComponent
+    BhMessageBannerComponent,
+    AnalyticsClickDirective
   ]
 })
 export class BhLoginFormComponent implements OnInit {
@@ -84,6 +86,10 @@ export class BhLoginFormComponent implements OnInit {
         console.error(err);
       }
     }
+  }
+
+  getHelp(page) {
+    this.navService.navigateRoot(page);
   }
 
 

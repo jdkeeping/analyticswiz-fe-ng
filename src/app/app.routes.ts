@@ -30,4 +30,8 @@ export const routes: Routes = [
     path: 'check-for-updates',
     loadComponent: () => import('./pages/_core/check-for-updates/check-for-updates.page').then( m => m.CheckForUpdatesPage)
   },
+  {
+    path: 'help-forgot-pwd',
+    loadComponent: () => import('./pages/_core/help-forgot-pwd/help-forgot-pwd.page').then( m => m.HelpForgotPwdPage)
+  },
 ];

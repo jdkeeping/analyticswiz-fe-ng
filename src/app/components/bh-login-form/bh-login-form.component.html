@@ -26,14 +26,32 @@
     [submitAttempted]="submitAttempted"
     [validationMessages]="validationMessages"
   ></bh-input>
-  <ion-button expand="block" (click)="signIn()" [ngClass]="{'opacity-50': isSigningIn}">
+  <ion-button
+    expand="block"
+    (click)="signIn()"
+    [ngClass]="{ 'opacity-50': isSigningIn }"
+    analyticsClick
+    eventName="login: sign-in"
+  >
     <ng-container *ngIf="!isSigningIn">Sign in</ng-container>
     <ion-spinner name="dots" *ngIf="isSigningIn"></ion-spinner>
   </ion-button>
-  <ion-button routerUrl="/help-credentials" expand="block" fill="clear">
+  <ion-button
+  (click)="getHelp('/help')"
+  expand="block"
+    fill="clear"
+    analyticsClick
+    eventName="login: "
+  >
     Forgot username or password?
   </ion-button>
-  <ion-button routerUrl="/help" expand="block" fill="clear">
+  <ion-button
+    (click)="getHelp('/help-forgot-pwd')"
+    expand="block"
+    fill="clear"
+    analyticsClick
+    eventName="login: help"
+  >
     Get help using {{ env?.appDescription }}
   </ion-button>
 </form>
