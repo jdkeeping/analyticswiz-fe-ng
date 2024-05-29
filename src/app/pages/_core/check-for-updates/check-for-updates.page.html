@@ -1,0 +1,58 @@
+<ion-content>
+  <bh-header></bh-header>
+  <bh-body [padding]="true">
+    <h2>Check for Updates</h2>
+    <bh-group-box class="text-align-center">
+      <ion-icon
+        [name]="statusIcon"
+        [color]="statusColor"
+        class="checkmark-icon"
+        *ngIf="!isLoading"
+      ></ion-icon>
+      <div class="spinner-wrapper" *ngIf="isLoading">
+        <ion-spinner name="dots" color="primary"></ion-spinner>
+      </div>
+      <h3>{{ statusText }}</h3>
+      <p *ngIf="versionData?.verstatus">
+        <ion-button
+          (click)="update()"
+          shape="round"
+          *ngIf="devPlatform === 'mobile'"
+          ><ion-icon name="download-outline" slot="start"></ion-icon>Install
+          update</ion-button
+        >
+        <!-- <ion-button
+          (click)="update()"
+          shape="round"
+          *ngIf="devPlatform === 'web'"
+          ><ion-icon name="refresh-outline" slot="start"></ion-icon>Refresh
+          page</ion-button
+        > -->
+      </p>
+      <p class="margin-top-48" *ngIf="devPlatform === 'web'">
+        <strong>Having problems updating the web app?</strong><br />
+        If you're using a web browser and this message keeps appearing after refreshing, try
+        clearing your browser cache and refresh this page.
+      </p>
+      <p class="margin-top-48" *ngIf="devPlatform === 'mobile'">
+        <strong>Having problems updating the mobile app?</strong><br />
+        If you are having problems updating the WorkTips mobile app, try using
+        these links on your mobile device: <br />
+        <a
+          href="javascript:void(0)"
+          analyticsClick
+          eventName="Check for updates: Update iOS"
+          >iOS update</a
+        >
+        or
+        <a
+          href="javascript:void(0)"
+          analyticsClick
+          eventName="Check for updates: Update Android"
+          >Android update</a
+        >.
+      </p>
+    </bh-group-box>
+  </bh-body>
+  <bh-footer></bh-footer>
+</ion-content>

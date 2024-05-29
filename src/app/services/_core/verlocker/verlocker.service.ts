@@ -6,7 +6,6 @@ import { environment } from 'src/environments/environment';
 import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { NotificationsService } from '../notifications/notifications.service';
-import { VerlockerPage } from 'src/app/pages/_core/verlocker/verlocker.page';
 import { VerlockerData } from 'src/app/models/_core/verlocker-data';
 import { ErrorHandlerService } from '../error-handler/error-handler.service';
 
@@ -68,16 +67,17 @@ export class VerlockerService {
           this.setCheckVersion(false);
           if (data.verstatus === 'REQUIRED' || data.verstatus === 'EXPIRED') {
             this.displayingVerlocker = true;
-            const modal = await this.modalController.create({
-              component: VerlockerPage,
-              componentProps: { verlockerData: data },
-              cssClass: 'wide-modal',
-              backdropDismiss: false
-            });
-            modal.onDidDismiss().then(() => {
-              this.displayingVerlocker = false;
-            });
-            return await modal.present();
+            this.presentRequested();
+            // const modal = await this.modalController.create({
+            //   component: VerlockerPage,
+            //   componentProps: { verlockerData: data },
+            //   cssClass: 'wide-modal',
+            //   backdropDismiss: false
+            // });
+            // modal.onDidDismiss().then(() => {
+            //   this.displayingVerlocker = false;
+            // });
+            // return await modal.present();
           } else {
             this.displayingVerlocker = false;
             this.versionCheckingSubject.next(false);
@@ -130,14 +130,13 @@ export class VerlockerService {
       verstatus: 'REQUESTED'
     };
 
-    const modal = await this.modalController.create({
-      component: VerlockerPage,
-      componentProps: verData,
-      backdropDismiss: false
-    });
+    // const modal = await this.modalController.create({
+    //   component: VerlockerPage,
+    //   componentProps: verData,
+    //   backdropDismiss: false
+    // });
 
-    return await modal.present();
-
+    // return await modal.present();
   }
 
   /**
@@ -155,14 +154,14 @@ export class VerlockerService {
       message: 'Update this app to get access to the newest features, fixes, and best experience! ',
       buttons: [
         {
-          text: 'Cancel',
+          text: 'Update later',
           handler: () => {
             // console.log('Cancel clicked');
             resolveFunction(false);
           }
         },
         {
-          text: 'Update',
+          text: 'Update now',
           cssClass: 'primary',
           handler: () => {
             // console.log('Update clicked');

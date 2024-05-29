@@ -1,0 +1,16 @@
+.checkmark-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin-bottom: 24px;
+
+  ion-spinner {
+    transform: scale(2)
+  }
+}

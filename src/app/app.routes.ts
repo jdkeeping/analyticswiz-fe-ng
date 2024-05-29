@@ -22,4 +22,12 @@ export const routes: Routes = [
     path: 'help',
     loadComponent: () => import('./pages/_core/help/help.page').then( m => m.HelpPage)
   },
+  {
+    path: 'share',
+    loadComponent: () => import('./pages/_core/share/share.page').then( m => m.SharePage)
+  },
+  {
+    path: 'check-for-updates',
+    loadComponent: () => import('./pages/_core/check-for-updates/check-for-updates.page').then( m => m.CheckForUpdatesPage)
+  },
 ];
