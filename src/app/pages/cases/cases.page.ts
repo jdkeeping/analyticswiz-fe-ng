@@ -11,6 +11,7 @@ import { GridColumnDefinition } from 'src/app/models/_core/grid-column-definitio
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BhInputComponent } from 'src/app/components/_core/bh-input/bh-input.component';
 import { BhEditorCaseComponent } from 'src/app/components/bh-editor-case/bh-editor-case.component';
+import { BhFeedbackFormComponent } from 'src/app/components/_core/bh-feedback-form/bh-feedback-form.component';
 
 @Component({
   selector: 'app-cases',
@@ -35,7 +36,8 @@ import { BhEditorCaseComponent } from 'src/app/components/bh-editor-case/bh-edit
     BhFooterComponent,
     BhGridComponent,
     BhInputComponent,
-    BhEditorCaseComponent
+    BhEditorCaseComponent,
+    BhFeedbackFormComponent
   ],
 })
 export class CasesPage implements OnInit {
@@ -73,7 +75,7 @@ export class CasesPage implements OnInit {
   constructor(
     private tableMockData: TableMockData,
     private formBuilder: FormBuilder,
-    private menuCtrl: MenuController
+    private menuCtrl: MenuController,
   ) { }
 
   ngOnInit() {

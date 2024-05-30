@@ -6,6 +6,7 @@ import { Directive, HostListener, Input } from '@angular/core';
   standalone: true
 })
 export class AnalyticsClickDirective {
+  @Input() eventType = 'click';
   @Input() eventName!: string;
   @Input() eventDetail!: string;
 
@@ -16,7 +17,7 @@ export class AnalyticsClickDirective {
   @HostListener('click', ['$event'])
   onClick(ev: Event) {
     if (this.eventName) {
-      this.analytics.clickEvent(this.eventName, this.eventDetail);
+      this.analytics.customEvent(this.eventType, this.eventName, this.eventDetail);
     }
   }
 }

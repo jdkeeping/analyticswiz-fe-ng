@@ -1,0 +1,17 @@
+<ion-icon
+  [name]="ionIcon"
+  [color]="ionIconColor"
+  class="confirmation-icon"
+></ion-icon>
+<h3 *ngIf="heading">{{ heading }}</h3>
+<p *ngIf="message">{{ message }}</p>
+<p>
+  <ion-button
+    (click)="onClick()"
+    [fill]="buttonFill"
+    *ngIf="showButton"
+  >
+    <ion-icon [name]="buttonIcon" slot="start" (click)="onClick()" *ngIf="buttonIcon"></ion-icon>
+    {{ buttonLabel }}
+  </ion-button>
+</p>

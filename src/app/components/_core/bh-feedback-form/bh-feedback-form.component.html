@@ -1,0 +1,95 @@
+<ng-container *ngIf="activeView === 'form'">
+  <h3>
+    How would you rate our <strong>{{ feature }}</strong
+    >?
+  </h3>
+
+  <!-- Star rating -->
+  <div class="star-selector">
+    <a
+      analyticsClick
+      eventType="feedback-rating"
+      [eventName]="feature"
+      eventDetail="1"
+      href="javascript:void(0)"
+      (click)="setStarRating(1)"
+      (mouseenter)="setHover(1)"
+      (mouseleave)="releaseHover()"
+      [ngClass]="{ hover: hoverRating > 0, active: starRating > 0 }"
+      ><ion-icon [name]="starRating > 0 ? 'star' : 'star-outline'"></ion-icon
+    ></a>
+    <a
+      analyticsClick
+      eventType="feedback-rating"
+      [eventName]="feature"
+      eventDetail="2"
+      href="javascript:void(0)"
+      (click)="setStarRating(2)"
+      (mouseenter)="setHover(2)"
+      (mouseleave)="releaseHover()"
+      [ngClass]="{ hover: hoverRating > 1, active: starRating > 1 }"
+      ><ion-icon [name]="starRating > 1 ? 'star' : 'star-outline'"></ion-icon
+    ></a>
+    <a
+      analyticsClick
+      eventType="feedback-rating"
+      [eventName]="feature"
+      eventDetail="3"
+      href="javascript:void(0)"
+      (click)="setStarRating(3)"
+      (mouseenter)="setHover(3)"
+      (mouseleave)="releaseHover()"
+      [ngClass]="{ hover: hoverRating > 2, active: starRating > 2 }"
+      ><ion-icon [name]="starRating > 2 ? 'star' : 'star-outline'"></ion-icon
+    ></a>
+    <a
+      analyticsClick
+      eventType="feedback-rating"
+      [eventName]="feature"
+      eventDetail="4"
+      href="javascript:void(0)"
+      (click)="setStarRating(4)"
+      (mouseenter)="setHover(4)"
+      (mouseleave)="releaseHover()"
+      [ngClass]="{ hover: hoverRating > 3, active: starRating > 3 }"
+      ><ion-icon [name]="starRating > 3 ? 'star' : 'star-outline'"></ion-icon
+    ></a>
+    <a
+      analyticsClick
+      eventType="feedback-rating"
+      [eventName]="feature"
+      eventDetail="5"
+      href="javascript:void(0)"
+      (click)="setStarRating(5)"
+      (mouseenter)="setHover(5)"
+      (mouseleave)="releaseHover()"
+      [ngClass]="{ hover: hoverRating > 4, active: starRating > 4 }"
+      ><ion-icon [name]="starRating > 4 ? 'star' : 'star-outline'"></ion-icon
+    ></a>
+  </div>
+
+  <textarea
+    [(ngModel)]="feedbackText"
+    [placeholder]="textPlaceholder"
+    *ngIf="starRating"
+  ></textarea>
+
+  <div class="submit-feedback-button" *ngIf="starRating">
+    <ion-button
+      fill="outline"
+      (click)="submitFeedback()"
+      >Submit feedback</ion-button
+    >
+  </div>
+</ng-container>
+
+<ng-container *ngIf="activeView === 'confirmation'">
+  <bh-confirmation
+    heading="Thank you for your feedback!"
+    message="We take your feedback seriously and will use it to better improve our digital experiences."
+    [showButton]="showConfButton"
+    [buttonLabel]="confButtonLabel"
+    [buttonFill]="confButtonFill"
+    (clickEvent)="dismiss()"
+  ></bh-confirmation>
+</ng-container>

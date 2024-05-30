@@ -34,4 +34,8 @@ export const routes: Routes = [
     path: 'help-forgot-pwd',
     loadComponent: () => import('./pages/_core/help-forgot-pwd/help-forgot-pwd.page').then( m => m.HelpForgotPwdPage)
   },
+  {
+    path: 'feedback-modal',
+    loadComponent: () => import('./pages/_core/feedback-modal/feedback-modal.page').then( m => m.FeedbackModalPage)
+  },
 ];
