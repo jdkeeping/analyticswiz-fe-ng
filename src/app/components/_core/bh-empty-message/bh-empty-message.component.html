@@ -1,0 +1,5 @@
+<ion-icon [name]="ionIcon" *ngIf="showIcon && ionIcon"></ion-icon>
+<p [innerHtml]="message"></p>
+<p *ngIf="showButton">
+  <ion-button [fill]="buttonFill" (click)="onClick()">{{ buttonLabel }}</ion-button>
+</p>

@@ -12,6 +12,8 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { BhInputComponent } from 'src/app/components/_core/bh-input/bh-input.component';
 import { BhEditorCaseComponent } from 'src/app/components/bh-editor-case/bh-editor-case.component';
 import { BhFeedbackFormComponent } from 'src/app/components/_core/bh-feedback-form/bh-feedback-form.component';
+import { BhSearchBarComponent } from 'src/app/components/_core/bh-search-bar/bh-search-bar.component';
+import { BhEmptyMessageComponent } from 'src/app/components/_core/bh-empty-message/bh-empty-message.component';
 
 @Component({
   selector: 'app-cases',
@@ -37,7 +39,9 @@ import { BhFeedbackFormComponent } from 'src/app/components/_core/bh-feedback-fo
     BhGridComponent,
     BhInputComponent,
     BhEditorCaseComponent,
-    BhFeedbackFormComponent
+    BhFeedbackFormComponent,
+    BhSearchBarComponent,
+    BhEmptyMessageComponent
   ],
 })
 export class CasesPage implements OnInit {
@@ -93,5 +97,9 @@ export class CasesPage implements OnInit {
 
   setView() {
 
+  }
+
+  logToConsole(input) {
+    console.log(input);
   }
 }

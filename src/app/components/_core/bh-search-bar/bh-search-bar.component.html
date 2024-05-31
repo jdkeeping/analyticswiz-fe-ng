@@ -1,0 +1,18 @@
+<div class="search-bar">
+  <div class="search-bar-input">
+    <ion-icon class="search-icon" name="search-outline"></ion-icon>
+    <a href="javascript:void(0)" (click)="onClear()" class="close-icon" *ngIf="searchTerm">
+      <ion-icon name="close-outline"></ion-icon>
+    </a>
+    <input type="search" [placeholder]="placeholderText" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" />
+    <div class="search-suggestions" [ngClass]="{active: searchTerm}" *ngIf="showSuggestions">
+      <div class="search-suggestions-padding">
+        <ion-spinner name="dots" color="primary" *ngIf="isSearching"></ion-spinner>
+        <ng-container  *ngIf="!isSearching">
+          <ng-content></ng-content>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <ion-button (click)="onClick()">Search</ion-button>
+</div>
