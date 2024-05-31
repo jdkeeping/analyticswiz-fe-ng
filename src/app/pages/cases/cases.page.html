@@ -46,18 +46,6 @@
         sortDirection="up"
       ></bh-grid>
     </div>
-    <div class="padding-16">
-      <bh-search-bar
-        (searchEvent)="logToConsole('Searching: ' + $event)"
-        (clickEvent)="logToConsole('Search Click: ' + $event)"
-        (clearEvent)="logToConsole('Cleared: ' + $event)"
-      ></bh-search-bar>
-      <bh-empty-message
-        ionIcon="search-outline"
-        message="No search results found."
-        (clickEvent)="logToConsole('Action Click: ' + $event)"
-      ></bh-empty-message>
-    </div>
   </bh-body>
   <bh-footer></bh-footer>
 </ion-content>

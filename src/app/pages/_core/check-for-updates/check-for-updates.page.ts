@@ -11,7 +11,7 @@ import { BhHeaderComponent } from 'src/app/components/_core/bh-header/bh-header.
 import { BhListCardComponent } from 'src/app/components/_core/bh-list-card/bh-list-card.component';
 import { environment } from 'src/environments/environment';
 import { VerlockerService } from 'src/app/services/_core/verlocker/verlocker.service';
-import { VerlockerData } from 'src/app/models/_core/verlocker-data';
+import { VerlockerRecord } from 'src/app/models/_core/verlocker-record';
 import { HelperUtilitiesService } from 'src/app/services/_core/helper-utilities/helper-utilities.service';
 import { AnalyticsService } from 'src/app/services/_core/analytics/analytics.service';
 import { Browser } from '@capacitor/browser';
@@ -46,7 +46,7 @@ export class CheckForUpdatesPage implements OnInit {
   statusIcon = 'checkmark-outline';
   statusColor = 'success';
   statusText = 'Checking app version...';
-  versionData: VerlockerData;
+  versionData: VerlockerRecord;
   devPlatform: 'mobile' | 'web';
 
   constructor(

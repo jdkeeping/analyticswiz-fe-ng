@@ -14,6 +14,7 @@ import { BhEditorCaseComponent } from 'src/app/components/bh-editor-case/bh-edit
 import { BhFeedbackFormComponent } from 'src/app/components/_core/bh-feedback-form/bh-feedback-form.component';
 import { BhSearchBarComponent } from 'src/app/components/_core/bh-search-bar/bh-search-bar.component';
 import { BhEmptyMessageComponent } from 'src/app/components/_core/bh-empty-message/bh-empty-message.component';
+import { VerlockerService } from 'src/app/services/_core/verlocker/verlocker.service';
 
 @Component({
   selector: 'app-cases',
@@ -80,6 +81,7 @@ export class CasesPage implements OnInit {
     private tableMockData: TableMockData,
     private formBuilder: FormBuilder,
     private menuCtrl: MenuController,
+    private verlocker: VerlockerService
   ) { }
 
   ngOnInit() {
@@ -101,5 +103,9 @@ export class CasesPage implements OnInit {
 
   logToConsole(input) {
     console.log(input);
+  }
+
+  update() {
+    this.verlocker.presentRequested(true);
   }
 }

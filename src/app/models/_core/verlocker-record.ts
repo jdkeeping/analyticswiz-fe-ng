@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 /**
  * ID: bh-verlocker-data
  * Name: BH Verlocker Data
@@ -11,7 +10,7 @@
  * 2021-07-02 - MW - v1: Initial dev
  * 2022-05-31 - MW - v2: Disabled JSON naming convention (per ESLint)
  */
- export interface VerlockerData {
+ export interface VerlockerRecord {
   app?: string;
   android_install_link?: string;
   ios_install_link?: string;
@@ -19,4 +18,5 @@
   status?: string;
   update_description?: string;
   verstatus?: 'REQUESTED' | 'REQUIRED' | 'EXPIRED';
+  x_status?: string;
 }

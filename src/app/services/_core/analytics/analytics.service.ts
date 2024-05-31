@@ -2,8 +2,9 @@ import { Platform } from '@ionic/angular';
 import { Device } from '@capacitor/device';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap, firstValueFrom } from 'rxjs';
+import { Observable, tap, firstValueFrom, Subscription, filter } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { NavigationEnd, Router } from '@angular/router';
 /**
  * ID: bh-analytics-service
  * Name: BH Analytics Service
@@ -43,11 +44,13 @@ export class AnalyticsService {
   analyticsData: AnalyticsData = {};
   browser: any;
   browserVersion: any;
+  routerSub: Subscription;
   // authUser: User = {};
 
   constructor(
     private http: HttpClient,
     private platform: Platform,
+    private router: Router
   ) {
     const ms = Date.parse(new Date().toISOString());
     this.analyticsData.sessionToken = ms.toString();
@@ -98,6 +101,18 @@ export class AnalyticsService {
       this.analyticsData.deviceOs = this.browser;
       this.analyticsData.deviceOsVersion = this.browserVersion;
     }
+    this.trackPageViews();
+  }
+
+  trackPageViews() {
+    this.routerSub = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    )
+    .subscribe((event: NavigationEnd) => {
+      const page = window.location.pathname;
+      const params = window.location.search;
+      this.customEvent('page-view', page, params);
+    })
   }
 
   saveAnalytics(

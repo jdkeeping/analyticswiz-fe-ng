@@ -72,8 +72,7 @@ export class HelperUtilitiesService {
   */
 
   isNotBrowser(): boolean {
-    // console.log('platforms:', this.platform.platforms());
-    if ((this.platform.is('cordova') || this.platform.is('capacitor'))) {
+    if ((this.platform.is('capacitor') || this.platform.is('cordova'))) {
       return true;
     } else {
       return false;
