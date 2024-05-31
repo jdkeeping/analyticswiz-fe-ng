@@ -1,7 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component, HostListener, NgZone, OnInit } from '@angular/core';
-import { IonApp, IonRouterOutlet, Platform, MenuController, ModalController } from '@ionic/angular/standalone';
-import { IonicStorageModule } from '@ionic/storage-angular';
+import {
+  IonApp, IonRouterOutlet, Platform, MenuController, IonHeader, IonMenu,
+  IonSpinner, IonLabel, IonIcon, IonList, IonItem, IonContent, IonTitle, IonButton, IonButtons, IonToolbar
+} from '@ionic/angular/standalone';
 import { ThemeOption } from './models/_core/theme-option';
 import { environment } from 'src/environments/environment';
 import { Subscription, firstValueFrom } from 'rxjs';
@@ -15,12 +16,31 @@ import { AnalyticsService } from './services/_core/analytics/analytics.service';
 import { Keyboard } from '@capacitor/keyboard';
 import { StatusBar } from '@capacitor/status-bar';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
+import { CommonModule } from '@angular/common';
+import { BhHeaderComponent } from './components/_core/bh-header/bh-header.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [IonApp, IonRouterOutlet],
+  imports: [
+    CommonModule,
+    IonApp,
+    IonRouterOutlet,
+    IonHeader,
+    IonContent,
+    IonTitle,
+    IonSpinner,
+    IonLabel,
+    IonIcon,
+    IonList,
+    IonItem,
+    IonMenu,
+    IonButtons,
+    IonToolbar,
+    IonButton,
+    BhHeaderComponent
+  ],
 })
 export class AppComponent implements OnInit {
   env = environment;
@@ -44,7 +64,6 @@ export class AppComponent implements OnInit {
     private verlockerService: VerlockerService,
     private authService: AuthService,
     private menuCtrl: MenuController,
-    private modalCtrl: ModalController,
     private zone: NgZone,
     private router: Router
   ) {
@@ -80,12 +99,15 @@ export class AppComponent implements OnInit {
 
   subscribeToMenu() {
     this.subs.push(
-      this.authService.menuOpen.subscribe(val => {
+      this.authService.menuOpen.subscribe(async val => {
+        const menus = await this.menuCtrl.getMenus();
+        console.log('Opening menu: ', val, menus);
         this.isMenuOpen = val;
         if (this.isMenuOpen) {
-          this.menuCtrl.open();
+          this.menuCtrl.open('user-menu');
         } else {
           this.menuCtrl.close();
+          this.isMenuOpen = false;
         }
       })
     );

@@ -37,24 +37,6 @@ export class NavigationService {
     roles: ['USER', 'ADMIN', 'SYS_ADMIN']
   };
 
-  eventsNavPage: NavPage = {
-    name: 'Events',
-    navPath: '/tabs/events',
-    tabPath: 'events',
-    tabId: 'events',
-    ionIcon: 'calendar',
-    roles: ['USER', 'ADMIN', 'SYS_ADMIN']
-  };
-
-  favoritesNavPage: NavPage = {
-    name: 'Favorites',
-    navPath: '/tabs/favorites',
-    tabPath: 'favorites',
-    tabId: 'favorites',
-    ionIcon: 'star',
-    roles: ['USER', 'ADMIN', 'SYS_ADMIN']
-  };
-
   navPages: NavPage[] = [];
   showNotifications = false;
   subscriptions: Subscription[] = [];
@@ -97,20 +79,22 @@ export class NavigationService {
 
   navigateForward(pathUrl, navOptions = undefined): Promise<boolean> {
     const userDevice = this.deviceService.getUserDevice();
-    if (userDevice.isNarrowViewport) {
-      return this.navCtrl.navigateForward(pathUrl, navOptions);
-    } else {
-      return this.navCtrl.navigateRoot(pathUrl, navOptions);
-    }
+    return this.navCtrl.navigateForward(pathUrl, navOptions);
+    // if (userDevice.isNarrowViewport) {
+    //   return this.navCtrl.navigateForward(pathUrl, navOptions);
+    // } else {
+    //   return this.navCtrl.navigateRoot(pathUrl, navOptions);
+    // }
   }
 
   navigateBack(pathUrl, navOptions = undefined): Promise<boolean> {
     const userDevice = this.deviceService.getUserDevice();
-    if (userDevice.isNarrowViewport) {
-      return this.navCtrl.navigateBack(pathUrl, navOptions);
-    } else {
-      return this.navCtrl.navigateRoot(pathUrl, navOptions);
-    }
+    return this.navCtrl.navigateBack(pathUrl, navOptions);
+    // if (userDevice.isNarrowViewport) {
+    //   return this.navCtrl.navigateBack(pathUrl, navOptions);
+    // } else {
+    //   return this.navCtrl.navigateRoot(pathUrl, navOptions);
+    // }
   }
 
   navigateRoot(pathUrl, navOptions = undefined): Promise<boolean> {

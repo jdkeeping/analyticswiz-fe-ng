@@ -1,3 +1,30 @@
+<ion-menu menuId="user-menu" contentId="root-content" side="end">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="closeMenu()">
+          <ion-icon name="play-skip-forward" slot="icon-only" class="margin-left-0 margin-right-0"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title></ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 <ion-app>
+  <ion-content id="root-content"></ion-content>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
+<div class="loader-backdrop" [ngClass]="{ show: isLoading }">
+  <div class="spinner-wrapper">
+    <div class="spinner-background">
+      <ion-spinner class="loading-modal-spinner"></ion-spinner>
+      <div class="loading-message" *ngIf="loadingMessage">
+        {{ loadingMessage }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -48,10 +48,10 @@
 <div class="charms">
   <bh-charm
     type="user"
-    routerLink="/my-account"
     label="User Menu"
     eventName="header-charm"
     eventDetail="user"
+    (click)="openUserMenu()"
   ></bh-charm>
   <bh-charm
     type="icon"

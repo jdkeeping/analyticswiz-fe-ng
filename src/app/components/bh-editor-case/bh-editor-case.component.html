@@ -1,16 +1,21 @@
 <!-- Header -->
 <section class="header">
-  <div class="header-title">
+  <div class="breadcrumbs">
+    <a href="javascript:void(0)" (click)="back()" analyticsClick eventName="cases-view: back">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+      Back to Cases</a>
+  </div>
+  <h1 class="header-title">
     <ion-icon name="document-text-outline"></ion-icon>
     <strong>Case</strong>
     <span>C-1000</span>
-  </div>
-  <div class="header-toolbar">
+  </h1>
+  <!-- <div class="header-toolbar">
     <ion-button>
       <ion-icon name="pencil-outline" slot="start"></ion-icon>
       Edit Request
     </ion-button>
-  </div>
+  </div> -->
 </section>
 
 <!-- Tabs -->

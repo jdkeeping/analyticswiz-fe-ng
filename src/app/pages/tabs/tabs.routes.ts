@@ -1,3 +1,4 @@
+import { CasesViewPage } from './../cases-view/cases-view.page';
 import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
@@ -9,7 +10,12 @@ export const routes: Routes = [
       {
         path: 'cases',
         loadComponent: () =>
-          import('../cases/cases.page').then((m) => m.CasesPage),
+          import('../cases-list/cases-list.page').then((m) => m.CasesListPage),
+      },
+      {
+        path: 'cases/:caseId',
+        loadComponent: () =>
+          import('../cases-view/cases-view.page').then((m) => m.CasesViewPage),
       },
       {
         path: 'requests-lis',

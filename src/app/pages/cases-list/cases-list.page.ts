@@ -1,4 +1,4 @@
-import { TableMockData } from './../../models/_mock/table-mock-data';
+import { TableMockData } from '../../models/_mock/table-mock-data';
 import { Component, OnInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonFooter, IonMenu, IonMenuToggle, IonButton, MenuController } from '@ionic/angular/standalone';
 import { BhHeaderComponent } from 'src/app/components/_core/bh-header/bh-header.component';
@@ -15,11 +15,12 @@ import { BhFeedbackFormComponent } from 'src/app/components/_core/bh-feedback-fo
 import { BhSearchBarComponent } from 'src/app/components/_core/bh-search-bar/bh-search-bar.component';
 import { BhEmptyMessageComponent } from 'src/app/components/_core/bh-empty-message/bh-empty-message.component';
 import { VerlockerService } from 'src/app/services/_core/verlocker/verlocker.service';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
-  selector: 'app-cases',
-  templateUrl: 'cases.page.html',
-  styleUrls: ['cases.page.scss'],
+  selector: 'app-cases-list',
+  templateUrl: 'cases-list.page.html',
+  styleUrls: ['cases-list.page.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -45,7 +46,7 @@ import { VerlockerService } from 'src/app/services/_core/verlocker/verlocker.ser
     BhEmptyMessageComponent
   ],
 })
-export class CasesPage implements OnInit {
+export class CasesListPage implements OnInit {
   metrics: any[] = [
     {
       heading: 'New Cases',
@@ -80,7 +81,7 @@ export class CasesPage implements OnInit {
   constructor(
     private tableMockData: TableMockData,
     private formBuilder: FormBuilder,
-    private menuCtrl: MenuController,
+    private navService: NavigationService,
     private verlocker: VerlockerService
   ) { }
 
@@ -94,7 +95,7 @@ export class CasesPage implements OnInit {
   }
 
   selectCase(selection) {
-    this.menuCtrl.open('editor');
+    this.navService.navigateForward('/tabs/cases/1');
   }
 
   setView() {

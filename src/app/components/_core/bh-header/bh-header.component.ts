@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
 import { BhCharmComponent } from '../bh-charm/bh-charm.component';
+import { AuthService } from 'src/app/services/_core/auth/auth.service';
 
 @Component({
   selector: 'bh-header',
@@ -21,7 +22,9 @@ import { BhCharmComponent } from '../bh-charm/bh-charm.component';
 export class BhHeaderComponent  implements OnInit {
   activePage: 'cases' | 'requests-lis' | 'requests-cis' | 'auditing' | 'manage';
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.setActivePage();
@@ -44,6 +47,11 @@ export class BhHeaderComponent  implements OnInit {
     if (path.indexOf('/tabs/manage') > -1) {
       this.activePage = 'manage';
     }
+  }
+
+  openUserMenu() {
+    console.log('Opening user menu');
+    this.authService.menuOpen.next(true);
   }
 
 }

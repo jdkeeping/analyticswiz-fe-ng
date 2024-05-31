@@ -38,4 +38,8 @@ export const routes: Routes = [
     path: 'feedback-modal',
     loadComponent: () => import('./pages/_core/feedback-modal/feedback-modal.page').then( m => m.FeedbackModalPage)
   },
+  {
+    path: 'cases-view',
+    loadComponent: () => import('./pages/cases-view/cases-view.page').then( m => m.CasesViewPage)
+  },
 ];
