@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
 import { BhCharmComponent } from '../bh-charm/bh-charm.component';
 import { AuthService } from 'src/app/services/_core/auth/auth.service';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'bh-header',
@@ -23,11 +24,16 @@ export class BhHeaderComponent  implements OnInit {
   activePage: 'cases' | 'requests-lis' | 'requests-cis' | 'auditing' | 'manage';
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private navService: NavigationService
   ) { }
 
   ngOnInit() {
     this.setActivePage();
+  }
+
+  openTab(page) {
+    this.navService.navigateBack(page);
   }
 
   setActivePage() {

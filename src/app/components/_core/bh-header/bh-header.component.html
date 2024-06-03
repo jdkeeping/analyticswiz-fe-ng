@@ -1,9 +1,18 @@
-<bh-logo></bh-logo>
+<a
+  href="javascript:void(0)"
+  (click)="openTab('/cases')"
+  analyticsClick
+  eventName="header-logo-click"
+  eventDetail="Home"
+>
+  <bh-logo></bh-logo>
+</a>
 <div class="nav">
   <ul class="desktop-only-flex">
     <li>
       <a
-        routerLink="/tabs/cases"
+        href="javascript:void(0)"
+        (click)="openTab('/tabs/cases')"
         analyticsClick
         eventName="header-link-click"
         eventDetail="Interface Cases"
@@ -13,7 +22,8 @@
     </li>
     <li>
       <a
-        routerLink="/tabs/requests-lis"
+        href="javascript:void(0)"
+        (click)="openTab('/tabs/requests-lis')"
         analyticsClick
         eventName="header-link-click"
         eventDetail="LIS Requests"
@@ -23,8 +33,7 @@
     </li>
     <li>
       <a
-        routerLink="/tabs/requests-cis"
-        routerDirection="root"
+        (click)="openTab('/tabs/requests-cis')"
         analyticsClick
         eventName="header-link-click"
         eventDetail="CIS Requests"
