@@ -146,3 +146,49 @@ table {
   padding: 16px 8px;
   color: var(--contrast-color-step-2);
 }
+
+@media (max-width: 430px) {
+  table {
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+
+      tr {
+        display: block;
+        position: relative;
+        padding: 16px;
+        border-bottom: none;
+        border-radius: 16px;
+        margin-bottom: 24px;
+        background: var(--contrast-color-step-4);
+
+        td {
+          display: block;
+          padding: 4px;
+          font-size: 16px;
+
+          &.icon-column {
+            position: absolute;
+            top: 16px;
+            left: 0;
+
+            ion-icon {
+              font-size: 24px !important;
+            }
+          }
+
+          &.data-column.first-column{
+            font-size: 20px;
+          }
+
+          &:not(.icon-column) {
+            padding-left: 40px;
+          }
+        }
+      }
+    }
+  }
+}

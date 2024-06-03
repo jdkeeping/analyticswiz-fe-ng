@@ -13,6 +13,7 @@
 
   form {
     display: flex;
+    margin-bottom: 24px;
 
     bh-input {
       margin-right: 8px;
@@ -43,5 +44,14 @@ bh-property-row {
 
   ion-menu {
     --width: 90%;
+  }
+}
+
+@media (max-width: 430px) {
+  .grid-area {
+
+    form {
+      display: block;
+    }
   }
 }

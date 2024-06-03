@@ -26,7 +26,7 @@
       [ngClass]="{
         new: d[statusField] === isNewStatusArg,
         clickable: isClickable,
-        selected: d.gridItemSelected || (selectedData === d),
+        selected: d.gridItemSelected || selectedData === d,
         multiselect: selectionMode === 'multi'
       }"
       (click)="selectRow(d)"
@@ -38,9 +38,7 @@
         *ngIf="ionIcon || selectionMode === 'multi'"
       >
         <!-- Multi-select mode -->
-        <ion-checkbox
-          [(ngModel)]="d.gridItemSelected"
-        ></ion-checkbox>
+        <ion-checkbox [(ngModel)]="d.gridItemSelected"></ion-checkbox>
 
         <!-- Standard icon -->
         <ion-icon
@@ -66,23 +64,32 @@
         ></ion-icon>
       </td>
       <ng-container *ngFor="let cd of columnDefinitions; let i = index">
-        <td [ngClass]="{ 'new': d[statusField] === isNewStatusArg && i === 0 }">
+        <td
+          class="data-column"
+          [ngClass]="{
+            new: d[statusField] === isNewStatusArg && i === 0,
+            'first-column': i === 0
+          }"
+        >
+          <span class="mobile-label" *ngIf="i > 0">{{ cd.columnLabel }}: </span>
+          <span *ngIf="!cd.isDate && !cd.isBooleanIconField">{{
+            d[cd.fieldName]
+          }}</span>
+          <span *ngIf="cd.isDate">
+            {{ d[cd.fieldName] | formatDate : "YYYY-MM-DD HH:mm:ss" }}
+          </span>
           <span class="boolean-icon" *ngIf="cd.isBooleanIconField">
-            <ion-icon
-              [name]="cd.booleanTrueIconName"
-              [color]="cd.booleanTrueIconColor"
-              *ngIf="d[cd.fieldName] === cd.booleanTrueIconArg"
-            ></ion-icon>
             <ion-icon
               [name]="cd.booleanFalseIconName"
               [color]="cd.booleanFalseIconColor"
               *ngIf="d[cd.fieldName] !== cd.booleanTrueIconArg"
             ></ion-icon>
+            <ion-icon
+              [name]="cd.booleanTrueIconName"
+              [color]="cd.booleanTrueIconColor"
+              *ngIf="d[cd.fieldName] === cd.booleanTrueIconArg"
+            ></ion-icon>
           </span>
-          <span *ngIf="!cd.isDate && !cd.isBooleanIconField">{{ d[cd.fieldName] }}</span>
-          <span *ngIf="cd.isDate">{{
-            d[cd.fieldName] | formatDate : "YYYY-MM-DD HH:mm:ss"
-          }}</span>
         </td>
       </ng-container>
     </tr>

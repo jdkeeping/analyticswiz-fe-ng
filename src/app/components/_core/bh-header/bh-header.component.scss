@@ -68,3 +68,9 @@ ul {
     transform: scale(0.9);
   }
 }
+
+@media (max-width: 430px) {
+  :host {
+    padding: 8px;
+  }
+}
