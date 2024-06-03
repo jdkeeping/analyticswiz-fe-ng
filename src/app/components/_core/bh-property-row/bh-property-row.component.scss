@@ -12,3 +12,13 @@
 
 }
 
+@media (max-width: 430px) {
+  :host {
+    display: block;
+
+    bh-property-cell {
+      flex: none;
+      margin-bottom: 24px;
+    }
+  }
+}

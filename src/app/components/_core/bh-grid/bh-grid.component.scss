@@ -138,6 +138,14 @@ table {
           font-size: 20px;
         }
       }
+
+      .mobile-label {
+        display: none;
+        margin-right: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        min-width: 100px;
+      }
     }
   }
 }
@@ -166,7 +174,8 @@ table {
         background: var(--contrast-color-step-4);
 
         td {
-          display: block;
+          display: flex;
+          align-items: center;
           padding: 4px;
           font-size: 16px;
 
@@ -186,6 +195,10 @@ table {
 
           &:not(.icon-column) {
             padding-left: 40px;
+          }
+
+          .mobile-label {
+            display: inline-block;
           }
         }
       }
