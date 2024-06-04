@@ -31,7 +31,7 @@ export class UserDeviceService {
     this.loadDeviceProperties();
   }
 
-  async loadDeviceProperties() {
+  async loadDeviceProperties(): Promise<UserDevice> {
     const device = this.deviceSubject.getValue();
     const browserInfo: BrowserInfo = this.getBrowserInfo();
     const deviceInfo = await Device.getInfo();
@@ -62,6 +62,7 @@ export class UserDeviceService {
     // console.log('device.prefersDark', device.prefersDark);
     this.deviceSubject.next(device);
     this.listenForThemePreference();
+    return Promise.resolve(device);
   }
 
   listenForThemePreference() {

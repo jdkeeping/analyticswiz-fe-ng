@@ -40,4 +40,8 @@ export const routes: Routes = [
     canActivate: [LoginRouteGuardService],
     loadComponent: () => import('./pages/_core/my-account/my-account.page').then( m => m.MyAccountPage)
   },
+  {
+    path: 'language-modal',
+    loadComponent: () => import('./pages/_core/language-modal/language-modal.page').then( m => m.LanguageModalPage)
+  },
 ];

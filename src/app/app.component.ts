@@ -1,6 +1,6 @@
-import { Component, HostListener, NgZone, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, NgZone, OnInit } from '@angular/core';
 import {
-  IonApp, IonRouterOutlet, Platform, MenuController, IonHeader, IonMenu, IonToggle, IonNote,
+  IonApp, IonRouterOutlet, Platform, MenuController, IonHeader, IonMenu, IonToggle, IonNote, ModalController,
   IonSpinner, IonLabel, IonIcon, IonList, IonItem, IonContent, IonTitle, IonButton, IonButtons, IonToolbar,
   IonListHeader, IonItemDivider
 } from '@ionic/angular/standalone';
@@ -23,6 +23,8 @@ import { BhUserIconComponent } from './components/_core/bh-user-icon/bh-user-ico
 import { PipesModule } from './pipes/pipes.module';
 import { AnalyticsClickDirective } from './directives/analytics-click/analytics-click.directive';
 import { NavigationService } from './services/navigation/navigation.service';
+import { LanguageModalPage } from './pages/_core/language-modal/language-modal.page';
+import { TranslatorService } from './services/_core/translator/translator.service';
 
 @Component({
   selector: 'app-root',
@@ -51,7 +53,8 @@ import { NavigationService } from './services/navigation/navigation.service';
     BhHeaderComponent,
     BhUserIconComponent,
     PipesModule,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    LanguageModalPage
   ],
 })
 export class AppComponent implements OnInit {
@@ -78,7 +81,10 @@ export class AppComponent implements OnInit {
     private menuCtrl: MenuController,
     private zone: NgZone,
     private router: Router,
-    private navService: NavigationService
+    private navService: NavigationService,
+    private modalCtrl: ModalController,
+    private translator: TranslatorService,
+    private cdr: ChangeDetectorRef
   ) {
     this.initializeApp();
     this.subscribeToLoader();
@@ -95,6 +101,11 @@ export class AppComponent implements OnInit {
     this.subscribeToMenu();
     this.subscribeToUserDevice();
     this.subscribeToUserState();
+  }
+
+  refreshView() {
+    console.log('app-component: refreshing view');
+    this.cdr.detectChanges();
   }
 
   listenForThemePreference() {
@@ -148,6 +159,25 @@ export class AppComponent implements OnInit {
         this.prefersDark = d.prefersDark;
         this.setTheme();
       })
+    );
+  }
+
+  async initTranslator() {
+    const device = await this.deviceService.loadDeviceProperties();
+    const savedLangCode = localStorage.getItem('preferredLanguage');
+    const rawLangCode = savedLangCode || device.language;
+    const langCode = this.translator.mapApiLanguageCode(rawLangCode);
+    console.log('initTranslator: savedLangCode', savedLangCode);
+    console.log('initTranslator: device.lang', device.language);
+    console.log('initTranslator: rawLangCode', rawLangCode);
+    console.log('initTranslator: langCode', langCode);
+    this.translator.init(langCode);
+    // console.log('**** from app.component.ts: preferred language: ', langCode);
+  }
+
+  subscribeToLanguageChanges() {
+    this.subs.push(
+      this.translator.preferredLanguageChanged.subscribe(s => this.refreshView())
     );
   }
 
@@ -273,7 +303,12 @@ export class AppComponent implements OnInit {
 
   }
 
-  setLanguage() {
+  async setLanguage() {
+    const modal = await this.modalCtrl.create({
+      component: LanguageModalPage,
+    });
 
+    modal.present();
+    this.menuCtrl.close();
   }
 }

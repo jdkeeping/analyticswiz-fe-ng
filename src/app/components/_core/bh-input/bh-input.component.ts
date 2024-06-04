@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, forwardRef } from '@angular/core';
-import { IonInput, IonIcon, IonItem, IonInputPasswordToggle } from '@ionic/angular/standalone';
+import { IonInput, IonIcon, IonItem, IonRadioGroup, IonRadio, IonNote } from '@ionic/angular/standalone';
 import { ControlValueAccessor, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { SelectOption } from 'src/app/models/_core/select-option';
 import { CommonModule } from '@angular/common';
@@ -23,8 +23,10 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     IonItem,
     IonInput,
-    IonInputPasswordToggle,
     IonIcon,
+    IonRadio,
+    IonRadioGroup,
+    IonNote,
     CommonModule
   ]
 })
@@ -32,7 +34,7 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
   @Input() formGroup: FormGroup;
   @Input() formControlName: string;
   @Input() cbSelectControlName: string;
-  @Input() type: 'text' | 'password' | 'select' | 'combo-box';
+  @Input() type: 'text' | 'password' | 'select' | 'combo-box' | 'radio-list';
   @Input() label: string;
   @Input() placeholder: string;
   @Input() selectOptions: any[] = [];

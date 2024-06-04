@@ -95,7 +95,7 @@
         (blur)="blurInput(formControlName)"
         (change)="valueChanged(index, label, $event)"
       >
-        <option value="" selected >All</option>
+        <option value="" selected>All</option>
         <option *ngFor="let opt of parsedSelectOptions" [value]="opt?.value">
           {{ opt?.label }}
         </option>
@@ -124,6 +124,16 @@
       (paste)="handlePaste($event, 'txt')"
     />
   </div>
+
+  <!-- Radio List -->
+  <ion-radio-group>
+    <ion-item  *ngFor="let opt of parsedSelectOptions">
+      <ion-radio label-placement="end" justify="start" [value]="opt?.value">
+        <div>{{ opt?.label }}</div>
+        <ion-note *ngIf="opt?.detail">{{ opt?.detail }}</ion-note>
+      </ion-radio>
+    </ion-item>
+  </ion-radio-group>
 
   <!-- Validation Messages -->
   <div class="validation-errors" *ngIf="validationMessages">
