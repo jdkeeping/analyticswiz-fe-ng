@@ -10,7 +10,7 @@ export interface User {
   userName?: string;
   fullName?: string;
   isActive?: boolean;
-  role?: string;
+  role?: 'USER' | 'ADMIN' | 'SYS_ADMIN';
   roles?: string[];
   lastLoginAt?: string;
   token?: string;

@@ -1,7 +1,8 @@
 import { Component, HostListener, NgZone, OnInit } from '@angular/core';
 import {
-  IonApp, IonRouterOutlet, Platform, MenuController, IonHeader, IonMenu,
-  IonSpinner, IonLabel, IonIcon, IonList, IonItem, IonContent, IonTitle, IonButton, IonButtons, IonToolbar
+  IonApp, IonRouterOutlet, Platform, MenuController, IonHeader, IonMenu, IonToggle, IonNote,
+  IonSpinner, IonLabel, IonIcon, IonList, IonItem, IonContent, IonTitle, IonButton, IonButtons, IonToolbar,
+  IonListHeader, IonItemDivider
 } from '@ionic/angular/standalone';
 import { ThemeOption } from './models/_core/theme-option';
 import { environment } from 'src/environments/environment';
@@ -18,6 +19,10 @@ import { StatusBar } from '@capacitor/status-bar';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 import { CommonModule } from '@angular/common';
 import { BhHeaderComponent } from './components/_core/bh-header/bh-header.component';
+import { BhUserIconComponent } from './components/_core/bh-user-icon/bh-user-icon.component';
+import { PipesModule } from './pipes/pipes.module';
+import { AnalyticsClickDirective } from './directives/analytics-click/analytics-click.directive';
+import { NavigationService } from './services/navigation/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -39,7 +44,14 @@ import { BhHeaderComponent } from './components/_core/bh-header/bh-header.compon
     IonButtons,
     IonToolbar,
     IonButton,
-    BhHeaderComponent
+    IonListHeader,
+    IonItemDivider,
+    IonToggle,
+    IonNote,
+    BhHeaderComponent,
+    BhUserIconComponent,
+    PipesModule,
+    AnalyticsClickDirective
   ],
 })
 export class AppComponent implements OnInit {
@@ -65,7 +77,8 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
     private menuCtrl: MenuController,
     private zone: NgZone,
-    private router: Router
+    private router: Router,
+    private navService: NavigationService
   ) {
     this.initializeApp();
     this.subscribeToLoader();
@@ -121,6 +134,9 @@ export class AppComponent implements OnInit {
           this.theme = us.theme;
           this.setTheme();
         }
+      }),
+      this.authService.authUser.subscribe(au => {
+        this.authUser = au;
       })
     );
   }
@@ -233,4 +249,31 @@ export class AppComponent implements OnInit {
     this.menuCtrl.close();
   }
 
+  signIn() {
+    this.navService.navigateRoot('/login');
+    this.menuCtrl.close();
+  }
+
+  signOut() {
+    this.authService.logout();
+    this.navService.navigateRoot('/login');
+    this.menuCtrl.close();
+  }
+
+  openMyAccount() {
+    this.navService.navigateRoot('/my-account');
+    this.menuCtrl.close();
+  }
+
+  openFeedback() {
+
+  }
+
+  openHelp() {
+
+  }
+
+  setLanguage() {
+
+  }
 }

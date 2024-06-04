@@ -55,20 +55,21 @@
   </ul>
 </div>
 <div class="charms">
-  <bh-charm
-    type="user"
-    label="User Menu"
+  <a
+    href="javascript:void(0)"
     eventName="header-charm"
     eventDetail="user"
     (click)="openUserMenu()"
-  ></bh-charm>
-  <bh-charm
-    type="icon"
+  >
+    <bh-charm type="user" label="User Menu"></bh-charm>
+  </a>
+  <a
+    href="javascript:void(0)"
     routerLink="/help"
-    ionIcon="help-circle-outline"
-    label="Help"
     eventName="header-charm"
     eventDetail="help"
   >
-  </bh-charm>
+    <bh-charm type="icon" ionIcon="help-circle-outline" label="Help">
+    </bh-charm>
+  </a>
 </div>

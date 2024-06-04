@@ -388,7 +388,6 @@ export class AuthService {
     if (data) {
       this.startInactivityTimer();
       const authUser: User = data;
-      console.log('handleLoginResponse: data', data);
       const userId = (authUser.id || authUser.userId);
       authUser.userId = userId.toLowerCase();
       authUser.firstName = this.helpers.getFirstName(data.fullName);
@@ -458,6 +457,8 @@ export class AuthService {
       } else {
         return 'USER';
       }
+    } else if (authUser.role) {
+      return authUser.role;
     } else {
       return 'USER';
     }

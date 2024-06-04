@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { LoginRouteGuardService } from './services/_core/login-route-guard/login-route-guard.service';
 
 export const routes: Routes = [
   {
@@ -9,14 +10,6 @@ export const routes: Routes = [
     path: 'login',
     pathMatch: 'full',
     loadComponent: () => import('./pages/login/login.page').then( m => m.LoginPage)
-  },
-  {
-    path: 'requests-lis',
-    loadComponent: () => import('./pages/requests-lis/requests-lis.page').then( m => m.RequestsLisPage)
-  },
-  {
-    path: 'requests-cis',
-    loadComponent: () => import('./pages/requests-cis/requests-cis.page').then( m => m.RequestsCisPage)
   },
   {
     path: 'help',
@@ -41,5 +34,10 @@ export const routes: Routes = [
   {
     path: 'cases-view',
     loadComponent: () => import('./pages/cases-view/cases-view.page').then( m => m.CasesViewPage)
+  },
+  {
+    path: 'my-account',
+    canActivate: [LoginRouteGuardService],
+    loadComponent: () => import('./pages/_core/my-account/my-account.page').then( m => m.MyAccountPage)
   },
 ];

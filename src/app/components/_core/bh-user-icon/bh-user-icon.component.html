@@ -1,0 +1,4 @@
+<div class="user-icon" [ngClass]="size">
+  <span *ngIf="initials">{{ initials }}</span>
+  <ion-icon name="person" *ngIf="!initials"></ion-icon>
+</div>

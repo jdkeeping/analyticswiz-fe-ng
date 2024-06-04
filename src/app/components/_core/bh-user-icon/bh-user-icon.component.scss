@@ -1,0 +1,78 @@
+:host {
+  text-align: center;
+}
+
+.user-icon {
+  border-radius: 100px;
+  background: var(--ion-color-primary);
+  font-size: 14px;
+  color: #fff;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  ion-icon {
+    font-size: 18px;
+  }
+
+  &.small {
+    transform: scale(1);
+  }
+
+  &.medium {
+    transform: scale(2);
+  }
+
+  &.large {
+    transform: scale(3);
+  }
+
+  &.self {
+    background: var(--app-gradient-color-1);
+  }
+
+  &.color-0 {
+    background: rgb(59, 87, 58);
+  }
+
+  &.color-1 {
+    background: rgb(168, 35, 35);
+  }
+
+  &.color-2 {
+    background: rgb(168, 110, 35);
+  }
+
+  &.color-3 {
+    background: rgb(246, 255, 117);
+    color: #000;
+  }
+
+  &.color-4 {
+    background: rgb(44, 165, 28);
+  }
+
+  &.color-5 {
+    background: rgb(35, 168, 90);
+  }
+
+  &.color-6 {
+    background: rgb(30, 55, 196);
+  }
+
+  &.color-7 {
+    background: rgb(82, 35, 168);
+  }
+
+  &.color-8 {
+    background: rgb(168, 35, 139);
+  }
+
+  &.color-9 {
+    background: rgb(102, 34, 79);
+  }
+
+}

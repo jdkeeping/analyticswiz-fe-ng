@@ -42,8 +42,10 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import '@ionic/angular/css/palettes/dark.system.css';
 
-* {
-  font-family: 'Figtree', sans-serif;
+*,
+ion-item,
+ion-label {
+  font-family: 'Figtree', sans-serif !important;
   font-smooth: always;
   --webkit-font-smoothing: subpixel-antialiased;
   --moz-osx-font-smoothing: grayscale;
