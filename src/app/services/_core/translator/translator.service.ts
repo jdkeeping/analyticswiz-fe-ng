@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
+import { TranslateClient, TranslateTextCommand } from '@aws-sdk/client-translate';
+import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-identity";
 import { BehaviorSubject } from 'rxjs';
 import { Language, LanguageCode } from 'src/app/models/translation-dict';
+
+// Dictionary assets
 import * as frenchDict from 'src/assets/translations/french.json';
 import * as germanDict from 'src/assets/translations/german.json';
 import * as portugueseDict from 'src/assets/translations/portuguese.json';
@@ -75,6 +80,17 @@ export class TranslatorService {
   ];
 
   private preferredLanguage: LanguageCode = 'en';
+
+  cipr = 'us-east-1';
+  cipid = '7764ec90-c58d-4d4d-af56-cce0d5f4820b';
+  client = new TranslateClient({
+    region: this.cipr,
+    credentials: fromCognitoIdentityPool({
+      client: new CognitoIdentityClient({ region: this.cipr }),
+      identityPoolId: this.cipr + ":" + this.cipid
+    })
+  })
+
 
   constructor() { }
 
@@ -224,4 +240,14 @@ export class TranslatorService {
     // Echo dictionary
     console.log('translator: echo dictionary: ', dictionary);
   }
+
+  async translateWithAws(text, lang): Promise<any> {
+    var command = new TranslateTextCommand({
+      Text: text,
+      SourceLanguageCode: "en",
+      TargetLanguageCode: lang
+    })
+    return this.client.send(command);
+  }
+
 }

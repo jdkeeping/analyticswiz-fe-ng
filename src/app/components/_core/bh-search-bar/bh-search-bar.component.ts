@@ -3,6 +3,7 @@ import { IonInput, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-search-bar',
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     IonInput,
     IonButton,
     IonIcon,
-    IonSpinner
+    IonSpinner,
+    PipesModule
   ]
 })
 export class BhSearchBarComponent  implements OnInit, OnChanges {

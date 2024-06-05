@@ -48,4 +48,8 @@ export const routes: Routes = [
     path: 'language-popover',
     loadComponent: () => import('./pages/_core/language-popover/language-popover.page').then( m => m.LanguagePopoverPage)
   },
+  {
+    path: 'language-translator',
+    loadComponent: () => import('./pages/_core/language-translator/language-translator.page').then( m => m.LanguageTranslatorPage)
+  },
 ];

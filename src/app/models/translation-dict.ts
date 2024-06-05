@@ -4,6 +4,8 @@ export interface Language {
   native: string;
   code: LanguageCode;
   enabled: boolean;
+  selected?: boolean;
+  translatedLines?: string[];
 };
 
 export type LanguageCode =

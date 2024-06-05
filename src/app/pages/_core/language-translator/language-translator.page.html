@@ -1,0 +1,126 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Language Translator (v2.0)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Language Translator (v2.0)</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ng-container *ngIf="activeView === 'loading'">
+    <ion-spinner name="dots"></ion-spinner>
+  </ng-container>
+
+  <ng-container *ngIf="activeView === 'error'">
+    This translation tool can only be used from the developer's environment.
+  </ng-container>
+
+  <ng-container *ngIf="activeView === 'form'">
+    <!-- Source Text (in English) -->
+    <bh-group-box>
+      <h3>Source Text (in English)</h3>
+      <textarea
+        placeholder="Paste your English source text here."
+        [(ngModel)]="englishText"
+      ></textarea>
+    </bh-group-box>
+
+    <ng-container *ngIf="englishText">
+      <bh-group-box>
+        <!-- Languages -->
+        <h3>Select Target Languages:</h3>
+        <div>
+          <ion-button
+            fill="outline"
+            size="small"
+            (click)="setAllSelection(true)"
+            *ngIf="languages && languages.length > 1"
+            >Select all</ion-button
+          >
+          <ion-button
+            fill="outline"
+            size="small"
+            (click)="setAllSelection(false)"
+            *ngIf="languages && languages.length > 1"
+            >Deselect all</ion-button
+          >
+          <ion-button fill="outline" size="small" (click)="enableAll()" *ngIf="!showAllLanguages"
+            >Show all languages</ion-button
+          >
+        </div>
+        <ion-list class="margin-bottom-24">
+          <ion-item
+            button
+            (click)="selectLanguage(l)"
+            *ngFor="let l of languages"
+          >
+            <ion-icon
+              name="checkmark-circle"
+              color="success"
+              slot="start"
+              *ngIf="l.selected"
+            ></ion-icon>
+            <ion-icon name="" slot="start" *ngIf="!l.selected"></ion-icon>
+            {{ l.name }}
+          </ion-item>
+        </ion-list>
+
+        <!-- Translate button -->
+        <ion-button (click)="translate()" [disabled]="isTranslating">
+          <ng-container *ngIf="!isTranslating">Translate</ng-container>
+          <ion-spinner name="dots" *ngIf="isTranslating"></ion-spinner>
+        </ion-button>
+      </bh-group-box>
+
+      <ng-container *ngIf="translationCount">
+        <bh-group-box>
+          <h3>Translation Results</h3>
+
+          <!-- Progress Bar -->
+          <h5>
+            Progress ({{ math.round(progress * 100) }}%)
+            <ion-icon
+              name="checkmark-circle"
+              color="success"
+              *ngIf="progress === 1"
+            ></ion-icon>
+          </h5>
+          <ion-progress-bar
+            *ngIf="translationCount"
+            [value]="progress"
+            [color]="progress === 1 ? 'success' : 'primary'"
+            mode="ios"
+            class="margin-bottom-24"
+          ></ion-progress-bar>
+
+          <!-- Results -->
+          <ng-container *ngFor="let l of languages">
+            <ng-container *ngIf="l.selected">
+              <h5 class="margin-top-24">{{ l.name }}</h5>
+              <p>
+                Append this text below into the /assets/translations/{{
+                l.name.toLowerCase() }}.json
+              </p>
+              <div class="code-container">
+                <a href="javascript:void(0)" (click)="copyTranslation(l)">COPY</a>
+                <code *ngFor="let tl of l.translatedLines; let i = index">
+                  "{{ linesToTranslate[i] }}": "{{ tl }}",<br />
+                </code>
+                <ion-spinner
+                  name="dots"
+                  color="primary"
+                  *ngIf="isTranslating"
+                ></ion-spinner>
+              </div>
+            </ng-container>
+          </ng-container>
+        </bh-group-box>
+        <div class="divider"></div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ion-content>
