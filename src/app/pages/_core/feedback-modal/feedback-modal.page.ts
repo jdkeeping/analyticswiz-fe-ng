@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonButtons, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { BhFeedbackFormComponent } from 'src/app/components/_core/bh-feedback-form/bh-feedback-form.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'app-feedback-modal',
@@ -19,7 +20,8 @@ import { BhFeedbackFormComponent } from 'src/app/components/_core/bh-feedback-fo
     IonIcon,
     CommonModule,
     FormsModule,
-    BhFeedbackFormComponent
+    BhFeedbackFormComponent,
+    PipesModule
   ]
 })
 export class FeedbackModalPage implements OnInit {

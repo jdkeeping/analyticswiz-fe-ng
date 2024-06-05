@@ -3,6 +3,7 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@
 import { RouterModule } from '@angular/router';
 import { IonIcon } from "@ionic/angular/standalone";
 import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-list-card',
@@ -13,7 +14,8 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
     CommonModule,
     RouterModule,
     IonIcon,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    PipesModule
   ]
 })
 export class BhListCardComponent implements OnInit, AfterViewInit {

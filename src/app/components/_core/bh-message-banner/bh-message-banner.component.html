@@ -4,8 +4,8 @@
       <ion-icon [name]="ionIcon"></ion-icon>
     </div>
     <div class="m-text">
-      <h6 *ngIf="heading" [innerHtml]="heading"></h6>
-      <p *ngIf="message" [innerHtml]="message"></p>
+      <h6 *ngIf="heading" innerHtml="{{ heading | translate }}"></h6>
+      <p *ngIf="message" innerHtml="{{ message | translate }}"></p>
     </div>
   </div>
 </div>

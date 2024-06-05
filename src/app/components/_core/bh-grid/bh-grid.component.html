@@ -7,7 +7,7 @@
       <ng-container *ngFor="let cd of columnDefinitions">
         <th *ngIf="cd.showColumn">
           <a href="javascript:void(0)" (click)="toggleSort(cd)">
-            {{ cd.columnLabel }}
+            {{ cd.columnLabel | translate }}
             <ion-icon
               name="arrow-up-outline"
               class="sort-direction-icon"
@@ -71,9 +71,9 @@
             'first-column': i === 0
           }"
         >
-          <span class="mobile-label" *ngIf="i > 0">{{ cd.columnLabel }}: </span>
+          <span class="mobile-label" *ngIf="i > 0">{{ cd.columnLabel | translate }}: </span>
           <span *ngIf="!cd.isDate && !cd.isBooleanIconField">{{
-            d[cd.fieldName]
+            d[cd.fieldName] | translate
           }}</span>
           <span *ngIf="cd.isDate">
             {{ d[cd.fieldName] | formatDate : "YYYY-MM-DD HH:mm:ss" }}

@@ -1,6 +1,6 @@
 <ng-container *ngIf="activeView === 'form'">
   <h3>
-    How would you rate our <strong>{{ feature }}</strong
+    {{ 'How would you rate our' | translate }}  <strong>{{ feature | translate }}</strong
     >?
   </h3>
 
@@ -70,7 +70,7 @@
 
   <textarea
     [(ngModel)]="feedbackText"
-    [placeholder]="textPlaceholder"
+    placeholder="{{ textPlaceholder | translate }}"
     *ngIf="starRating"
   ></textarea>
 
@@ -78,7 +78,7 @@
     <ion-button
       fill="outline"
       (click)="submitFeedback()"
-      >Submit feedback</ion-button
+      >{{ 'Submit feedback' | translate }}</ion-button
     >
   </div>
 </ng-container>

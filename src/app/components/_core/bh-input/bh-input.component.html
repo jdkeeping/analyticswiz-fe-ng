@@ -126,7 +126,7 @@
   </div>
 
   <!-- Radio List -->
-  <ion-radio-group>
+  <ion-radio-group [formControlName]="formControlName" *ngIf="type === 'radio-list'">
     <ion-item  *ngFor="let opt of parsedSelectOptions">
       <ion-radio label-placement="end" justify="start" [value]="opt?.value">
         <div>{{ opt?.label }}</div>

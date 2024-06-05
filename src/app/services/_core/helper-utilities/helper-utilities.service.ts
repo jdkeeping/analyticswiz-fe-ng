@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { State } from 'src/app/models/_core/state';
-import * as moment from 'moment';
+import moment from 'moment';
 import { SelectOption } from 'src/app/models/_core/select-option';
 import { TextReplacement } from 'src/app/models/_core/text-replacement';
 import { ErrorHandlerService } from '../error-handler/error-handler.service';

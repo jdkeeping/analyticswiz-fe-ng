@@ -1,21 +1,21 @@
 <ion-content>
   <bh-header></bh-header>
   <bh-body [padding]="true">
-    <h2>Share this App</h2>
+    <h2>{{ 'Share this App' | translate }}</h2>
     <bh-group-box>
-      <h3>How do you want to share this app?</h3>
+      <h3>{{ 'How do you want to share this app?' | translate }}</h3>
       <bh-list-card
         ionIcon="mail-outline"
-        heading="Email Link"
-        detail="Send a link to colleague's email."
+        heading="{{ 'Email Link' | translate }}"
+        detail="{{ 'Send a link to colleague's email.' | translate }}"
         eventName="Share: Email"
         (clickEvent)="share('email')"
       ></bh-list-card>
 
       <bh-list-card
         ionIcon="call-outline"
-        heading="Text Message Link"
-        detail="Send a link to a colleague's mobile phone."
+        heading="{{ 'Text Message Link' | translate }}"
+        detail="{{ 'Send a link to a colleague's mobile phone.' | translate }}"
         eventName="Share: Text Message"
         (clickEvent)="share('text')"
       ></bh-list-card>

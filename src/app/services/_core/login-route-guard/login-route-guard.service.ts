@@ -11,7 +11,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router, UrlTree } from '@angular/router';
 import { AnalyticsService } from '../analytics/analytics.service';
 import { first } from 'rxjs/operators';
-import * as moment from 'moment';
+import moment from 'moment';
 import { NavigationService } from '../../navigation/navigation.service';
 import { firstValueFrom } from 'rxjs';
 import { NotificationsService } from '../notifications/notifications.service';

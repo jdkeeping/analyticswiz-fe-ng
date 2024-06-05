@@ -1,7 +1,7 @@
 <ion-content>
   <bh-header></bh-header>
   <bh-body [padding]="true">
-    <h2>Check for Updates</h2>
+    <h2>{{ 'Check for Updates' | translate }}</h2>
     <bh-group-box class="text-align-center">
       <ion-icon
         [name]="statusIcon"
@@ -18,31 +18,31 @@
           (click)="update()"
           shape="round"
           *ngIf="devPlatform === 'mobile'"
-          ><ion-icon name="download-outline" slot="start"></ion-icon>Install
-          update</ion-button
-        >
+          ><ion-icon name="download-outline" slot="start"></ion-icon>
+          {{ 'Install update' | translate }}
+          </ion-button>
       </p>
       <p class="margin-top-48" *ngIf="devPlatform === 'web'">
-        <strong>Having problems updating the web app?</strong><br />
-        If you're using a web browser and this message keeps appearing after refreshing, try
-        clearing your browser cache and refresh this page.
+        <strong>{{ 'Having problems updating the web app?' | translate }}</strong><br />
+        {{ 'If you're using a web browser and this message keeps appearing after refreshing,' +
+            ' try clearing your browser cache and refresh this page.' | translate }}
       </p>
       <p class="margin-top-48" *ngIf="devPlatform === 'mobile'">
-        <strong>Having problems updating the mobile app?</strong><br />
-        If you are having problems updating the WorkTips mobile app, try using
-        these links on your mobile device: <br />
+        <strong>{{ 'Having problems updating the mobile app?' | translate }}</strong><br />
+        {{ 'If you are having problems updating the WorkTips mobile app, try using' +
+          ' these links on your mobile device:' | translate }} <br />
         <a
           href="javascript:void(0)"
           analyticsClick
           eventName="Check for updates: Update iOS"
-          >iOS update</a
+          >{{ 'iOS update' | translate }}</a
         >
         or
         <a
           href="javascript:void(0)"
           analyticsClick
           eventName="Check for updates: Update Android"
-          >Android update</a
+          >{{ 'Android update' | translate }}</a
         >.
       </p>
     </bh-group-box>

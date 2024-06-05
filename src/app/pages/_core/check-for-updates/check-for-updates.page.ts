@@ -16,6 +16,7 @@ import { HelperUtilitiesService } from 'src/app/services/_core/helper-utilities/
 import { AnalyticsService } from 'src/app/services/_core/analytics/analytics.service';
 import { Browser } from '@capacitor/browser';
 import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'app-check-for-updates',
@@ -37,7 +38,8 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
     BhFooterComponent,
     BhListCardComponent,
     BhGroupBoxComponent,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    PipesModule
   ]
 })
 export class CheckForUpdatesPage implements OnInit {

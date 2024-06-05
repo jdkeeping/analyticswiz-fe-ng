@@ -63,11 +63,6 @@ export const environment = {
   // This will allow users to login using biometrics (fingerprint, Touch ID or Face ID)
   allowBiometrics: false,
 
-  // Require PIN code enabled on device
-  // Patient/Secure Apps will require that the PIN code is enabled
-  // If PIN is not in use, app will block user
-  requirePin: true,
-
   // Require timeout
   // Patient/Secure Apps will require that timeout is enabled
   // On timeout, user will be bumped
@@ -101,5 +96,10 @@ export const environment = {
 
   //boot camp url on home page
   techTalksUrl: '/tabs/apps/a5cbfb70-83ba-4adc-87d4-bfe14396866e',
+
+  // Enable Multi-language support
+  // Shows the Select Language feature on login page, user menu, and account page
+  // Update translator service with support languages
+  enableMultiLanguageSupport: true,
 
 };

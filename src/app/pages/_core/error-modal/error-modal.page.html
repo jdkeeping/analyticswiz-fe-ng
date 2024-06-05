@@ -2,25 +2,25 @@
   <div class="icon-container">
     <ion-icon name="alert-circle-outline" color="danger"></ion-icon>
   </div>
-  <h2 class="text-align-center">{{ header }}</h2>
-  <p class="text-align-center">{{ message }}</p>
+  <h2 class="text-align-center">{{ header | translate }}</h2>
+  <p class="text-align-center">{{ message | translate }}</p>
   <div class="button-wrapper">
-    <ion-button (click)="dismiss()">Dismiss</ion-button>
+    <ion-button (click)="dismiss()">{{ 'Dismiss' | translate }}</ion-button>
     <a
       href="javascript:void(0)"
       (click)="presentDetail()"
       *ngIf="apiError && !showDetails"
-      >See error details</a
+      >{{ 'See error details' | translate }}</a
     >
   </div>
   <div class="form-group-box" *ngIf="showDetails">
-    <h3>Error Detail</h3>
+    <h3>{{ 'Error Detail' | translate }}</h3>
     <p>
-      Please take a screenshot of this Error Detail and attach to an email to
+      {{ 'Please take a screenshot of this Error Detail and attach to an email to ' | translate }}
       <a href="mailto:appliedtech@baystatehealth.org"
         >appliedtech&#64;baystatehealth.org</a
       >
-      or with submission of an I&amp;T help ticket
+      {{ 'or with submission of an I&amp;T help ticket' | translate }}
       <a
         href="https://baystatehealth.service-now.com/b_sp?id=sc_cat_item&sys_id=906528a10a0a0bf000a85bc20dfb6541"
         target="_blank"
@@ -28,35 +28,35 @@
       >.
     </p>
     <div class="record-row">
-      <div class="record-label">Message</div>
+      <div class="record-label">{{ 'Message' | translate }}</div>
       <div class="record-value">{{ apiError?.error?.message }}</div>
     </div>
     <div class="record-row">
-      <div class="record-label">Action</div>
+      <div class="record-label">{{ 'Action' | translate }}</div>
       <div class="record-value">{{ apiError?.action }}</div>
     </div>
     <div class="record-row" *ngIf="apiError?.parameters">
-      <div class="record-label">Parameters</div>
+      <div class="record-label">{{ 'Parameters' | translate }}</div>
       <div class="record-value">{{ apiError?.parameters }}</div>
     </div>
     <div class="record-row">
-      <div class="record-label">Error Name</div>
+      <div class="record-label">{{ 'Error Name' | translate }}</div>
       <div class="record-value">{{ apiError?.errorName }}</div>
     </div>
     <div class="record-row">
-      <div class="record-label">Path</div>
+      <div class="record-label">{{ 'Path' | translate }}</div>
       <div class="record-value">{{ apiError?.path }}</div>
     </div>
     <div class="record-row">
-      <div class="record-label">Request ID</div>
+      <div class="record-label">{{ 'Request ID' | translate }}</div>
       <div class="record-value">{{ apiError?.requestId }}</div>
     </div>
     <div class="record-row">
-      <div class="record-label">Status Code</div>
+      <div class="record-label">{{ 'Status Code' | translate }}</div>
       <div class="record-value">{{ apiError?.statusCode }}</div>
     </div>
     <div class="record-row">
-      <div class="record-label">Timestamp</div>
+      <div class="record-label">{{ 'Timestamp' | translate }}</div>
       <div class="record-value">
         {{ apiError?.timestamp | formatTimestamp }}
       </div>

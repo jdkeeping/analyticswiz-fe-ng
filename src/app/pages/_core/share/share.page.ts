@@ -8,6 +8,7 @@ import { BhGroupBoxComponent } from 'src/app/components/_core/bh-group-box/bh-gr
 import { BhHeaderComponent } from 'src/app/components/_core/bh-header/bh-header.component';
 import { BhListCardComponent } from 'src/app/components/_core/bh-list-card/bh-list-card.component';
 import { environment } from 'src/environments/environment';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'app-share',
@@ -25,7 +26,8 @@ import { environment } from 'src/environments/environment';
     BhBodyComponent,
     BhFooterComponent,
     BhListCardComponent,
-    BhGroupBoxComponent
+    BhGroupBoxComponent,
+    PipesModule
   ]
 })
 export class SharePage implements OnInit {

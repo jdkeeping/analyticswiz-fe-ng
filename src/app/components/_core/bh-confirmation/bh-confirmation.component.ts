@@ -1,6 +1,7 @@
 import { IonIcon, IonButton } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-confirmation',
@@ -10,7 +11,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   imports: [
     CommonModule,
     IonIcon,
-    IonButton
+    IonButton,
+    PipesModule
   ]
 })
 export class BhConfirmationComponent  implements OnInit {

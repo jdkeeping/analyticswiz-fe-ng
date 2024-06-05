@@ -10,7 +10,7 @@ import { Observable, BehaviorSubject, firstValueFrom } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NotificationsService } from '../notifications/notifications.service';
 import { StorageService } from '../storage/storage.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { AuthState } from 'src/app/models/_core/auth-state';
 import { SSOTokenResponse } from 'src/app/models/_core/sso-token-response';
 import { UserDeviceService } from '../user-device/user-device.service';

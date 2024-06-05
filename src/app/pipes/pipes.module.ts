@@ -8,6 +8,7 @@ import { FormatTimestampPipe } from './format-timestamp.pipe';
 import { CapitalizePipe } from './capitalize';
 import { FormatNumberPipe } from './format-number.pipe';
 import { FormatRolePipe } from './format-role.pipe';
+import { TranslatePipe } from './translate.pipe';
 
 /**
  * ID: bh-pipes-module
@@ -34,7 +35,8 @@ import { FormatRolePipe } from './format-role.pipe';
         FormatStatePipe,
         CapitalizePipe,
         FormatNumberPipe,
-        FormatRolePipe
+        FormatRolePipe,
+        TranslatePipe
     ],
     imports: [],
     exports: [
@@ -46,7 +48,8 @@ import { FormatRolePipe } from './format-role.pipe';
         FormatStatePipe,
         CapitalizePipe,
         FormatNumberPipe,
-        FormatRolePipe
+        FormatRolePipe,
+        TranslatePipe
     ]
 })
 export class PipesModule { }

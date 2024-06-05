@@ -12,6 +12,7 @@ import { NavigationService } from 'src/app/services/navigation/navigation.servic
 import { ModalController } from '@ionic/angular';
 import { BhMessageBannerComponent } from '../_core/bh-message-banner/bh-message-banner.component';
 import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-login-form',
@@ -26,7 +27,8 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
     CommonModule,
     BhInputComponent,
     BhMessageBannerComponent,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    PipesModule
   ]
 })
 export class BhLoginFormComponent implements OnInit {

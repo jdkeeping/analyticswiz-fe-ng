@@ -25,6 +25,7 @@ import { AnalyticsClickDirective } from './directives/analytics-click/analytics-
 import { NavigationService } from './services/navigation/navigation.service';
 import { LanguageModalPage } from './pages/_core/language-modal/language-modal.page';
 import { TranslatorService } from './services/_core/translator/translator.service';
+import { Language } from './models/translation-dict';
 
 @Component({
   selector: 'app-root',
@@ -70,6 +71,8 @@ export class AppComponent implements OnInit {
   isMenuOpen = false;
   presentationMode = false;
   authUser: User;
+  preferredLanguage: Language;
+  langReady = true;
 
   constructor(
     private deviceService: UserDeviceService,
@@ -101,11 +104,19 @@ export class AppComponent implements OnInit {
     this.subscribeToMenu();
     this.subscribeToUserDevice();
     this.subscribeToUserState();
+    this.initTranslator();
   }
 
   refreshView() {
     console.log('app-component: refreshing view');
     this.cdr.detectChanges();
+
+    this.langReady = false;
+    setTimeout(() => {
+      this.langReady = true;
+      this.cdr.detectChanges();
+    }, 0);
+
   }
 
   listenForThemePreference() {
@@ -148,6 +159,9 @@ export class AppComponent implements OnInit {
       }),
       this.authService.authUser.subscribe(au => {
         this.authUser = au;
+      }),
+      this.translator.preferredLanguageChanged.subscribe(l => {
+        this.preferredLanguage = this.translator.supportedLanguages.find(sl => sl.code === l);
       })
     );
   }
@@ -167,12 +181,8 @@ export class AppComponent implements OnInit {
     const savedLangCode = localStorage.getItem('preferredLanguage');
     const rawLangCode = savedLangCode || device.language;
     const langCode = this.translator.mapApiLanguageCode(rawLangCode);
-    console.log('initTranslator: savedLangCode', savedLangCode);
-    console.log('initTranslator: device.lang', device.language);
-    console.log('initTranslator: rawLangCode', rawLangCode);
-    console.log('initTranslator: langCode', langCode);
     this.translator.init(langCode);
-    // console.log('**** from app.component.ts: preferred language: ', langCode);
+    this.refreshView();
   }
 
   subscribeToLanguageChanges() {
@@ -308,6 +318,9 @@ export class AppComponent implements OnInit {
       component: LanguageModalPage,
     });
 
+    modal.onDidDismiss().then(d => {
+      this.refreshView();
+    });
     modal.present();
     this.menuCtrl.close();
   }

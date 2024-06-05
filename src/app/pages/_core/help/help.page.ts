@@ -10,6 +10,7 @@ import { BhGroupBoxComponent } from 'src/app/components/_core/bh-group-box/bh-gr
 import { ConstantsService } from 'src/app/services/_core/constants/constants.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 import { environment } from 'src/environments/environment';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'app-help',
@@ -27,7 +28,8 @@ import { environment } from 'src/environments/environment';
     BhBodyComponent,
     BhFooterComponent,
     BhListCardComponent,
-    BhGroupBoxComponent
+    BhGroupBoxComponent,
+    PipesModule
   ]
 })
 export class HelpPage implements OnInit {

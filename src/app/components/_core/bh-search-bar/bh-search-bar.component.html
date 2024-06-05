@@ -4,7 +4,7 @@
     <a href="javascript:void(0)" (click)="onClear()" class="close-icon" *ngIf="searchTerm">
       <ion-icon name="close-outline"></ion-icon>
     </a>
-    <input type="search" [placeholder]="placeholderText" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" />
+    <input type="search" placeholder="{{ placeholderText | translate }}" [(ngModel)]="searchTerm" (ngModelChange)="onSearch()" />
     <div class="search-suggestions" [ngClass]="{active: searchTerm}" *ngIf="showSuggestions">
       <div class="search-suggestions-padding">
         <ion-spinner name="dots" color="primary" *ngIf="isSearching"></ion-spinner>
@@ -14,5 +14,6 @@
       </div>
     </div>
   </div>
-  <ion-button (click)="onClick()">Search</ion-button>
+  <ion-button (click)="onClick()">{{ 'Search' | translate }}
+  </ion-button>
 </div>

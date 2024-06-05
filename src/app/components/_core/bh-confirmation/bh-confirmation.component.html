@@ -3,8 +3,8 @@
   [color]="ionIconColor"
   class="confirmation-icon"
 ></ion-icon>
-<h3 *ngIf="heading">{{ heading }}</h3>
-<p *ngIf="message">{{ message }}</p>
+<h3 *ngIf="heading">{{ heading | translate }}</h3>
+<p *ngIf="message">{{ message | translate }}</p>
 <p>
   <ion-button
     (click)="onClick()"
@@ -12,6 +12,6 @@
     *ngIf="showButton"
   >
     <ion-icon [name]="buttonIcon" slot="start" (click)="onClick()" *ngIf="buttonIcon"></ion-icon>
-    {{ buttonLabel }}
+    {{ buttonLabel | translate }}
   </ion-button>
 </p>

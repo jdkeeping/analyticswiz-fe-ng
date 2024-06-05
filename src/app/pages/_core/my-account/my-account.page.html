@@ -1,7 +1,7 @@
 <ion-content>
   <bh-header></bh-header>
   <bh-body [padding]="true">
-    <h1>My Account</h1>
+    <h1>{{ 'My Account' | translate }}</h1>
     <div class="user-icon-container">
       <bh-user-icon [userFullName]="authUser?.fullName" [userId]="authUser?.userId" size="large"></bh-user-icon>
     </div>
@@ -9,11 +9,11 @@
       <bh-property-row class="margin-bottom-0">
         <bh-property-cell label="Name">{{ authUser?.fullName }}</bh-property-cell>
         <bh-property-cell label="User ID">{{ authUser?.userId }}</bh-property-cell>
-        <bh-property-cell class="margin-bottom-0" label="Role">{{ authUser?.role | formatRole }}</bh-property-cell>
+        <bh-property-cell class="margin-bottom-0" label="Role">{{ authUser?.role | formatRole | translate }}</bh-property-cell>
       </bh-property-row>
     </bh-group-box>
     <bh-group-box>
-      <h3>Preferences</h3>
+      <h3>{{ 'Preferences' | translate }}</h3>
     </bh-group-box>
   </bh-body>
   <bh-footer></bh-footer>

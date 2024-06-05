@@ -1,4 +1,4 @@
-<h2>Sign in</h2>
+<h2>{{ 'Sign in' | translate }}</h2>
 <form [formGroup]="form1" (keydown.enter)="signIn()">
   <bh-message-banner
     type="danger"
@@ -33,7 +33,7 @@
     analyticsClick
     eventName="login: sign-in"
   >
-    <ng-container *ngIf="!isSigningIn">Sign in</ng-container>
+    <ng-container *ngIf="!isSigningIn">{{ 'Sign in' | translate }}</ng-container>
     <ion-spinner name="dots" *ngIf="isSigningIn"></ion-spinner>
   </ion-button>
   <ion-button
@@ -43,7 +43,7 @@
     analyticsClick
     eventName="login: help-forgot-pwd"
   >
-    Forgot username or password?
+    {{ 'Forgot username or password?' | translate }}
   </ion-button>
   <ion-button
     (click)="getHelp('/help-forgot-pwd')"
@@ -52,6 +52,6 @@
     analyticsClick
     eventName="login: help"
   >
-    Get help using {{ env?.appDescription }}
+    {{ 'Get help using' | translate }} {{ env?.appDescription }}
   </ion-button>
 </form>

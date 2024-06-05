@@ -1,8 +1,19 @@
-export interface TranslationDict {
-  es: any;
-}
+
+export interface Language {
+  name: string;
+  native: string;
+  code: LanguageCode;
+  enabled: boolean;
+};
 
 export type LanguageCode =
-  'en-US' |
-  'es-US'
+  'en' | // English
+  'fr' | // French
+  'de' | // German
+  'pt' | // Portuguese
+  'ru' | // Russian
+  'es' | // Spanish
+  'tl' | // Taglog
+  'uk' | // Ukranian
+  'vi' // Vitenamese
 ;

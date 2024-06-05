@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-property-cell',
@@ -7,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./bh-property-cell.component.scss'],
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    PipesModule
   ]
 })
 export class BhPropertyCellComponent  implements OnInit {

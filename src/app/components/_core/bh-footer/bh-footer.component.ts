@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import * as moment from 'moment';
+import moment from 'moment';
 import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 import { environment } from 'src/environments/environment';
 
@@ -14,7 +15,8 @@ import { environment } from 'src/environments/environment';
   imports: [
     CommonModule,
     RouterModule,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    PipesModule
   ]
 })
 export class BhFooterComponent  implements OnInit {

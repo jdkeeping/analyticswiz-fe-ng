@@ -6,6 +6,7 @@ import { BhInputComponent } from '../bh-input/bh-input.component';
 import { AnalyticsService } from 'src/app/services/_core/analytics/analytics.service';
 import { BhConfirmationComponent } from '../bh-confirmation/bh-confirmation.component';
 import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/analytics-click.directive';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-feedback-form',
@@ -19,7 +20,8 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
     IonButton,
     BhInputComponent,
     BhConfirmationComponent,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    PipesModule
   ]
 })
 export class BhFeedbackFormComponent implements OnInit {

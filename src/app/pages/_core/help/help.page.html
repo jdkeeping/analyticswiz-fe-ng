@@ -1,29 +1,29 @@
 <ion-content>
   <bh-header></bh-header>
   <bh-body [padding]="true">
-    <h2>Get Help</h2>
+    <h2>{{ 'Get Help' | translate }}</h2>
     <bh-group-box>
-      <h3>Need technical support?</h3>
+      <h3>{{ 'Need technical support?' | translate }}</h3>
       <bh-list-card
         ionIcon="pricetag-outline"
-        heading="Submit help ticket"
-        detail="Submit a help ticket to the I&amp;T Service Desk"
+        heading="{{ 'Submit help ticket' | translate }}"
+        detail="{{ 'Submit a help ticket to the I&amp;T Service Desk' | translate }}"
         eventName="Help: Submit Help Ticket"
         (clickEvent)="open('ticket')"
       ></bh-list-card>
 
       <bh-list-card
         ionIcon="call-outline"
-        heading="Call us"
-        detail="Call the I&amp;T Service Desk at 413-794-3000"
+        heading="{{ 'Call us' | translate }}"
+        detail="{{ 'Call the I&amp;T Service Desk at 413-794-3000' | translate }}"
         eventName="Help: Call"
         (clickEvent)="open('call')"
       ></bh-list-card>
 
       <bh-list-card
         ionIcon="mail-outline"
-        heading="Email us"
-        detail="Email the I&amp;T Service Desk at servicedesk@baystatehealth.org"
+        heading="{{ 'Email us' | translate }}"
+        detail="{{ 'Email the I&amp;T Service Desk at servicedesk@baystatehealth.org' | translate }}"
         eventName="Help: Email"
         (clickEvent)="open('email')"
       ></bh-list-card>
@@ -33,8 +33,8 @@
       <h3>Other help options</h3>
       <bh-list-card
         ionIcon="reload-outline"
-        heading="Check for updates"
-        detail="Check for the latest available version of this app."
+        heading="{{ 'Check for updates' | translate }}"
+        detail="{{ 'Check for the latest available version of this app.' | translate }}"
         eventName="Help: Check for updates"
         (clickEvent)="open('check-for-updates')"
       ></bh-list-card>

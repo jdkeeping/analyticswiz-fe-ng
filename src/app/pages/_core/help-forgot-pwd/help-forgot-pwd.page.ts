@@ -7,6 +7,7 @@ import { BhFooterComponent } from 'src/app/components/_core/bh-footer/bh-footer.
 import { BhGroupBoxComponent } from 'src/app/components/_core/bh-group-box/bh-group-box.component';
 import { BhHeaderComponent } from 'src/app/components/_core/bh-header/bh-header.component';
 import { BhListCardComponent } from 'src/app/components/_core/bh-list-card/bh-list-card.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'app-help-forgot-pwd',
@@ -24,7 +25,8 @@ import { BhListCardComponent } from 'src/app/components/_core/bh-list-card/bh-li
     BhBodyComponent,
     BhFooterComponent,
     BhListCardComponent,
-    BhGroupBoxComponent
+    BhGroupBoxComponent,
+    PipesModule
   ]
 })
 export class HelpForgotPwdPage implements OnInit {

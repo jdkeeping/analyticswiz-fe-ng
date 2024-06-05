@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import * as moment from 'moment';
+import moment from 'moment';
 import { GridColumnDefinition } from 'src/app/models/_core/grid-column-definition';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { IonIcon, IonCheckbox } from "@ionic/angular/standalone";

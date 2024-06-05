@@ -1,6 +1,7 @@
 import { IonIcon } from '@ionic/angular/standalone';
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-message-banner',
@@ -9,7 +10,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     CommonModule,
-    IonIcon
+    IonIcon,
+    PipesModule
   ]
 })
 export class BhMessageBannerComponent  implements OnInit {

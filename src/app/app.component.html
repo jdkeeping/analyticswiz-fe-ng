@@ -1,4 +1,4 @@
-<ion-menu menuId="user-menu" contentId="root-content" side="end">
+<ion-menu menuId="user-menu" contentId="root-content" side="end" *ngIf="langReady">
   <ion-header>
     <div class="user-menu-header">
       <bh-user-icon
@@ -7,7 +7,7 @@
       ></bh-user-icon>
       <div class="user-name" *ngIf="authUser?.userId">
         <strong>{{ authUser?.fullName }}</strong>
-        <span class="user-role">{{ authUser?.role | formatRole }}</span>
+        <span class="user-role">{{ authUser?.role | formatRole | translate }}</span>
       </div>
       <div class="sign-in" *ngIf="!authUser?.userId">
         <ion-button
@@ -17,7 +17,7 @@
           (click)="signIn()"
           analyticsClick
           eventName="user-menu: sign-in"
-          >Sign in</ion-button
+          >{{ 'Sign in' | translate }}</ion-button
         >
       </div>
       <div class="close-button">
@@ -31,7 +31,7 @@
     <ion-list>
       <ng-container *ngIf="authUser?.userId">
         <div class="padding-bottom-24"></div>
-        <ion-item-divider>Account</ion-item-divider>
+        <ion-item-divider>{{ 'Account' | translate }}</ion-item-divider>
         <ion-item
           button
           (click)="openMyAccount()"
@@ -39,7 +39,7 @@
           eventName="user-menu: my-account"
         >
           <ion-icon name="person-circle-outline" slot="start" aria-hidden="true"></ion-icon>
-          <ion-label>My account</ion-label>
+          <ion-label>{{ 'My account' | translate }}</ion-label>
         </ion-item>
         <ion-item
           button
@@ -47,13 +47,13 @@
           analyticsClick
           eventName="user-menu: sign-out"
         >
-          <ion-icon name="log-out-outline" slot="start"> aria-hidden="true"</ion-icon>
-          <ion-label>Sign out</ion-label>
+          <ion-icon name="log-out-outline" slot="start" aria-hidden="true"> </ion-icon>
+          <ion-label>{{ 'Sign out' | translate }}</ion-label>
         </ion-item>
       </ng-container>
 
       <div class="padding-bottom-24"></div>
-      <ion-item-divider>Preferences</ion-item-divider>
+      <ion-item-divider>{{ 'Preferences' | translate }}</ion-item-divider>
       <ion-item
         button
         (click)="setLanguage()"
@@ -61,8 +61,8 @@
         eventName="user-menu: set-language"
       >
         <ion-icon name="globe-outline" slot="start" aria-hidden="true"></ion-icon>
-        <ion-label>Language</ion-label>
-        <ion-label slot="end"><strong>English</strong></ion-label>
+        <ion-label>{{ 'Language' | translate }}</ion-label>
+        <ion-label slot="end"><strong>{{ preferredLanguage?.name | translate }}</strong></ion-label>
       </ion-item>
       <ion-item
         button
@@ -72,11 +72,11 @@
         [detail]="false"
       >
         <ion-icon name="bulb-outline" slot="start" aria-hidden="true"></ion-icon>
-        <ion-label>Dark mode</ion-label>
+        <ion-label>{{ 'Dark mode' | translate }}</ion-label>
         <ion-toggle class="user-menu-toggle" slot="end"></ion-toggle>
       </ion-item>
       <div class="padding-bottom-24"></div>
-      <ion-item-divider>Other Topics</ion-item-divider>
+      <ion-item-divider>{{ 'Other topics' | translate }}</ion-item-divider>
       <ion-item
         button
         (click)="openFeedback()"
@@ -84,7 +84,7 @@
         eventName="user-menu: feedback"
       >
         <ion-icon name="volume-medium-outline" slot="start" aria-hidden="true"></ion-icon>
-        <ion-label>Give feedback</ion-label>
+        <ion-label>{{ 'Give feedback' | translate }}</ion-label>
       </ion-item>
       <ion-item
         button
@@ -93,7 +93,7 @@
         eventName="user-menu: share-app"
       >
         <ion-icon name="share-outline" slot="start" aria-hidden="true"></ion-icon>
-        <ion-label>Share this app</ion-label>
+        <ion-label>{{ 'Share this app' | translate }}</ion-label>
       </ion-item>
       <ion-item
         button
@@ -102,12 +102,12 @@
         eventName="user-menu: get-help"
       >
         <ion-icon name="help-circle-outline" slot="start" aria-hidden="true"></ion-icon>
-        <ion-label>Get Help</ion-label>
+        <ion-label>{{ 'Get help' | translate }}</ion-label>
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-menu>
-<ion-app>
+<ion-app *ngIf="langReady">
   <ion-content id="root-content"></ion-content>
   <ion-router-outlet></ion-router-outlet>
 </ion-app>
@@ -116,7 +116,7 @@
     <div class="spinner-background">
       <ion-spinner class="loading-modal-spinner"></ion-spinner>
       <div class="loading-message" *ngIf="loadingMessage">
-        {{ loadingMessage }}
+        {{ loadingMessage | translate }}
       </div>
     </div>
   </div>
