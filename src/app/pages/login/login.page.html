@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="langReady">
   <bh-background-blue [alignCenter]="true">
     <div class="login-wrapper">
       <!-- Heading -->
@@ -8,14 +8,19 @@
         </div>
         <div class="right-side-tools">
           <bh-toolbar>
-            <!-- <ion-button fill="clear" aria-label="Change Language">
+            <ion-button fill="clear" (click)="changeLanguage($event)" *ngIf="env?.enableMultiLanguageSupport">
               <ion-icon
                 name="earth-outline"
                 slot="start"
                 aria-hidden="true"
               ></ion-icon>
-              English
-            </ion-button> -->
+              {{ preferredLanguage?.native }}
+              <ion-icon
+                name="chevron-down-outline"
+                slot="end"
+                aria-hidden="true"
+              ></ion-icon>
+            </ion-button>
           </bh-toolbar>
         </div>
       </section>
@@ -29,7 +34,10 @@
           </div>
           <div class="lc-right">
             <h2>Welcome to LabMouse</h2>
-            <p>Investigate and resolve LabCorp interface errors and LIS associated order builds.</p>
+            <p>
+              Investigate and resolve LabCorp interface errors and LIS
+              associated order builds.
+            </p>
           </div>
         </div>
       </section>

@@ -1,0 +1,8 @@
+<ion-content class="ion-padding">
+  <h5 class="margin-top-0">Select language</h5>
+  <ion-list>
+    <ion-item button (click)="setLanguage(l)" *ngFor="let l of languages">
+      {{ l.native }}
+    </ion-item>
+  </ion-list>
+</ion-content>

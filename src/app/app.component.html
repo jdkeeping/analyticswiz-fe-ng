@@ -59,6 +59,7 @@
         (click)="setLanguage()"
         analyticsClick
         eventName="user-menu: set-language"
+        *ngIf="env.enableMultiLanguageSupport"
       >
         <ion-icon name="globe-outline" slot="start" aria-hidden="true"></ion-icon>
         <ion-label>{{ 'Language' | translate }}</ion-label>
@@ -66,7 +67,6 @@
       </ion-item>
       <ion-item
         button
-        (click)="setLanguage()"
         analyticsClick
         eventName="user-menu: dark-mode"
         [detail]="false"

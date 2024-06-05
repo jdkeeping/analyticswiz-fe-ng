@@ -108,9 +108,7 @@ export class AppComponent implements OnInit {
   }
 
   refreshView() {
-    console.log('app-component: refreshing view');
     this.cdr.detectChanges();
-
     this.langReady = false;
     setTimeout(() => {
       this.langReady = true;
@@ -324,4 +322,5 @@ export class AppComponent implements OnInit {
     modal.present();
     this.menuCtrl.close();
   }
+
 }

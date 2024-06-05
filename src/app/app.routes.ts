@@ -44,4 +44,8 @@ export const routes: Routes = [
     path: 'language-modal',
     loadComponent: () => import('./pages/_core/language-modal/language-modal.page').then( m => m.LanguageModalPage)
   },
+  {
+    path: 'language-popover',
+    loadComponent: () => import('./pages/_core/language-popover/language-popover.page').then( m => m.LanguagePopoverPage)
+  },
 ];
