@@ -3,6 +3,7 @@ import { IonInput, IonIcon, IonItem, IonRadioGroup, IonRadio, IonNote } from '@i
 import { ControlValueAccessor, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { SelectOption } from 'src/app/models/_core/select-option';
 import { CommonModule } from '@angular/common';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-input',
@@ -27,7 +28,8 @@ import { CommonModule } from '@angular/common';
     IonRadio,
     IonRadioGroup,
     IonNote,
-    CommonModule
+    CommonModule,
+    PipesModule
   ]
 })
 export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChanges {

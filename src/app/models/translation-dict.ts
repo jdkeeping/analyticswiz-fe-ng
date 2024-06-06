@@ -5,6 +5,7 @@ export interface Language {
   code: LanguageCode;
   enabled: boolean;
   selected?: boolean;
+  isCopied?: boolean;
   translatedLines?: string[];
 };
 

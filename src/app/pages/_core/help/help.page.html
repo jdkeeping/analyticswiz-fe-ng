@@ -30,11 +30,11 @@
     </bh-group-box>
 
     <bh-group-box>
-      <h3>Other help options</h3>
+      <h3>{{ 'Other help options' | translate }}</h3>
       <bh-list-card
         ionIcon="reload-outline"
         heading="{{ 'Check for updates' | translate }}"
-        detail="{{ 'Check for the latest available version of this app.' | translate }}"
+        detail="{{ 'Check for the latest available version of this app' | translate }}"
         eventName="Help: Check for updates"
         (clickEvent)="open('check-for-updates')"
       ></bh-list-card>

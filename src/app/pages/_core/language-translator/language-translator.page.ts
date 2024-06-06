@@ -77,6 +77,7 @@ export class LanguageTranslatorPage implements OnInit {
   resetTranslations() {
     for (const l of this.languages) {
       l.translatedLines = [];
+      l.isCopied = false;
     }
 
   }
@@ -128,6 +129,7 @@ export class LanguageTranslatorPage implements OnInit {
       text += `  "${this.linesToTranslate[i]}": "${tl}",\n`;
       i +=1;
     }
+    l.isCopied = true;
     navigator.clipboard.writeText(text);
     this.notifications.showToast(l.name + ' translation copied to clipboard.');
     console.log('copyTranslation', text);

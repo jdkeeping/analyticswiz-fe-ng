@@ -12,7 +12,7 @@
       <div class="spinner-wrapper" *ngIf="isLoading">
         <ion-spinner name="dots" color="primary"></ion-spinner>
       </div>
-      <h3>{{ statusText }}</h3>
+      <h3>{{ statusText | translate }}</h3>
       <p *ngIf="versionData?.verstatus">
         <ion-button
           (click)="update()"
@@ -24,7 +24,7 @@
       </p>
       <p class="margin-top-48" *ngIf="devPlatform === 'web'">
         <strong>{{ 'Having problems updating the web app?' | translate }}</strong><br />
-        {{ 'If you're using a web browser and this message keeps appearing after refreshing,' +
+        {{ 'If you\'re using a web browser and this message keeps appearing after refreshing,' +
             ' try clearing your browser cache and refresh this page.' | translate }}
       </p>
       <p class="margin-top-48" *ngIf="devPlatform === 'mobile'">

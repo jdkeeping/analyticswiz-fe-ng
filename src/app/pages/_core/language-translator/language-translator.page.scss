@@ -11,6 +11,10 @@ textarea {
   padding-top: 16px;
 }
 
+  .copied {
+    opacity: .5;
+  }
+
 .code-container {
   background: var(--contrast-color-step-4);
   padding: 16px;
@@ -33,5 +37,6 @@ textarea {
   code {
     font-family: 'Courier New', Courier, monospace !important;
     font-size: 14px;
+    padding-right: 60px;
   }
 }

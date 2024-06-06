@@ -1,7 +1,7 @@
 <form [formGroup]="formGroup">
   <div class="input-wrapper">
     <div class="input-label">
-      {{ label }}
+      {{ label | translate }}
     </div>
     <!-- Text Input -->
     <input
@@ -13,7 +13,7 @@
       }"
       [formControlName]="formControlName"
       fill="outline"
-      [placeholder]="placeholder ? placeholder : ''"
+      placeholder="{{ placeholder | translate }}"
       [autocomplete]="autocomplete"
       (blur)="blurInput(formControlName)"
       (change)="valueChanged(index, label, $event)"
@@ -69,14 +69,14 @@
     >
       <option value=""></option>
       <option *ngFor="let opt of parsedSelectOptions" [value]="opt?.value">
-        {{ opt?.label }}
+        {{ opt?.label | translate }}
       </option>
     </select>
     <div class="select-chevron" *ngIf="type === 'select'">
       <ion-icon name="chevron-down-outline"></ion-icon>
     </div>
     <div class="select-placeholder" *ngIf="type === 'select' && placeholder">
-      {{ placeholder }}
+      {{ placeholder | translate }}
     </div>
   </div>
 
@@ -95,9 +95,9 @@
         (blur)="blurInput(formControlName)"
         (change)="valueChanged(index, label, $event)"
       >
-        <option value="" selected>All</option>
+        <option value="" selected>{{ 'All' | translate }}</option>
         <option *ngFor="let opt of parsedSelectOptions" [value]="opt?.value">
-          {{ opt?.label }}
+          {{ opt?.label | translate }}
         </option>
       </select>
       <div class="select-chevron">
@@ -129,8 +129,8 @@
   <ion-radio-group [formControlName]="formControlName" *ngIf="type === 'radio-list'">
     <ion-item  *ngFor="let opt of parsedSelectOptions">
       <ion-radio label-placement="end" justify="start" [value]="opt?.value">
-        <div>{{ opt?.label }}</div>
-        <ion-note *ngIf="opt?.detail">{{ opt?.detail }}</ion-note>
+        <div>{{ opt?.label | translate }}</div>
+        <ion-note *ngIf="opt?.detail">{{ opt?.detail | translate }}</ion-note>
       </ion-radio>
     </ion-item>
   </ion-radio-group>
@@ -152,7 +152,7 @@
         "
       >
         <!-- <ion-icon name="alert-circle-outline"></ion-icon> -->
-        {{ validation.message }}
+        {{ validation.message | translate }}
       </div>
     </ng-container>
   </div>

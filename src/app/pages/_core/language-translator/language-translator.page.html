@@ -100,21 +100,26 @@
           <!-- Results -->
           <ng-container *ngFor="let l of languages">
             <ng-container *ngIf="l.selected">
-              <h5 class="margin-top-24">{{ l.name }}</h5>
-              <p>
-                Append this text below into the /assets/translations/{{
-                l.name.toLowerCase() }}.json
-              </p>
-              <div class="code-container">
-                <a href="javascript:void(0)" (click)="copyTranslation(l)">COPY</a>
-                <code *ngFor="let tl of l.translatedLines; let i = index">
-                  "{{ linesToTranslate[i] }}": "{{ tl }}",<br />
-                </code>
-                <ion-spinner
-                  name="dots"
-                  color="primary"
-                  *ngIf="isTranslating"
-                ></ion-spinner>
+              <div [ngClass]="{ 'copied': l.isCopied }">
+                <h5 class="margin-top-24">{{ l.name }}</h5>
+                <p>
+                  Append this text below to the /assets/translations/{{
+                  l.name.toLowerCase() }}.json
+                </p>
+                <div class="code-container">
+                  <a href="javascript:void(0)" (click)="copyTranslation(l)">
+                    <ng-container *ngIf="!l.isCopied">COPY</ng-container>
+                    <ng-container *ngIf="l.isCopied">COPIED</ng-container>
+                  </a>
+                  <code *ngFor="let tl of l.translatedLines; let i = index">
+                    "{{ linesToTranslate[i] }}": "{{ tl }}",<br />
+                  </code>
+                  <ion-spinner
+                    name="dots"
+                    color="primary"
+                    *ngIf="isTranslating"
+                  ></ion-spinner>
+                </div>
               </div>
             </ng-container>
           </ng-container>

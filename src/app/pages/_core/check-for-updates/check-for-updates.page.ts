@@ -70,7 +70,7 @@ export class CheckForUpdatesPage implements OnInit {
         this.statusIcon = 'alert-circle-outline';
         this.statusColor = 'danger';
         this.statusText = 'A newer version is available. Please ' +
-          ((this.devPlatform === 'mobile') ? 'update' : 'refresh this page')
+         ((this.devPlatform === 'mobile') ? ' update' : 'refresh this page')
         + ' now.';
         break;
 
