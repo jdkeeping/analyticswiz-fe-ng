@@ -132,8 +132,8 @@ export class TranslatorService {
   }
 
   translate(englishText: string, langCode: LanguageCode = this.preferredLanguage) {
-    console.log(' ');
-    console.log('**** translator: translating: \'' + englishText + '\'', langCode);
+    // console.log(' ');
+    // console.log('**** translator: translating: \'' + englishText + '\'', langCode);
 
     // Get universal language code
     const lc = this.parseLanguageCode(langCode);
@@ -151,10 +151,10 @@ export class TranslatorService {
     if (!exists && !isEnglish) {
       console.warn('translator: missing ' + lc.toUpperCase() + ' translation for \'' + englishText + '\'');
     }
-    console.log('translator: translate: exists: ', exists);
-    console.log('translator: translate: isEnglish: ', isEnglish);
-    console.log('translator: translate: lc: ', lc);
-    console.log('translator: translate: langDict exists', dictionary);
+    // console.log('translator: translate: exists: ', exists);
+    // console.log('translator: translate: isEnglish: ', isEnglish);
+    // console.log('translator: translate: lc: ', lc);
+    // console.log('translator: translate: langDict exists', dictionary);
     if (dictionary) {
       console.log('translator: translate: langDict text exists', dictionary[englishText]);
     }
@@ -203,7 +203,7 @@ export class TranslatorService {
         dictionary = null;
     }
 
-    console.log('getDictionary: ', dictionary, langCode);
+    // console.log('getDictionary: ', dictionary, langCode);
     return dictionary;
   }
 

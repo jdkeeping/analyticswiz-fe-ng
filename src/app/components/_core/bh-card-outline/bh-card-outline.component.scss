@@ -35,8 +35,8 @@ a {
   width: 80%;
   bottom: -5px;
   right: -5px;
-  background: #fff;
-  transition: all .6s;
+  background: var(--ion-background-color);
+  transition: width .6s, height .6s;
 }
 
 h3 {

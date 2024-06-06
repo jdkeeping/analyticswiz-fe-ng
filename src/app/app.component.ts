@@ -26,6 +26,7 @@ import { NavigationService } from './services/navigation/navigation.service';
 import { LanguageModalPage } from './pages/_core/language-modal/language-modal.page';
 import { TranslatorService } from './services/_core/translator/translator.service';
 import { Language } from './models/translation-dict';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +34,7 @@ import { Language } from './models/translation-dict';
   standalone: true,
   imports: [
     CommonModule,
+    FormsModule,
     IonApp,
     IonRouterOutlet,
     IonHeader,
@@ -60,8 +62,8 @@ import { Language } from './models/translation-dict';
 })
 export class AppComponent implements OnInit {
   env = environment;
-  prefersDark = false;
-  theme: ThemeOption = 'M';
+  prefersDark: boolean = false;
+  theme: ThemeOption = 'light';
   subs: Subscription[] = [];
   updateInterval = null;
   displayingVerlocker = false;
@@ -73,6 +75,7 @@ export class AppComponent implements OnInit {
   authUser: User;
   preferredLanguage: Language;
   langReady = true;
+  paletteToggle = false;
 
   constructor(
     private deviceService: UserDeviceService,
@@ -118,23 +121,20 @@ export class AppComponent implements OnInit {
   }
 
   listenForThemePreference() {
-    this.prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // Save dark mode preference
+    const prefersDark = localStorage.getItem('prefersDark');
+    console.log('listenForThemePreferences: prefersDark from storage', prefersDark, typeof prefersDark);
+    this.prefersDark = (prefersDark) ? prefersDark === 'true' :
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    console.log('listenForThemePreferences: prefersDark from global', this.prefersDark);
     this.setTheme();
-    window.matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (mediaQuery) => {
-        const device = this.deviceService.deviceSubject.getValue();
-        device.prefersDark = mediaQuery.matches;
-        this.prefersDark = device.prefersDark;
-        this.deviceService.deviceSubject.next(device);
-        this.setTheme();
-      });
   }
 
   subscribeToMenu() {
     this.subs.push(
       this.authService.menuOpen.subscribe(async val => {
         const menus = await this.menuCtrl.getMenus();
-        console.log('Opening menu: ', val, menus);
+        // console.log('Opening menu: ', val, menus);
         this.isMenuOpen = val;
         if (this.isMenuOpen) {
           this.menuCtrl.open('user-menu');
@@ -194,46 +194,22 @@ export class AppComponent implements OnInit {
   }
 
   setTheme() {
-    let currentTheme: ThemeOption;
-    // Check if theme is user-defined
-    if (this.env.theme === 'user') {
-      // Check if user is not matching OS
-      if (this.theme !== undefined && this.theme !== 'M') {
-        console.log('found theme', this.theme);
-        switch (this.theme) {
-          case 'D':
-            // Set to dark
-            document.body.classList.add('dark');
-            currentTheme = 'D';
-            break;
+    // let currentTheme: ThemeOption;
+    switch (this.env.theme) {
+      case 'light':
+        this.initializeDarkPalette(false);
+        break;
 
-          default:
-            // Set to light
-            document.body.classList.remove('dark');
-            currentTheme = 'L';
-            break;
-        }
-      } else if (this.prefersDark) {
-        // console.log('Setting dark theme');
-        document.body.classList.add('dark');
-        currentTheme = 'D';
-      } else {
-        // console.log('Setting light theme');
-        document.body.classList.remove('dark');
-        currentTheme = 'L';
-      }
-    } else {
-      // Theme is defined by environment
-      if (this.env.theme === 'dark') {
-        document.body.classList.add('dark');
-        currentTheme = 'D';
-      } else {
-        document.body.classList.remove('dark');
-        currentTheme = 'L';
-      }
+      case 'dark':
+        this.initializeDarkPalette(true);
+        break;
+
+      case 'user':
+        console.log('setTheme: user', this.prefersDark);
+        this.initializeDarkPalette(this.prefersDark);
+        break;
     }
-    // console.log('Setting theme', this.env.theme, this.theme, this.prefersDark);
-    this.authService.setTheme(currentTheme);
+    // this.authService.setTheme(currentTheme);
   }
 
   async initializeApp() {
@@ -321,6 +297,42 @@ export class AppComponent implements OnInit {
     });
     modal.present();
     this.menuCtrl.close();
+  }
+
+  // Check/uncheck the toggle and update the palette based on isDark
+  initializeDarkPalette(isDark) {
+    this.paletteToggle = isDark;
+    this.toggleDarkPalette(isDark);
+  }
+
+  // Listen for the toggle check/uncheck to toggle the dark palette
+  toggleChange(ev) {
+    this.toggleDarkPalette(ev.detail.checked);
+  }
+
+  // Add or remove the "ion-palette-dark" class on the html element
+  toggleDarkPalette(shouldAdd) {
+    document.documentElement.classList.toggle('ion-palette-dark', shouldAdd);
+
+    // Save dark mode preference
+    localStorage.setItem('prefersDark', shouldAdd);
+
+    if (shouldAdd) {
+      // Add color-scheme meta for dark mode
+      const metaTag = document.createElement('meta');
+      metaTag.name = 'color-scheme';
+      metaTag.content = 'light dark';
+      document.getElementsByTagName('head')[0].appendChild(metaTag);
+    } else {
+      // Remove color-scheme for light mode
+      const metaTags = document.getElementsByTagName('meta');
+      for (var i = 0; i < metaTags.length; i++) {
+        if (metaTags[i].getAttribute('name') === 'color-scheme') {
+          metaTags[i].parentNode.removeChild(metaTags[i]);
+          break;
+        }
+      }
+    }
   }
 
 }

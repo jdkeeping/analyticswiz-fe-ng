@@ -128,7 +128,7 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
   }
 
   parseSelectOptions(value) {
-    console.log('parseSelectOptions: selectOptions', this.selectOptions);
+    // console.log('parseSelectOptions: selectOptions', this.selectOptions);
     if (this.selectOptions && this.selectOptions.length > 0) {
       this.parsedSelectOptions = [];
       this.selectOptions.forEach((s: any) => {

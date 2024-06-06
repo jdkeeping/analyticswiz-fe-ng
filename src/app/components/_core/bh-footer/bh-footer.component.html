@@ -1,14 +1,53 @@
-<div class="footer" [ngStyle]="{ 'margin-top': marginTop}">
-  <a routerLink="/help" analyticsClick eventName="footer-link" eventDetail="get-help">{{ 'Get Help' | translate }}</a>
-  <a routerLink="/share" analyticsClick eventName="footer-link" eventDetail="share">{{ 'Share this App' | translate }}</a>
-  <a routerLink="/check-for-updates" analyticsClick eventName="footer-link" eventDetail="check-for-updates">{{ 'Check for Updates' | translate }}</a>
-  <a href="https://www.baystatehealth.org" target="_blank" analyticsClick eventName="footer-link" eventDetail="baystatehealth.org">BaystateHealth.org</a>
-  <a href="https://www.baystatehealth.org/privacy-policy" target="_blank" analyticsClick eventName="footer-link" eventDetail="privacy">{{ 'Privacy' | translate }}</a>
-  <a href="https://www.baystatehealth.org/terms-of-use" target="_blank" analyticsClick eventName="footer-link" eventDetail="terms-of-use">{{ 'Terms of Use' | translate }}</a>
+<div class="footer" [ngStyle]="{ 'margin-top': marginTop }">
+  <a
+    routerLink="/help"
+    analyticsClick
+    eventName="footer-link"
+    eventDetail="get-help"
+    >{{ "Get Help" | translate }}</a
+  >
+  <a
+    routerLink="/share"
+    analyticsClick
+    eventName="footer-link"
+    eventDetail="share"
+    >{{ "Share this App" | translate }}</a
+  >
+  <a
+    routerLink="/check-for-updates"
+    analyticsClick
+    eventName="footer-link"
+    eventDetail="check-for-updates"
+    >{{ "Check for Updates" | translate }}</a
+  >
+  <a
+    href="https://www.baystatehealth.org"
+    target="_blank"
+    analyticsClick
+    eventName="footer-link"
+    eventDetail="baystatehealth.org"
+    >BaystateHealth.org</a
+  >
+  <a
+    href="https://www.baystatehealth.org/privacy-policy"
+    target="_blank"
+    analyticsClick
+    eventName="footer-link"
+    eventDetail="privacy"
+    >{{ "Privacy" | translate }}</a
+  >
+  <a
+    href="https://www.baystatehealth.org/terms-of-use"
+    target="_blank"
+    analyticsClick
+    eventName="footer-link"
+    eventDetail="terms-of-use"
+    >{{ "Terms of Use" | translate }}</a
+  >
   <div class="app-copyright">
-    {{ 'Copyright' | translate }} &#169; {{ year }} Baystate Health
+    {{ "Copyright" | translate }} &#169; {{ year }} Baystate Health
   </div>
   <div class="bh-version">
-    {{ 'Version' | translate }}: {{ env?.appVersion }}-{{ env?.env }}
+    {{ "Version" | translate }}: {{ env?.appVersion }}-{{ env?.env }}
   </div>
 </div>

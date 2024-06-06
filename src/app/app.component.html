@@ -73,7 +73,7 @@
       >
         <ion-icon name="bulb-outline" slot="start" aria-hidden="true"></ion-icon>
         <ion-label>{{ 'Dark mode' | translate }}</ion-label>
-        <ion-toggle class="user-menu-toggle" slot="end"></ion-toggle>
+        <ion-toggle class="user-menu-toggle" slot="end" [(ngModel)]="paletteToggle" (ionChange)="toggleChange($event)"></ion-toggle>
       </ion-item>
       <div class="padding-bottom-24"></div>
       <ion-item-divider>{{ 'Other topics' | translate }}</ion-item-divider>

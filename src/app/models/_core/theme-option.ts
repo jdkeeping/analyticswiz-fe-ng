@@ -1,5 +1,4 @@
 export type ThemeOption =
-  'M' | // Match System Theme
-  'L' | // Light Theme
-  'D' // Dark Theme
+  'light' | // Light Theme
+  'dark' // Dark Theme
   ;

@@ -44,7 +44,7 @@ export class AuthService {
   authUser: BehaviorSubject<User> = new BehaviorSubject(null);
   userState: UserState = {};
   userStateSubject: BehaviorSubject<UserState> = new BehaviorSubject({});
-  themeSubject: BehaviorSubject<ThemeOption> = new BehaviorSubject('M');
+  themeSubject: BehaviorSubject<ThemeOption> = new BehaviorSubject('light');
   menuOpen: BehaviorSubject<boolean> = new BehaviorSubject(false);
   apiUrl: any;
   timeoutWarningMs = 60000;
