@@ -147,7 +147,7 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
 
 
   valueChanged(index: number, label: string, evt: any) {
-    const value = evt.detail.value;
+    const value = evt.detail ? evt.detail.value : evt;
     const input = { index, label, value };
     this.valueChangeEvent.emit(input);
     this.showPlaceholder = (value && value !== '');

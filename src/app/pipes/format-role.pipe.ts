@@ -23,7 +23,7 @@ export class FormatRolePipe implements PipeTransform {
   constructor() { }
 
   transform(value: any, args?: any): any {
-    console.log('FormatRolePipe', value);
+    // console.log('FormatRolePipe', value);
 
     switch (value) {
       case 'USER':
