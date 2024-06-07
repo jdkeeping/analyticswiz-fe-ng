@@ -1,23 +1,17 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom" class="mobile-only-flex">
-    <ion-tab-button tab="cases" href="/tabs/cases">
-      <ion-icon aria-hidden="true" name="folder"></ion-icon>
-      <ion-label>Interface Cases</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="requests-lis" href="/tabs/requests-lis">
-      <ion-icon aria-hidden="true" name="document-text"></ion-icon>
-      <ion-label>LIS Requests</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="requests-cis" href="/tabs/requests-cis">
-      <ion-icon aria-hidden="true" name="document-text"></ion-icon>
-      <ion-label>CIS Requests</ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="manage" href="/tabs/manage">
-      <ion-icon aria-hidden="true" name="cog"></ion-icon>
-      <ion-label>Manage</ion-label>
-    </ion-tab-button>
+    <ng-container *ngFor="let p of pages">
+      <ion-tab-button
+        [tab]="p.tabId"
+        [href]="p.navPath"
+        analyticsClick
+        eventName="tab-button"
+        [eventDetail]="p.name"
+        *ngIf="p.isAccessible"
+      >
+        <ion-icon aria-hidden="true" [name]="p.ionIcon"></ion-icon>
+        <ion-label>{{ p.name }}</ion-label>
+      </ion-tab-button>
+    </ng-container>
   </ion-tab-bar>
 </ion-tabs>

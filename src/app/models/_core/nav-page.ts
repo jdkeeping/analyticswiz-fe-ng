@@ -17,6 +17,7 @@ export interface NavPage {
   ionIcon?: string;
   roles?: string[];
   isAccessible?: boolean;
+  isActive?: boolean;
 }
 
 // export type TabId =

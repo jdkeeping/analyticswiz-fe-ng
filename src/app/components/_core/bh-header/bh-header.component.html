@@ -1,26 +1,28 @@
-<a
-  href="javascript:void(0)"
-  (click)="openTab('/cases')"
-  analyticsClick
-  eventName="header-logo-click"
-  eventDetail="Home"
->
-  <bh-logo></bh-logo>
-</a>
-<div class="nav">
-  <ul class="desktop-only-flex">
-    <li>
-      <a
-        href="javascript:void(0)"
-        (click)="openTab('/tabs/cases')"
-        analyticsClick
-        eventName="header-link-click"
-        eventDetail="Interface Cases"
-        [ngClass]="{ active: activePage === 'cases' }"
-        >Interface Cases</a
-      >
-    </li>
-    <li>
+<div class="header" [ngClass]="{'fixed': fixed}">
+  <a
+    href="javascript:void(0)"
+    (click)="openTab('/cases')"
+    analyticsClick
+    eventName="header-logo-click"
+    eventDetail="Home"
+  >
+    <bh-logo></bh-logo>
+  </a>
+  <div class="nav">
+    <ul class="desktop-only-flex">
+      <li *ngFor="let p of pages">
+        <a
+          href="javascript:void(0)"
+          (click)="openTab(p.navPath)"
+          analyticsClick
+          eventName="header-link"
+          [eventDetail]="p.name"
+          [ngClass]="{ active: activePage === p.tabId }"
+          *ngIf="p.isAccessible"
+          >{{ p.name }}</a
+        >
+      </li>
+      <!-- <li>
       <a
         href="javascript:void(0)"
         (click)="openTab('/tabs/requests-lis')"
@@ -51,25 +53,27 @@
         [ngClass]="{ active: activePage === 'manage' }"
         >Manage</a
       >
-    </li>
-  </ul>
+    </li> -->
+    </ul>
+  </div>
+  <div class="charms">
+    <a
+      href="javascript:void(0)"
+      eventName="header-charm"
+      eventDetail="user"
+      (click)="openUserMenu()"
+    >
+      <bh-charm type="user" label="User Menu"></bh-charm>
+    </a>
+    <a
+      href="javascript:void(0)"
+      routerLink="/help"
+      eventName="header-charm"
+      eventDetail="help"
+    >
+      <bh-charm type="icon" ionIcon="help-circle-outline" label="Help">
+      </bh-charm>
+    </a>
+  </div>
 </div>
-<div class="charms">
-  <a
-    href="javascript:void(0)"
-    eventName="header-charm"
-    eventDetail="user"
-    (click)="openUserMenu()"
-  >
-    <bh-charm type="user" label="User Menu"></bh-charm>
-  </a>
-  <a
-    href="javascript:void(0)"
-    routerLink="/help"
-    eventName="header-charm"
-    eventDetail="help"
-  >
-    <bh-charm type="icon" ionIcon="help-circle-outline" label="Help">
-    </bh-charm>
-  </a>
-</div>
+<div class="fixed-spacer" *ngIf="fixed"></div>

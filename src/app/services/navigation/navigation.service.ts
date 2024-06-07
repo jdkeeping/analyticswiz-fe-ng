@@ -1,14 +1,10 @@
-import { UserDevice } from '../../models/_core/user-device';
+import { NavController } from '@ionic/angular';
 import { UserDeviceService } from './../_core/user-device/user-device.service';
-import { Platform, NavController } from '@ionic/angular';
-import { AuthService } from './../_core/auth/auth.service';
 import { NavPage } from './../../models/_core/nav-page';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subscription, firstValueFrom } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { User } from 'src/app/models/user';
-import { NotificationsService } from '../_core/notifications/notifications.service';
 import { environment } from 'src/environments/environment';
-import { ErrorHandlerService } from '../_core/error-handler/error-handler.service';
 
 /**
  * ID: bh-navigation
@@ -34,22 +30,69 @@ export class NavigationService {
     tabPath: 'home',
     tabId: 'home',
     ionIcon: 'home',
-    roles: ['USER', 'ADMIN', 'SYS_ADMIN']
+    roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
+    isAccessible: true,
+    isActive: false
   };
 
-  navPages: NavPage[] = [];
+  navPages: NavPage[] = [
+    {
+      name: 'Interface Cases',
+      navPath: '/tabs/cases',
+      tabPath: 'cases',
+      tabId: 'cases',
+      ionIcon: 'folder',
+      roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
+      isAccessible: true,
+      isActive: true
+    },
+    {
+      name: 'LIS Requests',
+      navPath: '/tabs/requests-lis',
+      tabPath: 'requests-lis',
+      tabId: 'requests-lis',
+      ionIcon: 'flask',
+      roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
+      isAccessible: true,
+      isActive: true
+    },
+    {
+      name: 'CIS Requests',
+      navPath: '/tabs/requests-cis',
+      tabPath: 'requests-cis',
+      tabId: 'requests-cis',
+      ionIcon: 'heart',
+      roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
+      isAccessible: true,
+      isActive: true
+    },
+    {
+      name: 'Manage',
+      navPath: '/tabs/manage',
+      tabPath: 'manage',
+      tabId: 'manage',
+      ionIcon: 'cog',
+      roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
+      isAccessible: true,
+      isActive: true
+    }
+
+  ];
+
+  navPagesSubject: BehaviorSubject<NavPage[]> = new BehaviorSubject([]);
   showNotifications = false;
   subscriptions: Subscription[] = [];
   accessiblePages = 0;
   navigationLoaded: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
-    private platform: Platform,
     private navCtrl: NavController,
     private deviceService: UserDeviceService,
-    private notifications: NotificationsService,
-    private errorHandler: ErrorHandlerService
   ) {
+    if (this.homeNavPage.isActive) {
+      this.navPages.unshift(this.homeNavPage);
+    }
+    this.navPagesSubject.next(this.navPages);
    }
 
   checkPrivileges(authUser: User) {
@@ -57,7 +100,9 @@ export class NavigationService {
       if (page.roles && page.roles.length > 0) {
         if (authUser) {
           // User logged in, check roles
-          const matches = page.roles.filter(r => (r && authUser && authUser.role && r.toLowerCase() === authUser.role.toLowerCase()));
+          const matches = page.roles.filter(r =>
+            (r && authUser && authUser.role && r.toLowerCase() === authUser.role.toLowerCase())
+          );
           page.isAccessible = (matches.length > 0);
         } else {
           // User not logged in
@@ -70,31 +115,22 @@ export class NavigationService {
     });
 
     this.accessiblePages = this.navPages.filter(p => p.isAccessible).length;
+    this.navPagesSubject.next(this.navPages);
   }
 
-
   navigateHome(): Promise<boolean> {
-    return this.navigateBack('/tabs/home');
+    const homePage = this.navPages.length > 0 ? this.navPages[0] : null;
+    return this.navigateBack(homePage.tabPath);
   }
 
   navigateForward(pathUrl, navOptions = undefined): Promise<boolean> {
     const userDevice = this.deviceService.getUserDevice();
     return this.navCtrl.navigateForward(pathUrl, navOptions);
-    // if (userDevice.isNarrowViewport) {
-    //   return this.navCtrl.navigateForward(pathUrl, navOptions);
-    // } else {
-    //   return this.navCtrl.navigateRoot(pathUrl, navOptions);
-    // }
   }
 
   navigateBack(pathUrl, navOptions = undefined): Promise<boolean> {
     const userDevice = this.deviceService.getUserDevice();
     return this.navCtrl.navigateBack(pathUrl, navOptions);
-    // if (userDevice.isNarrowViewport) {
-    //   return this.navCtrl.navigateBack(pathUrl, navOptions);
-    // } else {
-    //   return this.navCtrl.navigateRoot(pathUrl, navOptions);
-    // }
   }
 
   navigateRoot(pathUrl, navOptions = undefined): Promise<boolean> {

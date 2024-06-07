@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { BhLogoComponent } from '../bh-logo/bh-logo.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -6,6 +6,8 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
 import { BhCharmComponent } from '../bh-charm/bh-charm.component';
 import { AuthService } from 'src/app/services/_core/auth/auth.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
+import { NavPage } from 'src/app/models/_core/nav-page';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'bh-header',
@@ -20,8 +22,11 @@ import { NavigationService } from 'src/app/services/navigation/navigation.servic
     AnalyticsClickDirective
   ]
 })
-export class BhHeaderComponent  implements OnInit {
-  activePage: 'cases' | 'requests-lis' | 'requests-cis' | 'auditing' | 'manage';
+export class BhHeaderComponent  implements OnInit, OnDestroy {
+  @Input() fixed = false;
+  activePage: string;
+  pages: NavPage[] = [];
+  subs: Subscription[] = [];
 
   constructor(
     private authService: AuthService,
@@ -29,7 +34,13 @@ export class BhHeaderComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.pages = this.navService.navPages;
     this.setActivePage();
+    this.subscribeToNav();
+  }
+
+  ngOnDestroy() {
+    this.unsubscribe();
   }
 
   openTab(page) {
@@ -38,26 +49,32 @@ export class BhHeaderComponent  implements OnInit {
 
   setActivePage() {
     const path = window.location.pathname;
-    if (path.indexOf('/tabs/cases') > -1) {
-      this.activePage = 'cases';
-    }
-    if (path.indexOf('/tabs/requests-cis') > -1) {
-      this.activePage = 'requests-cis';
-    }
-    if (path.indexOf('/tabs/requests-lis') > -1) {
-      this.activePage = 'requests-lis';
-    }
-    if (path.indexOf('/tabs/auditing') > -1) {
-      this.activePage = 'auditing';
-    }
-    if (path.indexOf('/tabs/manage') > -1) {
-      this.activePage = 'manage';
+    for (const p of this.pages) {
+      if (path.indexOf(p.navPath) > -1) {
+        this.activePage = p.tabId;
+        break;
+      }
     }
   }
 
   openUserMenu() {
-    console.log('Opening user menu');
     this.authService.menuOpen.next(true);
+  }
+
+  subscribeToNav() {
+    this.subs.push(
+      this.navService.navPagesSubject.subscribe(p => {
+        this.pages = p;
+        this.setActivePage();
+      })
+    )
+  }
+
+  unsubscribe() {
+    this.subs.forEach(s => {
+      s.unsubscribe();
+      s = null;
+    });
   }
 
 }
