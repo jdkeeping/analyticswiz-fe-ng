@@ -266,7 +266,7 @@ export class AppComponent implements OnInit {
     const modal = await this.modalCtrl.create({
       component: FeedbackModalPage,
       componentProps: {
-        feature: 'MyBaystate app'
+        feature: 'BH Starter app'
       }
     });
 

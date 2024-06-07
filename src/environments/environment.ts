@@ -9,19 +9,19 @@ export const environment = {
   production: false,
 
   // App Name/ID
-  appName: 'MYBAYSTATE',
+  appName: 'BHSTARTER',
 
   // App Description (full name)
-  appDescription: 'MyBaystate',
+  appDescription: 'BH Starter',
 
   // App Version Number
   appVersion: '8.0.0',
 
   // App URL Scheme
-  appUrlScheme: 'mybaystate:',
+  appUrlScheme: 'bhstarter:',
 
   // Web URL
-  webUrl: 'https://dev.mybaystate.apps.baystatehealth.org',
+  webUrl: 'https://dev.bhstarter.apps.baystatehealth.org',
 
   // App's REST Service API Root URL
   apiUrl: 'https://mobiledev.api.baystatehealth.org/shuttleme',
@@ -36,13 +36,13 @@ export const environment = {
   ssoEnabled: false,
 
   // App's Uploaded Files Root URL
-  filesUrl: 'https://dev.mybaystate.apps.baystatehealth.org',
+  filesUrl: 'https://dev.bhstarter.apps.baystatehealth.org',
 
   // Verlocker API URL
   verlockerUrl: 'https://mobiledev.api.baystatehealth.org/verlocker',
 
   // BH AppStore Deep Link URL
-  appstoreUrl: 'https://mobile.baystatehealth.org/mybaystate/',
+  appstoreUrl: 'https://mobile.baystatehealth.org/bhstarter/',
 
   // Reset password link URL
   resetPwdUrl: 'https://baystatehealth.service-now.com/nav_to.do?uri=%2F$pwd_reset.do%3Fsysparm_url%3Dpassword_reset',
