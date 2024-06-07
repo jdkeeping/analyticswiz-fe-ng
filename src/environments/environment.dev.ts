@@ -52,7 +52,8 @@ export const environment = {
 
   // Set theme preference: user, light, dark
   // 'user' option will allow user to select theme preference (recommended).
-  // 'light' and 'dark' will force their respective themes and not allow user to change.
+  // 'light' option locks app into light mode, and user cannot change it
+  // 'dark' option locks app into dark mode, and user cannot change it
   theme: 'user',
 
   // Store token in local storage to remember user?

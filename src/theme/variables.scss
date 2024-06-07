@@ -76,7 +76,7 @@
   --ion-color-secondary-shade: #4a903e;
   --ion-color-secondary-tint: #65ad59;
 
-  --ion-color-tertiary: #6030ff;
+  --ion-color-tertiary: #22acef;
   --ion-color-tertiary-rgb: 96, 48, 255;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255, 255, 255;
@@ -132,6 +132,47 @@
 /* This sets a different item background when dark mode is enabled on ios and md */
 .ion-palette-dark.ios,
 .ion-palette-dark.md {
+  --ion-color-primary: #4b89e7;
+  --ion-color-primary-rgb: 75, 137, 231;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #4279cb;
+  --ion-color-primary-tint: #5d95e9;
+
+  --ion-color-secondary: #7ed270;
+  --ion-color-secondary-rgb: 126, 210, 112;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #6fb963;
+  --ion-color-secondary-tint: #8bd77e;
+
+  --ion-color-tertiary: #80c3e5;
+  --ion-color-tertiary-rgb: 128, 195, 229;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0, 0, 0;
+  --ion-color-tertiary-shade: #71acca;
+  --ion-color-tertiary-tint: #8dc9e8;
+
+  --ion-color-success: #0bd588;
+  --ion-color-success-rgb: 11, 213, 136;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #0abb78;
+  --ion-color-success-tint: #23d994;
+
+  --ion-color-warning: #fbd24b;
+  --ion-color-warning-rgb: 251, 210, 75;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #ddb942;
+  --ion-color-warning-tint: #fbd75d;
+
+  --ion-color-danger: #ff9eab;
+  --ion-color-danger-rgb: 255, 158, 171;
+  --ion-color-danger-contrast: #000000;
+  --ion-color-danger-contrast-rgb: 0, 0, 0;
+  --ion-color-danger-shade: #e08b96;
+  --ion-color-danger-tint: #ffa8b3;
 
   /** Background shading colors: boxes, cards **/
   --background-color-step-1: rgba(0, 0, 0, 1);

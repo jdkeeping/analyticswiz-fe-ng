@@ -27,6 +27,7 @@ import { LanguageModalPage } from './pages/_core/language-modal/language-modal.p
 import { TranslatorService } from './services/_core/translator/translator.service';
 import { Language } from './models/translation-dict';
 import { FormsModule } from '@angular/forms';
+import { FeedbackModalPage } from './pages/_core/feedback-modal/feedback-modal.page';
 
 @Component({
   selector: 'app-root',
@@ -261,12 +262,27 @@ export class AppComponent implements OnInit {
     this.menuCtrl.close();
   }
 
-  openFeedback() {
+  async openFeedback() {
+    const modal = await this.modalCtrl.create({
+      component: FeedbackModalPage,
+      componentProps: {
+        feature: 'LabMouse app'
+      }
+    });
+
+    modal.present();
+    this.menuCtrl.close();
 
   }
 
   openHelp() {
+    this.navService.navigateRoot('/help');
+    this.menuCtrl.close();
+  }
 
+  openShareThisApp() {
+    this.navService.navigateRoot('/share');
+    this.menuCtrl.close();
   }
 
   async setLanguage() {
