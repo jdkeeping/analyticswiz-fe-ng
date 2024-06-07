@@ -9,19 +9,19 @@ export const environment = {
   production: false,
 
   // App Name/ID
-  appName: 'LABMOUSE',
+  appName: 'MYBAYSTATE',
 
   // App Description (full name)
-  appDescription: 'LabMouse',
+  appDescription: 'MyBaystate',
 
   // App Version Number
   appVersion: '8.0.0',
 
   // App URL Scheme
-  appUrlScheme: 'labmouse:',
+  appUrlScheme: 'mybaystate:',
 
   // Web URL
-  webUrl: 'https://dev.labmouse.apps.baystatehealth.org',
+  webUrl: 'https://dev.mybaystate.apps.baystatehealth.org',
 
   // App's REST Service API Root URL
   apiUrl: 'https://mobiledev.api.baystatehealth.org/shuttleme',
@@ -42,7 +42,7 @@ export const environment = {
   verlockerUrl: 'https://mobiledev.api.baystatehealth.org/verlocker',
 
   // BH AppStore Deep Link URL
-  appstoreUrl: 'https://appstore.baystatehealth.org/labmouse/',
+  appstoreUrl: 'https://appstore.baystatehealth.org/mybaystate/',
 
   // Reset password link URL
   resetPwdUrl: 'https://baystatehealth.service-now.com/nav_to.do?uri=%2F$pwd_reset.do%3Fsysparm_url%3Dpassword_reset',

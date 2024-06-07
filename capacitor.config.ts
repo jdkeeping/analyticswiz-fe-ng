@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'org.baystatehealth.labmouse',
-  appName: 'labmouse',
+  appId: 'org.baystatehealth.mybaystatehealth',
+  appName: 'MyBaystate',
   webDir: 'www'
 };
 

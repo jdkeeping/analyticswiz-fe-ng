@@ -32,51 +32,50 @@ export class NavigationService {
     ionIcon: 'home',
     roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
     isAccessible: true,
-    isActive: false
+    isActive: true
   };
 
   navPages: NavPage[] = [
     {
-      name: 'Interface Cases',
-      navPath: '/tabs/cases',
-      tabPath: 'cases',
-      tabId: 'cases',
-      ionIcon: 'folder',
+      name: 'Messages',
+      navPath: '/tabs/messages',
+      tabPath: 'messages',
+      tabId: 'messages',
+      ionIcon: 'mail',
       roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
       isAccessible: true,
       isActive: true
     },
     {
-      name: 'LIS Requests',
-      navPath: '/tabs/requests-lis',
-      tabPath: 'requests-lis',
-      tabId: 'requests-lis',
-      ionIcon: 'flask',
-      roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
-      isAccessible: true,
-      isActive: true
-    },
-    {
-      name: 'CIS Requests',
-      navPath: '/tabs/requests-cis',
-      tabPath: 'requests-cis',
-      tabId: 'requests-cis',
+      name: 'Health Record',
+      navPath: '/tabs/health-record',
+      tabPath: 'health-record',
+      tabId: 'health-record',
       ionIcon: 'heart',
       roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
       isAccessible: true,
       isActive: true
     },
     {
-      name: 'Manage',
-      navPath: '/tabs/manage',
-      tabPath: 'manage',
-      tabId: 'manage',
-      ionIcon: 'cog',
+      name: 'Resources',
+      navPath: '/tabs/resources',
+      tabPath: 'resources',
+      tabId: 'resources',
+      ionIcon: 'library',
       roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
       isAccessible: true,
       isActive: true
-    }
-
+    },
+    {
+      name: 'Account',
+      navPath: '/tabs/account',
+      tabPath: 'account',
+      tabId: 'account',
+      ionIcon: 'person-circle',
+      roles: ['USER', 'ADMIN', 'SYS_ADMIN'],
+      isAccessible: true,
+      isActive: true
+    },
   ];
 
   navPagesSubject: BehaviorSubject<NavPage[]> = new BehaviorSubject([]);

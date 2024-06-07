@@ -266,7 +266,7 @@ export class AppComponent implements OnInit {
     const modal = await this.modalCtrl.create({
       component: FeedbackModalPage,
       componentProps: {
-        feature: 'LabMouse app'
+        feature: 'MyBaystate app'
       }
     });
 
