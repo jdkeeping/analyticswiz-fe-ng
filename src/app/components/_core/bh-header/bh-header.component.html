@@ -23,7 +23,7 @@
             [eventDetail]="p.name"
             [ngClass]="{ active: activePage === p.tabId }"
             *ngIf="p.isAccessible"
-            >{{ p.name }}</a
+            >{{ p.name | translate }}</a
           >
         </li>
       </ul>
