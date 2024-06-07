@@ -115,5 +115,18 @@
   "Text Message Link": "Ссылка на текстовое сообщение",
   "Send a link to a colleague's mobile phone.": "Отправьте ссылку на мобильный телефон коллеги.",
   "Checking app version...": "Проверка версии приложения...",
-  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Не забудьте использовать сетевой пароль при входе в это приложение. Если вы не можете вспомнить свой пароль, позвоните в службу поддержки I&T по телефону"
+  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Не забудьте использовать сетевой пароль при входе в это приложение. Если вы не можете вспомнить свой пароль, позвоните в службу поддержки I&T по телефону",
+  "Dismiss": "Отклонить",
+  "See error details": "См. сведения об ошибке",
+  "Error Detail": "Сведения об ошибке",
+  "Please take a screenshot of this Error Detail and attach to an email to ": "Сделайте снимок экрана с подробным описанием ошибки и прикрепите его к электронному письму по адресу ",
+  "or with submission of an I&amp;T help ticket": "или с отправкой заявки на помощь I&T",
+  "Message": "Послание",
+  "Action": "Действие",
+  "Parameters": "параметры",
+  "Error Name": "Имя ошибки",
+  "Path": "Путь",
+  "Request ID": "Идентификатор запроса",
+  "Status Code": "Код состояния",
+  "Timestamp": "Отметка времени"
 }

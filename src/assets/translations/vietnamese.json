@@ -115,5 +115,18 @@
   "Text Message Link": "Liên kết tin nhắn văn bản",
   "Send a link to a colleague's mobile phone.": "Gửi liên kết đến điện thoại di động của đồng nghiệp.",
   "Checking app version...": "Đang kiểm tra phiên bản ứng dụng...",
-  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Hãy nhớ sử dụng mật khẩu mạng của bạn khi đăng nhập vào ứng dụng này. Nếu bạn không thể nhớ mật khẩu của mình, hãy gọi cho Bộ phận Dịch vụ I&T tại"
+  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Hãy nhớ sử dụng mật khẩu mạng của bạn khi đăng nhập vào ứng dụng này. Nếu bạn không thể nhớ mật khẩu của mình, hãy gọi cho Bộ phận Dịch vụ I&T tại",
+  "Dismiss": "Bỏ qua",
+  "See error details": "Xem chi tiết lỗi",
+  "Error Detail": "Chi tiết lỗi",
+  "Please take a screenshot of this Error Detail and attach to an email to ": "Vui lòng chụp ảnh màn hình chi tiết lỗi này và đính kèm vào email đến ",
+  "or with submission of an I&amp;T help ticket": "hoặc với việc nộp phiếu trợ giúp của I&T",
+  "Message": "Tin nhắn",
+  "Action": "Hành động",
+  "Parameters": "Các thông số",
+  "Error Name": "Tên lỗi",
+  "Path": "Đường dẫn",
+  "Request ID": "ID yêu cầu",
+  "Status Code": "Mã trạng thái",
+  "Timestamp": "Dấu thời gian"
 }

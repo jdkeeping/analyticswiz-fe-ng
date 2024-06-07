@@ -115,5 +115,18 @@
   "Text Message Link": "Посилання на текстове повідомлення",
   "Send a link to a colleague's mobile phone.": "Надішліть посилання на мобільний телефон колеги.",
   "Checking app version...": "Перевірка версії програми...",
-  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Не забудьте використовувати свій мережевий пароль під час входу в цю програму. Якщо ви не можете запам'ятати свій пароль, зателефонуйте до служби обслуговування I&T за адресою"
+  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Не забудьте використовувати свій мережевий пароль під час входу в цю програму. Якщо ви не можете запам'ятати свій пароль, зателефонуйте до служби обслуговування I&T за адресою",
+  "Dismiss": "Звільнити",
+  "See error details": "Див. Деталі помилок",
+  "Error Detail": "Деталь помилки",
+  "Please take a screenshot of this Error Detail and attach to an email to ": "Будь ласка, зробіть скріншот цієї деталі помилки та додайте до електронного листа за адресою ",
+  "or with submission of an I&amp;T help ticket": "або з подачею довідкового квитка I&T",
+  "Message": "Повідомлення",
+  "Action": "Акція",
+  "Parameters": "Параметри",
+  "Error Name": "Назва помилки",
+  "Path": "Шляху",
+  "Request ID": "Ідентифікатор запиту",
+  "Status Code": "Код статусу",
+  "Timestamp": "Часова мітка"
 }

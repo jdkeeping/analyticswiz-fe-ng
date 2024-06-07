@@ -115,5 +115,18 @@
   "Text Message Link": "Link ng Mensahe ng Teksto",
   "Send a link to a colleague's mobile phone.": "Magpadala ng isang link sa mobile phone ng isang kasamahan.",
   "Checking app version...": "Sinusuri ang bersyon ng app...",
-  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Tandaan na gamitin ang iyong password sa network kapag nag-log in sa app na ito. Kung hindi mo matandaan ang iyong password, tumawag sa I&T Service Desk sa"
+  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "Tandaan na gamitin ang iyong password sa network kapag nag-log in sa app na ito. Kung hindi mo matandaan ang iyong password, tumawag sa I&T Service Desk sa",
+  "Dismiss": "Tanggalin",
+  "See error details": "Tingnan ang mga detalye ng error",
+  "Error Detail": "Detalye ng Error",
+  "Please take a screenshot of this Error Detail and attach to an email to ": "Mangyaring kumuha ng screenshot ng Detalye ng Error na ito at ilakip sa isang email sa ",
+  "or with submission of an I&amp;T help ticket": "o sa pagsusumite ng isang tiket sa tulong sa I&T",
+  "Message": "Mensahe",
+  "Action": "Pagkilos",
+  "Parameters": "Mga Parameter",
+  "Error Name": "Pangalan ng Error",
+  "Path": "Landas",
+  "Request ID": "ID ng Humiling",
+  "Status Code": "Code ng Katayuan",
+  "Timestamp": "Timestamp"
 }

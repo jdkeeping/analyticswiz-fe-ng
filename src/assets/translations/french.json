@@ -115,5 +115,18 @@
   "Text Message Link": "Lien vers un message texte",
   "Send a link to a colleague's mobile phone.": "Envoyez un lien vers le téléphone portable d'un collègue.",
   "Checking app version...": "Vérification de la version de l'application...",
-  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "N'oubliez pas d'utiliser votre mot de passe réseau lorsque vous vous connectez à cette application. Si vous avez oublié votre mot de passe, appelez le I&T Service Desk au"
+  "Remember to use your network password when logging into this app. If you can't remember your password, call the I&T Service Desk at": "N'oubliez pas d'utiliser votre mot de passe réseau lorsque vous vous connectez à cette application. Si vous avez oublié votre mot de passe, appelez le I&T Service Desk au",
+  "Dismiss": "Rejeter",
+  "See error details": "Afficher les détails de l'erreur",
+  "Error Detail": "Détail de l'erreur",
+  "Please take a screenshot of this Error Detail and attach to an email to ": "Veuillez prendre une capture d'écran du détail de cette erreur et la joindre à un e-mail à ",
+  "or with submission of an I&amp;T help ticket": "ou en soumettant un ticket d'assistance I&T",
+  "Message": "Message",
+  "Action": "Action",
+  "Parameters": "Paramètres",
+  "Error Name": "Nom de l'erreur",
+  "Path": "Sentier",
+  "Request ID": "ID de demande",
+  "Status Code": "Code d'état",
+  "Timestamp": "Horodatage"
 }
