@@ -1,3 +1,4 @@
+import { IonIcon } from '@ionic/angular/standalone';
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { BhLogoComponent } from '../bh-logo/bh-logo.component';
 import { CommonModule } from '@angular/common';
@@ -8,6 +9,7 @@ import { AuthService } from 'src/app/services/_core/auth/auth.service';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 import { NavPage } from 'src/app/models/_core/nav-page';
 import { Subscription } from 'rxjs';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
   selector: 'bh-header',
@@ -17,13 +19,16 @@ import { Subscription } from 'rxjs';
   imports: [
     CommonModule,
     RouterModule,
+    IonIcon,
     BhLogoComponent,
     BhCharmComponent,
-    AnalyticsClickDirective
+    AnalyticsClickDirective,
+    PipesModule
   ]
 })
 export class BhHeaderComponent  implements OnInit, OnDestroy {
   @Input() fixed = false;
+  @Input() showSearch = false;
   activePage: string;
   pages: NavPage[] = [];
   subs: Subscription[] = [];

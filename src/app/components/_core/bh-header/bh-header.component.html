@@ -1,4 +1,4 @@
-<div class="header" [ngClass]="{'fixed': fixed}">
+<div class="header" [ngClass]="{'fixed': fixed, 'search': showSearch}">
   <a
     href="javascript:void(0)"
     (click)="openTab('/cases')"
@@ -9,52 +9,26 @@
     <bh-logo></bh-logo>
   </a>
   <div class="nav">
-    <ul class="desktop-only-flex">
-      <li *ngFor="let p of pages">
-        <a
-          href="javascript:void(0)"
-          (click)="openTab(p.navPath)"
-          analyticsClick
-          eventName="header-link"
-          [eventDetail]="p.name"
-          [ngClass]="{ active: activePage === p.tabId }"
-          *ngIf="p.isAccessible"
-          >{{ p.name }}</a
-        >
-      </li>
-      <!-- <li>
-      <a
-        href="javascript:void(0)"
-        (click)="openTab('/tabs/requests-lis')"
-        analyticsClick
-        eventName="header-link-click"
-        eventDetail="LIS Requests"
-        [ngClass]="{ active: activePage === 'requests-lis' }"
-        >LIS Requests</a
-      >
-    </li>
-    <li>
-      <a
-        (click)="openTab('/tabs/requests-cis')"
-        analyticsClick
-        eventName="header-link-click"
-        eventDetail="CIS Requests"
-        [ngClass]="{ active: activePage === 'requests-cis' }"
-        >CIS Requests</a
-      >
-    </li>
-    <li>
-      <a
-        routerLink="/tabs/manage"
-        routerDirection="root"
-        analyticsClick
-        eventName="header-link-click"
-        eventDetail="Manage"
-        [ngClass]="{ active: activePage === 'manage' }"
-        >Manage</a
-      >
-    </li> -->
-    </ul>
+    <div class="nav-inner">
+      <div class="nav-search" *ngIf="showSearch">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="search" placeholder="{{ 'Search' | translate }}" />
+      </div>
+      <ul class="desktop-only-flex">
+        <li *ngFor="let p of pages">
+          <a
+            href="javascript:void(0)"
+            (click)="openTab(p.navPath)"
+            analyticsClick
+            eventName="header-link"
+            [eventDetail]="p.name"
+            [ngClass]="{ active: activePage === p.tabId }"
+            *ngIf="p.isAccessible"
+            >{{ p.name }}</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="charms">
     <a
@@ -76,4 +50,4 @@
     </a>
   </div>
 </div>
-<div class="fixed-spacer" *ngIf="fixed"></div>
+<div class="fixed-spacer" [ngClass]="{'search': showSearch}" *ngIf="fixed"></div>
