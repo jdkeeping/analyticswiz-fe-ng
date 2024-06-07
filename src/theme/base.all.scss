@@ -119,6 +119,7 @@ ion-menu {
     padding: 16px;
     display: flex;
     align-items: center;
+    color: var(--contrast-color-step-1);
 
     bh-user-icon {
       margin-right: 16px;
@@ -133,7 +134,6 @@ ion-menu {
 
       .user-role {
         display: block;
-        color: var(--contrast-color-step-1);
         font-size: 14px;
       }
     }

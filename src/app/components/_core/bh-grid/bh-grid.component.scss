@@ -12,11 +12,11 @@ table {
 
     th {
       text-align: left;
-      background: var(--shade-step-1);
+      background: var(--background-color-step-1);
       font-size: 14px;
 
       &:hover {
-        background: var(--shade-step-3);
+        background: var(--background-color-step-3);
       }
 
       &.icon-column {
@@ -77,7 +77,7 @@ table {
     }
 
     &:hover {
-      background: var(--shade-step-2);
+      background: var(--background-color-step-2);
 
       &.new {
         background: rgba(var(--ion-color-primary-rgb), 0.2);

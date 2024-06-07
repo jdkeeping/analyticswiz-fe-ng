@@ -105,7 +105,6 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     this.listenForThemePreference();
     this.subscribeToMenu();
-    this.subscribeToUserDevice();
     this.subscribeToUserState();
     this.initTranslator();
   }
@@ -148,28 +147,11 @@ export class AppComponent implements OnInit {
 
   subscribeToUserState() {
     this.subs.push(
-      this.authService.userStateSubject.subscribe(us => {
-        // console.log('UserState updated', us);
-        if (us && us.theme) {
-          this.theme = us.theme;
-          this.setTheme();
-        }
-      }),
       this.authService.authUser.subscribe(au => {
         this.authUser = au;
       }),
       this.translator.preferredLanguageChanged.subscribe(l => {
         this.preferredLanguage = this.translator.supportedLanguages.find(sl => sl.code === l);
-      })
-    );
-  }
-
-  subscribeToUserDevice() {
-    this.subs.push(
-      this.deviceService.deviceSubject.subscribe(d => {
-        // console.log('UserDevice updated', d);
-        this.prefersDark = d.prefersDark;
-        this.setTheme();
       })
     );
   }

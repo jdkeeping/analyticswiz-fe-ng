@@ -49,11 +49,11 @@
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
   /** Background shading colors: boxes, cards **/
-  --background-step-1: rgba(255, 255, 255, 1);
-  --background-step-2: rgba(255, 255, 255, 0.6);
-  --background-step-3: rgba(255, 255, 255, 0.4);
-  --background-step-4: rgba(255, 255, 255, 0.1);
-  --background-step-5: rgba(255, 255, 255, 0.05);
+  --background-color-step-1: rgba(255, 255, 255, 1);
+  --background-color-step-2: rgba(255, 255, 255, 0.6);
+  --background-color-step-3: rgba(255, 255, 255, 0.4);
+  --background-color-step-4: rgba(255, 255, 255, 0.1);
+  --background-color-step-5: rgba(255, 255, 255, 0.05);
 
   /** Contast colors: fonts, borders, etc. **/
   --contrast-color-step-1: rgba(0, 0, 0, 1);
@@ -134,11 +134,11 @@
 .ion-palette-dark.md {
 
   /** Background shading colors: boxes, cards **/
-  --background-step-1: rgba(0, 0, 0, 1);
-  --background-step-2: rgba(0, 0, 0, 0.6);
-  --background-step-3: rgba(0, 0, 0, 0.4);
-  --background-step-4: rgba(0, 0, 0, 0.1);
-  --background-step-5: rgba(0, 0, 0, 0.05);
+  --background-color-step-1: rgba(0, 0, 0, 1);
+  --background-color-step-2: rgba(0, 0, 0, 0.6);
+  --background-color-step-3: rgba(0, 0, 0, 0.4);
+  --background-color-step-4: rgba(0, 0, 0, 0.1);
+  --background-color-step-5: rgba(0, 0, 0, 0.05);
 
   /** Contast colors: fonts, borders, etc. **/
   --contrast-color-step-1: rgba(255, 255, 255, 1);
