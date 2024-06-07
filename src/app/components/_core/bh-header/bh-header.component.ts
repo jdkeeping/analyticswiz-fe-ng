@@ -10,6 +10,7 @@ import { NavigationService } from 'src/app/services/navigation/navigation.servic
 import { NavPage } from 'src/app/models/_core/nav-page';
 import { Subscription } from 'rxjs';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { BhSearchBarComponent } from '../bh-search-bar/bh-search-bar.component';
 
 @Component({
   selector: 'bh-header',
@@ -22,6 +23,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     IonIcon,
     BhLogoComponent,
     BhCharmComponent,
+    BhSearchBarComponent,
     AnalyticsClickDirective,
     PipesModule
   ]
@@ -46,6 +48,10 @@ export class BhHeaderComponent  implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.unsubscribe();
+  }
+
+  openHome() {
+    this.navService.navigateHome();
   }
 
   openTab(page) {
@@ -80,6 +86,10 @@ export class BhHeaderComponent  implements OnInit, OnDestroy {
       s.unsubscribe();
       s = null;
     });
+  }
+
+  onSearch(ev) {
+    console.log('Searching', ev);
   }
 
 }

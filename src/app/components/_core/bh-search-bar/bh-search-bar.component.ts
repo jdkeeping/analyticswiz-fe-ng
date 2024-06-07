@@ -27,6 +27,7 @@ export class BhSearchBarComponent  implements OnInit, OnChanges {
   @Input() searchTerm = '';
   @Input() searchDelay = 300;
   @Input() isSearching = true;
+  @Input() shape: 'block' | 'round' = 'round';
   @Output() searchEvent = new EventEmitter();
   @Output() clickEvent = new EventEmitter();
   @Output() clearEvent = new EventEmitter();

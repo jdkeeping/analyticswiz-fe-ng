@@ -15,13 +15,16 @@
     input {
       display: flex;
       flex: 1 1 auto;
-      background: transparent;
       border: 1px solid var(--contrast-color-step-3);
       padding: 12px 44px 12px 44px;
       border-radius: 8px;
       font-size: 17px;
       outline: none;
       margin-right: 4px;
+
+      &.round {
+        border-radius: 32px;
+      }
     }
 
     .search-icon {

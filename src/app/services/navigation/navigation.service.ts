@@ -119,8 +119,8 @@ export class NavigationService {
   }
 
   navigateHome(): Promise<boolean> {
-    const homePage = this.navPages.length > 0 ? this.navPages[0] : null;
-    return this.navigateBack(homePage.tabPath);
+    const homePage = this.navPages.length > 0 ? this.navPages[0].navPath : '/';
+    return this.navigateBack(homePage);
   }
 
   navigateForward(pathUrl, navOptions = undefined): Promise<boolean> {

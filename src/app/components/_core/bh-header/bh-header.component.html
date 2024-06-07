@@ -1,7 +1,7 @@
 <div class="header" [ngClass]="{'fixed': fixed, 'search': showSearch}">
   <a
     href="javascript:void(0)"
-    (click)="openTab('/cases')"
+    (click)="openHome()"
     analyticsClick
     eventName="header-logo-click"
     eventDetail="Home"
@@ -11,8 +11,7 @@
   <div class="nav">
     <div class="nav-inner">
       <div class="nav-search" *ngIf="showSearch">
-        <ion-icon name="search-outline"></ion-icon>
-        <input type="search" placeholder="{{ 'Search' | translate }}" />
+        <bh-search-bar [showSearchButton]="false" (searchEvent)="onSearch($event)"></bh-search-bar>
       </div>
       <ul class="desktop-only-flex">
         <li *ngFor="let p of pages">
