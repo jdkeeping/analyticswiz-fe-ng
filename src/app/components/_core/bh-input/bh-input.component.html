@@ -1,6 +1,6 @@
-<form [formGroup]="formGroup">
+<div [formGroup]="formGroup">
   <div class="input-wrapper">
-    <div class="input-label">
+    <div class="input-label" *ngIf="type !== 'checkbox'">
       {{ label | translate }}
     </div>
     <!-- Text Input -->
@@ -95,7 +95,7 @@
         (blur)="blurInput(formControlName)"
         (change)="valueChanged(index, label, $event)"
       >
-        <option value="" selected>{{ 'All' | translate }}</option>
+        <option value="" selected>{{ "All" | translate }}</option>
         <option *ngFor="let opt of parsedSelectOptions" [value]="opt?.value">
           {{ opt?.label | translate }}
         </option>
@@ -126,14 +126,24 @@
   </div>
 
   <!-- Radio List -->
-  <ion-radio-group [formControlName]="formControlName" *ngIf="type === 'radio-list'">
-    <ion-item  *ngFor="let opt of parsedSelectOptions">
+  <ion-radio-group
+    [formControlName]="formControlName"
+    *ngIf="type === 'radio-list'"
+  >
+    <ion-item *ngFor="let opt of parsedSelectOptions">
       <ion-radio label-placement="end" justify="start" [value]="opt?.value">
         <div>{{ opt?.label | translate }}</div>
         <ion-note *ngIf="opt?.detail">{{ opt?.detail | translate }}</ion-note>
       </ion-radio>
     </ion-item>
   </ion-radio-group>
+
+  <!-- Checkbox -->
+  <ion-checkbox
+    [formControlName]="formControlName"
+    labelPlacement="end"
+    *ngIf="type === 'checkbox'"
+  >{{ label | translate }}</ion-checkbox>
 
   <!-- Validation Messages -->
   <div class="validation-errors" *ngIf="validationMessages">
@@ -156,4 +166,4 @@
       </div>
     </ng-container>
   </div>
-</form>
+</div>

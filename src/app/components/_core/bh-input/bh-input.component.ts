@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, forwardRef } from '@angular/core';
-import { IonInput, IonIcon, IonItem, IonRadioGroup, IonRadio, IonNote } from '@ionic/angular/standalone';
+import { IonInput, IonIcon, IonItem, IonRadioGroup, IonRadio, IonNote, IonCheckbox, IonLabel } from '@ionic/angular/standalone';
 import { ControlValueAccessor, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { SelectOption } from 'src/app/models/_core/select-option';
 import { CommonModule } from '@angular/common';
@@ -19,7 +19,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     // { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT },
   ],
   standalone: true,
-  imports: [
+  imports: [IonLabel, IonCheckbox,
     FormsModule,
     ReactiveFormsModule,
     IonItem,
@@ -28,6 +28,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     IonRadio,
     IonRadioGroup,
     IonNote,
+    IonCheckbox,
     CommonModule,
     PipesModule
   ]
@@ -36,7 +37,7 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
   @Input() formGroup: FormGroup;
   @Input() formControlName: string;
   @Input() cbSelectControlName: string;
-  @Input() type: 'text' | 'password' | 'select' | 'combo-box' | 'radio-list';
+  @Input() type: 'text' | 'password' | 'select' | 'combo-box' | 'radio-list' | 'checkbox';
   @Input() label: string;
   @Input() placeholder: string;
   @Input() selectOptions: any[] = [];
