@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 })
 export class BhFooterComponent  implements OnInit {
   @Input() marginTop = '48px';
+  @Input() lightMode = false;
   env = environment;
   year = moment().year();
   constructor(

@@ -9,6 +9,15 @@
   color: var(--contrast-color-step-3);
   font-size: 14px;
 
+  &.light {
+    border-top-color: #fff;
+    color: #fff;
+
+    a {
+      color: #fff;
+    }
+  }
+
   a {
     color: var(--contrast-color-step-1);
     display: inline-block;

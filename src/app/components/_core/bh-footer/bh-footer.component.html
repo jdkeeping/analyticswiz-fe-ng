@@ -1,4 +1,8 @@
-<div class="footer" [ngStyle]="{ 'margin-top': marginTop }">
+<div
+  class="footer"
+  [ngStyle]="{ 'margin-top': marginTop }"
+  [ngClass]="{ light: lightMode }"
+>
   <a
     routerLink="/help"
     analyticsClick
