@@ -150,7 +150,7 @@ export class AuthService {
    * Save the user's state to local storage
    */
   async saveUserStateToStorage() {
-    if (!this.env.storeToken && this.userState.authUser.token) {
+    if (!this.env.storeToken && this.userState.authUser && this.userState.authUser.token) {
       this.userState.authUser.token = null;
     }
     this.userStateSubject.next(this.userState);
