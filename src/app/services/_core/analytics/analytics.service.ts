@@ -295,7 +295,7 @@ export class AnalyticsService {
 
       case 'iOS':
         const regExResult = /OS (\d+)_(\d+)_?(\d+)?/.exec(nVer);
-        osVersion = regExResult[1] + '.' + regExResult[2];
+        osVersion = (regExResult) ? regExResult[1] + '.' + regExResult[2] : null;
         break;
     }
     const browserInfo = {
