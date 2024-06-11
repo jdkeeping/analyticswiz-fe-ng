@@ -19,15 +19,19 @@
   }
 
   &.small {
-    transform: scale(1);
+    // Default is small
   }
 
   &.medium {
-    transform: scale(2);
+    height: 64px;
+    width: 64px;
+    font-size: 28px;
   }
 
   &.large {
-    transform: scale(3);
+    height: 92px;
+    width: 92px;
+    font-size: 42px;
   }
 
   &.self {
