@@ -12,6 +12,8 @@
     <input
       type="search"
       placeholder="{{ placeholderText | translate }}"
+      (focus)="onFocus(true)"
+      (blur)="onFocus(false)"
       [ngClass]="{ round: shape === 'round' }"
       [(ngModel)]="searchTerm"
       (ngModelChange)="onSearch()"
@@ -19,9 +21,9 @@
     <div
       class="search-suggestions"
       [ngClass]="{ active: searchTerm }"
-      *ngIf="showSuggestions"
+      *ngIf="showSuggestions && isFocused"
     >
-      <div class="search-suggestions-padding">
+      <div class="search-suggestions-padding" *ngIf="(isSearching || searchTerm)">
         <ion-spinner
           name="dots"
           color="primary"
@@ -30,6 +32,7 @@
         <ng-container *ngIf="!isSearching">
           <ng-content></ng-content>
         </ng-container>
+        <span *ngIf="!isSearching && resultCount === 0">No results found.</span>
       </div>
     </div>
   </div>

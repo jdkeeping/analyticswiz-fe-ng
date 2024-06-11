@@ -25,6 +25,7 @@ export class BhSearchBarComponent  implements OnInit, OnChanges {
   @Input() showSuggestions = true;
   @Input() placeholderText = 'Search';
   @Input() searchTerm = '';
+  @Input() resultCount = -1;
   @Input() searchDelay = 300;
   @Input() isSearching = true;
   @Input() shape: 'block' | 'round' = 'round';
@@ -32,12 +33,19 @@ export class BhSearchBarComponent  implements OnInit, OnChanges {
   @Output() clickEvent = new EventEmitter();
   @Output() clearEvent = new EventEmitter();
   timer;
+  isFocused = false;
 
   constructor() { }
 
   ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {}
+
+  onFocus(isFocused) {
+    setTimeout(() => {
+      this.isFocused = isFocused;
+    }, 250);
+  }
 
   onSearch() {
     if (this.showSuggestions) {
