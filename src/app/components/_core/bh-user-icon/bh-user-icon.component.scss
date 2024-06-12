@@ -35,48 +35,57 @@
   }
 
   &.self {
-    background: var(--app-gradient-color-1);
+    background: var(--user-color-self);
+    color: var(--user-color-self-contrast);
   }
 
   &.color-0 {
-    background: rgb(59, 87, 58);
+    background: var(--user-color-0);
+    color: var(--user-color-0-contrast);
   }
 
   &.color-1 {
-    background: rgb(168, 35, 35);
+    background: var(--user-color-1);
+    color: var(--user-color-1-contrast);
   }
 
   &.color-2 {
-    background: rgb(168, 110, 35);
+    background: var(--user-color-2);
+    color: var(--user-color-2-contrast);
   }
 
   &.color-3 {
-    background: rgb(246, 255, 117);
-    color: #000;
+    background: var(--user-color-3);
+    color: var(--user-color-3-contrast);
   }
 
   &.color-4 {
-    background: rgb(44, 165, 28);
+    background: var(--user-color-4);
+    color: var(--user-color-4-contrast);
   }
 
   &.color-5 {
-    background: rgb(35, 168, 90);
+    background: var(--user-color-5);
+    color: var(--user-color-5-contrast);
   }
 
   &.color-6 {
-    background: rgb(30, 55, 196);
+    background: var(--user-color-6);
+    color: var(--user-color-6-contrast);
   }
 
   &.color-7 {
-    background: rgb(82, 35, 168);
+    background: var(--user-color-7);
+    color: var(--user-color-7-contrast);
   }
 
   &.color-8 {
-    background: rgb(168, 35, 139);
+    background: var(--user-color-8);
+    color: var(--user-color-8-contrast);
   }
 
   &.color-9 {
-    background: rgb(102, 34, 79);
+    background: var(--user-color-9);
   }
 
 }

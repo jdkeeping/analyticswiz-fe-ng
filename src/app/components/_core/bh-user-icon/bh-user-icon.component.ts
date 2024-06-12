@@ -19,7 +19,7 @@ import { HelperUtilitiesService } from 'src/app/services/_core/helper-utilities/
 })
 export class BhUserIconComponent  implements OnChanges {
   @Input() userFullName: string;
-  @Input() userId: string;
+  @Input() userId: string | number;
   @Input() size: 'small' | 'medium' | 'large' = 'small';
   @Input() user: User;
   initials: string;
@@ -32,9 +32,10 @@ export class BhUserIconComponent  implements OnChanges {
   ) { }
 
   ngOnChanges() {
-    const user = this.authService.getAuthUser();
-    this.isSelf = (user.userId === user.userId);
+    const authUser = this.authService.getAuthUser();
+    this.isSelf = (authUser.userId === this.userId);
     this.setUserBadge();
+    console.log('user-icon: ', authUser.userId, this.userId);
   }
 
   setUserBadge() {
@@ -44,16 +45,16 @@ export class BhUserIconComponent  implements OnChanges {
       const firstNameInitial = firstName ? firstName.substr(0, 1) : null;
       const lastNameInitial = lastName ? lastName.substr(0, 1) : null;
       this.initials = firstNameInitial + lastNameInitial;
-      this.setBadgeColor();
-    }
+      }
+    this.setBadgeColor();
   }
 
   setBadgeColor() {
     if (this.isSelf) {
       this.colorClass = 'self';
     } else {
-      if (this.userId && this.userId.length > 1) {
-        const lastChar = this.userId.substr(this.userId.length - 1, 1);
+      if (this.userId) {
+        const lastChar = this.userId.toString().substr(this.userId.toString().length - 1, 1);
         this.colorClass = 'color-' + lastChar;
       }
     }

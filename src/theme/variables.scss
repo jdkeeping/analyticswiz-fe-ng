@@ -108,6 +108,31 @@
   --ion-color-danger-tint: #ed576b;
 
   --ion-item-border-color: var(--ion-background-color-step-200);
+
+  /** User colors **/
+  --user-color-self: var(--ion-color-primary);
+  --user-color-self-contrast: #fff;
+  --user-color-0: rgb(59, 87, 58);
+  --user-color-0-contrast: #fff;
+  --user-color-1: rgb(168, 35, 35);
+  --user-color-1-contrast: #fff;
+  --user-color-2: rgb(168, 110, 35);
+  --user-color-2-contrast: #fff;
+  --user-color-3: rgb(246, 255, 117);
+  --user-color-3-contrast: #000;
+  --user-color-4: rgb(44, 165, 28);
+  --user-color-4-contrast: #fff;
+  --user-color-5: rgb(35, 168, 90);
+  --user-color-5-contrast: #fff;
+  --user-color-6: rgb(30, 55, 196);
+  --user-color-6-contrast: #fff;
+  --user-color-7: rgb(82, 35, 168);
+  --user-color-7-contrast: #fff;
+  --user-color-8: rgb(168, 35, 139);
+  --user-color-8-contrast: #fff;
+  --user-color-9: rgb(102, 34, 79);
+  --user-color-9-contrast: #fff;
+
 }
 
 /* This sets a different background and item background for the default theme on ios */
