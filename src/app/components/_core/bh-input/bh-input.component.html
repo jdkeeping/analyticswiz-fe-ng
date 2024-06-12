@@ -22,6 +22,26 @@
       (paste)="handlePaste($event, 'txt')"
     />
 
+    <!-- Date Input -->
+    <input
+      *ngIf="type === 'date'"
+      type="date"
+      [ngClass]="{
+        invalid: !formGroup.controls[formControlName].valid,
+        pristine: !formGroup.controls[formControlName].pristine,
+        untouched: !formGroup.controls[formControlName].untouched
+      }"
+      [formControlName]="formControlName"
+      fill="outline"
+      placeholder="{{ placeholder | translate }}"
+      [autocomplete]="autocomplete"
+      (blur)="blurInput(formControlName)"
+      (change)="valueChanged(index, label, $event)"
+      (keydown)="handleKeyDown($event, 'txt')"
+      (keyup)="handleKeyUp($event, 'txt')"
+      (paste)="handlePaste($event, 'txt')"
+    />
+
     <!-- Password Input -->
     <input
       *ngIf="type === 'password'"
@@ -143,7 +163,8 @@
     [formControlName]="formControlName"
     labelPlacement="end"
     *ngIf="type === 'checkbox'"
-  >{{ label | translate }}</ion-checkbox>
+    >{{ label | translate }}</ion-checkbox
+  >
 
   <!-- Validation Messages -->
   <div class="validation-errors" *ngIf="validationMessages">

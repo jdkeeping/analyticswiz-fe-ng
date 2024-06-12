@@ -37,7 +37,7 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
   @Input() formGroup: FormGroup;
   @Input() formControlName: string;
   @Input() cbSelectControlName: string;
-  @Input() type: 'text' | 'password' | 'select' | 'combo-box' | 'radio-list' | 'checkbox';
+  @Input() type: 'text' | 'date' | 'password' | 'select' | 'combo-box' | 'radio-list' | 'checkbox';
   @Input() label: string;
   @Input() placeholder: string;
   @Input() selectOptions: any[] = [];
