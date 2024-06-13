@@ -1,7 +1,8 @@
 <div [formGroup]="formGroup">
   <div class="input-wrapper">
-    <div class="input-label" *ngIf="type !== 'checkbox'">
-      {{ label | translate }}
+    <div class="input-label" [ngClass]="{'required-label': isRequired && !formGroup.controls[formControlName].value}" *ngIf="type !== 'checkbox'">
+      <span>{{ label | translate }}</span>
+      <span class="required-marker" *ngIf="isRequired && type !== 'radio-list'">*</span>
     </div>
     <!-- Text Input -->
     <input
@@ -15,6 +16,10 @@
       fill="outline"
       placeholder="{{ placeholder | translate }}"
       [autocomplete]="autocomplete"
+      [readonly]="readonly"
+      [maxlength]="maxlength"
+      [pattern]="pattern"
+      [class]="width"
       (blur)="blurInput(formControlName)"
       (change)="valueChanged(index, label, $event)"
       (keydown)="handleKeyDown($event, 'txt')"
@@ -35,6 +40,10 @@
       fill="outline"
       placeholder="{{ placeholder | translate }}"
       [autocomplete]="autocomplete"
+      [readonly]="readonly"
+      [maxlength]="maxlength"
+      [pattern]="pattern"
+      [class]="width"
       (blur)="blurInput(formControlName)"
       (change)="valueChanged(index, label, $event)"
       (keydown)="handleKeyDown($event, 'txt')"
@@ -55,6 +64,10 @@
       fill="outline"
       [placeholder]="placeholder ? placeholder : ''"
       [autocomplete]="autocomplete"
+      [readonly]="readonly"
+      [maxlength]="maxlength"
+      [pattern]="pattern"
+      [class]="width"
       (blur)="blurInput(formControlName)"
       (change)="valueChanged(index, label, $event)"
       (keydown)="handleKeyDown($event, 'txt')"
@@ -84,6 +97,7 @@
       label-placement="stacked"
       fill="outline"
       [autocomplete]="autocomplete"
+      [class]="width"
       (blur)="blurInput(formControlName)"
       (change)="valueChanged(index, label, $event)"
     >
@@ -137,6 +151,7 @@
       fill="outline"
       [placeholder]="placeholder ? placeholder : ''"
       [autocomplete]="autocomplete"
+      [readonly]="readonly"
       (blur)="blurInput(formControlName)"
       (change)="valueChanged(index, label, $event)"
       (keydown)="handleKeyDown($event, 'txt')"
@@ -148,6 +163,7 @@
   <!-- Radio List -->
   <ion-radio-group
     [formControlName]="formControlName"
+    mode="md"
     *ngIf="type === 'radio-list'"
   >
     <ion-item *ngFor="let opt of parsedSelectOptions">
@@ -162,9 +178,16 @@
   <ion-checkbox
     [formControlName]="formControlName"
     labelPlacement="end"
+    class="ion-text-wrap"
+    mode="md"
     *ngIf="type === 'checkbox'"
     >{{ label | translate }}</ion-checkbox
   >
+
+  <!-- Helper Text -->
+   <div class="helper-text" *ngIf="helperText">
+    {{ helperText | translate }}
+   </div>
 
   <!-- Validation Messages -->
   <div class="validation-errors" *ngIf="validationMessages">

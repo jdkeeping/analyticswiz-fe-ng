@@ -9,6 +9,8 @@
 
   .input-label {
     position: absolute;
+    display: flex;
+    align-items: center;
     z-index: 1;
     top: -6px;
     left: 10px;
@@ -17,6 +19,10 @@
     border-radius: 4px;
     color: var(--contrast-color-step-2);
     font-size: 13px;
+
+    &.required-label {
+      color: var(--ion-color-danger);
+    }
   }
 
   .reveal-password-button {
@@ -50,6 +56,39 @@ input {
   &:focus {
     border-color: var(--ion-color-primary);
   }
+
+  &:read-only {
+    background: var(--contrast-color-step-4);
+  }
+
+
+  &.small {
+    max-width: 200px;
+  }
+
+  &.medium {
+    max-width: 400px
+  }
+
+  &.full {
+    max-width: unset;
+  }
+}
+
+.required-marker {
+  background: var(--ion-background-color);
+  font-size: 20px;
+  line-height: 20px;
+  margin-left: 8px;
+  padding: 0 8px;
+  position: absolute;
+  height: 17px;
+  width: 14px;
+  top: 0;
+  right: -12px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
 }
 
 select {
@@ -106,6 +145,11 @@ select {
     border-radius: 0;
     padding-left: 16px;
   }
+}
+
+.helper-text {
+  color: var(--contrast-color-step-3);
+  font-size: 14px;
 }
 
 .ve-message {

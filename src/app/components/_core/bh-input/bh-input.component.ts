@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, forwardRef } from '@angular/core';
 import { IonInput, IonIcon, IonItem, IonRadioGroup, IonRadio, IonNote, IonCheckbox, IonLabel } from '@ionic/angular/standalone';
-import { ControlValueAccessor, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SelectOption } from 'src/app/models/_core/select-option';
 import { CommonModule } from '@angular/common';
 import { PipesModule } from 'src/app/pipes/pipes.module';
@@ -19,9 +19,12 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     // { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT },
   ],
   standalone: true,
-  imports: [IonLabel, IonCheckbox,
+  imports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    IonLabel,
+    IonCheckbox,
     IonItem,
     IonInput,
     IonIcon,
@@ -29,7 +32,6 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     IonRadioGroup,
     IonNote,
     IonCheckbox,
-    CommonModule,
     PipesModule
   ]
 })
@@ -53,9 +55,8 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
   @Input() yearValues;
   @Input() min;
   @Input() max;
-  @Input() minWidth;
+  @Input() width: 'small' | 'medium' | 'full';
   @Input() step;
-  @Input() required;
   @Input() autocomplete;
   @Input() validationMessages: any;
   @Input() submitAttempted = false;
@@ -92,6 +93,10 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
     }
     if (!('formControlName' in changes)) {
       console.error('bh-input error: formControlName property not provided.');
+    }
+
+    if (('formGroup' in changes) && ('formControlName' in changes)) {
+      this.isRequired = this.formGroup.controls[this.formControlName].hasValidator(Validators.required);
     }
 
     if (this.type === 'select') {
