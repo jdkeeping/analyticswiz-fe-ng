@@ -110,7 +110,7 @@
   --ion-item-border-color: var(--ion-background-color-step-200);
 
   /** User colors **/
-  --user-color-self: var(--ion-color-primary);
+  --user-color-self: var(--ion-color-secondary);
   --user-color-self-contrast: #fff;
   --user-color-0: rgb(59, 87, 58);
   --user-color-0-contrast: #fff;
@@ -118,8 +118,8 @@
   --user-color-1-contrast: #fff;
   --user-color-2: rgb(168, 110, 35);
   --user-color-2-contrast: #fff;
-  --user-color-3: rgb(246, 255, 117);
-  --user-color-3-contrast: #000;
+  --user-color-3: rgb(198, 59, 187);
+  --user-color-3-contrast: #fff;
   --user-color-4: rgb(44, 165, 28);
   --user-color-4-contrast: #fff;
   --user-color-5: rgb(35, 168, 90);
@@ -137,7 +137,7 @@
 
 /* This sets a different background and item background for the default theme on ios */
 :root.ios {
-  --ion-background-color: var(--ion-background-color-step-50, #f2f2f6);
+  --ion-background-color: var(--ion-background-color-step-50, #ffffff);
   --ion-toolbar-background: var(--ion-background-color);
   --ion-item-background: #fff;
 }
