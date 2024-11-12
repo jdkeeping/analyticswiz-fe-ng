@@ -1,20 +1,29 @@
 <div [formGroup]="formGroup">
-  <div class="input-wrapper">
-    <div class="input-label" [ngClass]="{'required-label': isRequired && !formGroup.controls[formControlName].value}" *ngIf="type !== 'checkbox'">
+  <div
+    class="input-wrapper"
+    [ngClass]="{
+      'radio-list-wrapper': type === 'radio-list',
+      'no-border': hideBorder
+    }"
+  >
+    <div class="input-label" *ngIf="type !== 'checkbox' && type !== 'hidden' && !hideLabel && label">
       <span>{{ label | translate }}</span>
-      <span class="required-marker" *ngIf="isRequired && type !== 'radio-list'">*</span>
+      <span class="required-marker" *ngIf="isRequired">*</span>
     </div>
     <!-- Text Input -->
     <input
-      *ngIf="type === 'text'"
+      *ngIf="type === 'text' || type === 'phone'"
+      [id]="id"
       [ngClass]="{
         invalid: !formGroup.controls[formControlName].valid,
         pristine: !formGroup.controls[formControlName].pristine,
         untouched: !formGroup.controls[formControlName].untouched
       }"
+      [type]="type"
       [formControlName]="formControlName"
       fill="outline"
       placeholder="{{ placeholder | translate }}"
+      [mask]="type === 'phone' ? '999-999-9999' : ''"
       [autocomplete]="autocomplete"
       [readonly]="readonly"
       [maxlength]="maxlength"
@@ -30,6 +39,7 @@
     <!-- Date Input -->
     <input
       *ngIf="type === 'date'"
+      [id]="id"
       type="date"
       [ngClass]="{
         invalid: !formGroup.controls[formControlName].valid,
@@ -54,6 +64,7 @@
     <!-- Password Input -->
     <input
       *ngIf="type === 'password'"
+      [id]="id"
       [type]="revealPassword ? 'text' : 'password'"
       [formControlName]="formControlName"
       [ngClass]="{
@@ -75,19 +86,19 @@
       (paste)="handlePaste($event, 'txt')"
     />
     <!-- Reveal password button -->
-    <a
-      href="javascript:void(0)"
+    <div
       class="reveal-password-button"
       (click)="revealPassword = !revealPassword"
       *ngIf="type === 'password'"
     >
-      <ion-icon name="eye-outline" *ngIf="!revealPassword"></ion-icon>
+      <ion-icon name="eye" *ngIf="!revealPassword"></ion-icon>
       <ion-icon name="eye-off-outline" *ngIf="revealPassword"></ion-icon>
-    </a>
+    </div>
 
     <!-- Select -->
     <select
       *ngIf="type === 'select'"
+      [id]="id"
       [formControlName]="formControlName"
       [ngClass]="{
         invalid: !formGroup.controls[formControlName].valid,
@@ -109,9 +120,55 @@
     <div class="select-chevron" *ngIf="type === 'select'">
       <ion-icon name="chevron-down-outline"></ion-icon>
     </div>
-    <div class="select-placeholder" *ngIf="type === 'select' && placeholder">
+    <div
+      class="select-placeholder"
+      *ngIf="
+        type === 'select' &&
+        placeholder &&
+        !formGroup.controls[formControlName].value
+      "
+    >
       {{ placeholder | translate }}
     </div>
+
+    <!-- Textarea -->
+    <textarea
+      *ngIf="type === 'textarea'"
+      [id]="id"
+      fill="outline"
+      [ngClass]="{
+        invalid: !formGroup.controls[formControlName].valid,
+        pristine: !formGroup.controls[formControlName].pristine,
+        untouched: !formGroup.controls[formControlName].untouched
+      }"
+      placeholder="{{ placeholder | translate }}"
+      [formControlName]="formControlName"
+      [readonly]="readonly"
+      [maxlength]="maxlength"
+      [pattern]="pattern"
+      [class]="width"
+      (blur)="blurInput(formControlName)"
+      (change)="valueChanged(index, label, $event)"
+      (keydown)="handleKeyDown($event, 'txt')"
+      (keyup)="handleKeyUp($event, 'txt')"
+      (paste)="handlePaste($event, 'txt')"
+    >
+    </textarea>
+
+    <!-- Radio List -->
+    <ion-radio-group
+      [formControlName]="formControlName"
+      mode="md"
+      *ngIf="type === 'radio-list'"
+      [id]="id"
+    >
+      <ion-item *ngFor="let opt of parsedSelectOptions">
+        <ion-radio label-placement="end" justify="start" [value]="opt?.value">
+          <div>{{ opt?.label | translate }}</div>
+          <ion-note *ngIf="opt?.detail">{{ opt?.detail | translate }}</ion-note>
+        </ion-radio>
+      </ion-item>
+    </ion-radio-group>
   </div>
 
   <!-- Combo Box -->
@@ -142,6 +199,7 @@
     <div class="combo-box-divider"></div>
 
     <input
+      [id]="id"
       [ngClass]="{
         invalid: !formGroup.controls[formControlName].valid,
         pristine: !formGroup.controls[formControlName].pristine,
@@ -160,34 +218,44 @@
     />
   </div>
 
-  <!-- Radio List -->
-  <ion-radio-group
-    [formControlName]="formControlName"
-    mode="md"
-    *ngIf="type === 'radio-list'"
-  >
-    <ion-item *ngFor="let opt of parsedSelectOptions">
-      <ion-radio label-placement="end" justify="start" [value]="opt?.value">
-        <div>{{ opt?.label | translate }}</div>
-        <ion-note *ngIf="opt?.detail">{{ opt?.detail | translate }}</ion-note>
-      </ion-radio>
-    </ion-item>
-  </ion-radio-group>
-
   <!-- Checkbox -->
   <ion-checkbox
+    *ngIf="type === 'checkbox'"
+    [id]="id"
     [formControlName]="formControlName"
     labelPlacement="end"
     class="ion-text-wrap"
     mode="md"
-    *ngIf="type === 'checkbox'"
-    >{{ label | translate }}</ion-checkbox
+    (ionChange)="valueChanged(index, label, $event.detail.checked)"
   >
+    <div class="checkbox-label" *ngIf="!hideLabel">
+      {{ label | translate }}
+      <div class="helper-text" *ngIf="helperText">
+        {{ helperText | translate }}
+      </div>
+    </div>
+  </ion-checkbox>
+
+  <!-- Hidden field -->
+  <input
+    *ngIf="type === 'hidden'"
+    [id]="id"
+    [ngClass]="{
+      invalid: !formGroup.controls[formControlName].valid,
+      pristine: !formGroup.controls[formControlName].pristine,
+      untouched: !formGroup.controls[formControlName].untouched
+    }"
+    type="hidden"
+    [formControlName]="formControlName"
+    [class]="width"
+    (change)="valueChanged(index, label, $event)"
+    (paste)="handlePaste($event, 'txt')"
+  />
 
   <!-- Helper Text -->
-   <div class="helper-text" *ngIf="helperText">
+  <div class="helper-text" *ngIf="helperText && type !== 'checkbox'">
     {{ helperText | translate }}
-   </div>
+  </div>
 
   <!-- Validation Messages -->
   <div class="validation-errors" *ngIf="validationMessages">

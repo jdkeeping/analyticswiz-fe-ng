@@ -20,7 +20,6 @@
  */
 
  @media (min-width: 768px) {
-
   // ion-header:not(.modal-header) {
   //   display: none;
   // }
@@ -34,28 +33,23 @@
   //   border-radius: 16px;
   // }
 
-  // .wide-modal {
-  //   &.super-wide .modal-wrapper {
-  //     max-width: 1400px !important;
-  //   }
+  .wide-modal {
+    --width: 100%;
+    --height: 100%;
 
-  //   &.fullscreen .modal-wrapper {
-  //     max-width: unset !important;
-  //   }
+    &.super-wide {
+      --max-width: 1400px !important;
+    }
 
-  //   .modal-wrapper {
-  //     width: 100%;
-  //     height: 100%;
-  //     max-width: 1400px;
-  //   }
+    &.fullscreen {
+      --max-width: unset !important;
+    }
 
-  //   &.floating {
-  //     .modal-wrapper {
-  //       width: 95%;
-  //       height: 95%;
-  //     }
-  //   }
-  // }
+    &.floating {
+      --width: 95%;
+      --height: 95%;
+    }
+  }
 
   .desktop-only:not(.force-style-mobile) {
     display: block;

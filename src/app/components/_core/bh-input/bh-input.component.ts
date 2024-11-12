@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, forwardRef } from '@angular/core';
-import { IonInput, IonIcon, IonItem, IonRadioGroup, IonRadio, IonNote, IonCheckbox, IonLabel } from '@ionic/angular/standalone';
+import { IonInput, IonIcon, IonItem, IonRadioGroup, IonRadio, IonNote, IonCheckbox, IonLabel, IonTextarea } from '@ionic/angular/standalone';
 import { ControlValueAccessor, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SelectOption } from 'src/app/models/_core/select-option';
 import { CommonModule } from '@angular/common';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'bh-input',
@@ -20,6 +21,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
   ],
   standalone: true,
   imports: [
+    IonTextarea,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -32,14 +34,16 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     IonRadioGroup,
     IonNote,
     IonCheckbox,
-    PipesModule
+    PipesModule,
+    NgxMaskDirective
   ]
 })
 export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChanges {
   @Input() formGroup: FormGroup;
   @Input() formControlName: string;
   @Input() cbSelectControlName: string;
-  @Input() type: 'text' | 'date' | 'password' | 'select' | 'combo-box' | 'radio-list' | 'checkbox';
+  @Input() id: string;
+  @Input() type: 'text' | 'date' | 'password' | 'select' | 'combo-box' | 'radio-list' | 'checkbox' | 'textarea' | 'phone' | 'hidden';
   @Input() label: string;
   @Input() placeholder: string;
   @Input() selectOptions: any[] = [];
@@ -62,6 +66,8 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
   @Input() submitAttempted = false;
   @Input() helperText: string;
   @Input() mask: string;
+  @Input() hideBorder = false;
+  @Input() hideLabel = false;
   @Output() valueChangeEvent = new EventEmitter();
   @Output() blurEvent = new EventEmitter();
   @Output() selectDxEvent = new EventEmitter();
@@ -83,40 +89,54 @@ export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChange
   ngOnChanges(changes: SimpleChanges): void {
     this.validateAttributes(changes);
     if ('selectOptions' in changes) {
+      this.parseStringSelectOptions();
       this.parseSelectOptions(this.viewOnlyValue);
     }
   }
 
+  parseStringSelectOptions() {
+    if (this.selectOptions && this.selectOptions.length > 0 && typeof this.selectOptions[0] === 'string' ) {
+      const selectOptions: SelectOption[] = [];
+      for (const opt of this.selectOptions) {
+        const newSelOption = { label: opt, value: opt};
+        selectOptions.push(newSelOption);
+      }
+      this.selectOptions = selectOptions;
+      this.selectLabelProperty = 'label';
+      this.selectValueProperty = 'value';
+    }
+  }
+
   validateAttributes(changes: SimpleChanges) {
-    if (!('formGroup' in changes)) {
-      console.error('bh-input error: formGroup property not provided.');
-    }
-    if (!('formControlName' in changes)) {
-      console.error('bh-input error: formControlName property not provided.');
-    }
+    // if (!('formGroup' in changes)) {
+    //   console.error('bh-input error: formGroup property not provided.');
+    // }
+    // if (!('formControlName' in changes)) {
+    //   console.error('bh-input error: formControlName property not provided.');
+    // }
 
     if (('formGroup' in changes) && ('formControlName' in changes)) {
       this.isRequired = this.formGroup.controls[this.formControlName].hasValidator(Validators.required);
     }
 
-    if (this.type === 'select') {
-      if (!('selectOptions' in changes)) {
-        console.error('bh-input error: selectOptions property not provided for type of \'select\'.');
-      }
-      if (!('selectLabelProperty' in changes)) {
-        console.warn('bh-input warning: selectLabelProperty property not provided for type of \'select\'.');
-      }
-      if (!('selectValueProperty' in changes)) {
-        console.warn('bh-input warning: selectValueProperty property not provided for type of \'select\'.');
-      }
-    }
+    // if (this.type === 'select') {
+    //   if (!('selectOptions' in changes)) {
+    //     console.error('bh-input error: selectOptions property not provided for type of \'select\'.');
+    //   }
+    //   if (!('selectLabelProperty' in changes)) {
+    //     console.warn('bh-input warning: selectLabelProperty property not provided for type of \'select\'.');
+    //   }
+    //   if (!('selectValueProperty' in changes)) {
+    //     console.warn('bh-input warning: selectValueProperty property not provided for type of \'select\'.');
+    //   }
+    // }
 
-    if (this.type === 'combo-box') {
-      if (!('cbSelectControlName' in changes)) {
-        console.error('bh-input error: cbSelectControlName property not provided for type of \'combo-box\'. Add a new form control to your FormGroup and use its name for this property.');
-      }
+    // if (this.type === 'combo-box') {
+    //   if (!('cbSelectControlName' in changes)) {
+    //     console.error('bh-input error: cbSelectControlName property not provided for type of \'combo-box\'. Add a new form control to your FormGroup and use its name for this property.');
+    //   }
 
-    }
+    // }
   }
 
   registerOnChange(fn) {

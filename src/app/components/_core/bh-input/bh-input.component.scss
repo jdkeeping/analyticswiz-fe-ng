@@ -6,6 +6,22 @@
 .input-wrapper {
   display: flex;
   position: relative;
+  background: var(--background-color-step-1);
+
+  &.radio-list-wrapper {
+    padding: 24px 0;
+    border: 1px solid var(--contrast-color-step-3);
+    border-radius: 8px;
+
+    &.no-border {
+      border-color: transparent !important;
+      padding: 0;
+    }
+
+    ion-radio-group {
+      width: 100%;
+    }
+  }
 
   .input-label {
     position: absolute;
@@ -17,7 +33,7 @@
     padding: 0 8px;
     background: var(--ion-background-color);
     border-radius: 4px;
-    color: var(--contrast-color-step-2);
+    color: var(--contrast-color-step-1);
     font-size: 13px;
 
     &.required-label {
@@ -26,21 +42,30 @@
   }
 
   .reveal-password-button {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 32px;
     width: 32px;
-    font-size: 32px;
+    font-size: 24px;
     position: absolute;
     top: 10px;
     right: 16px;
+    cursor: pointer;
 
     ion-icon {
       color: var(--contrast-color-step-1);
+      opacity: .5;
     }
   }
 }
 
-input {
+textarea {
+  min-height: 120px;
+}
+
+input,
+textarea {
   background: transparent;
   border: 1px solid var(--contrast-color-step-3);
   padding: 14px 12px 12px 12px;
@@ -48,6 +73,7 @@ input {
   flex: 1 1 auto;
   font-size: 17px;
   outline: none;
+  min-width: 300px;
 
   &.ng-invalid:not(.ng-untouched) {
     border-color: var(--ion-color-danger);
@@ -77,6 +103,7 @@ input {
 
 .required-marker {
   background: var(--ion-background-color);
+  color: var(--ion-color-danger);
   font-size: 20px;
   line-height: 20px;
   margin-left: 8px;
@@ -101,15 +128,28 @@ select {
   outline: none;
   appearance: none;
   min-width: 150px;
+
+  &.ng-invalid:not(.ng-untouched) {
+    border-color: var(--ion-color-danger);
+  }
+
+  &:focus {
+    border: 1px solid var(--ion-color-primary);
+  }
 }
 
 .select-placeholder {
-  color: var(--contrast-color-step-3);
+  color: var(--contrast-color-step-2);
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  pointer-events: none;
+
 }
 
 .select-chevron {
   position: absolute;
-  top: 14px;
+  top: 16px;
   right: 16px;
   pointer-events: none;
 
@@ -148,8 +188,9 @@ select {
 }
 
 .helper-text {
-  color: var(--contrast-color-step-3);
-  font-size: 14px;
+  color: var(--contrast-color-step-2);
+  font-size: 13px;
+  padding: 4px 0;
 }
 
 .ve-message {
@@ -164,5 +205,24 @@ select {
   ion-icon {
     margin-right: 8px;
     font-size: 20px;
+  }
+}
+
+ion-checkbox {
+  margin-left: 16px;
+  border-radius: 4px;
+  padding: 8px;
+
+  &:hover {
+    background: var(--contrast-color-step-5);
+  }
+
+  .checkbox-label {
+    width: 100%;
+    white-space: wrap;
+  }
+
+  .helper-text {
+    margin-top: 4px;
   }
 }

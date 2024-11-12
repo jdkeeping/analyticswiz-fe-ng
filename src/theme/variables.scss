@@ -112,26 +112,28 @@
   /** User colors **/
   --user-color-self: var(--ion-color-secondary);
   --user-color-self-contrast: #fff;
-  --user-color-0: rgb(59, 87, 58);
+  --user-color-0: rgb(0, 135, 172);
   --user-color-0-contrast: #fff;
   --user-color-1: rgb(168, 35, 35);
   --user-color-1-contrast: #fff;
-  --user-color-2: rgb(168, 110, 35);
+  --user-color-2: rgb(200, 99, 31);
   --user-color-2-contrast: #fff;
   --user-color-3: rgb(198, 59, 187);
   --user-color-3-contrast: #fff;
-  --user-color-4: rgb(44, 165, 28);
+  --user-color-4: rgb(96, 66, 10);
   --user-color-4-contrast: #fff;
-  --user-color-5: rgb(35, 168, 90);
-  --user-color-5-contrast: #fff;
-  --user-color-6: rgb(30, 55, 196);
-  --user-color-6-contrast: #fff;
+  --user-color-5: rgb(156, 200, 67);
+  --user-color-5-contrast: #000;
+  --user-color-6: rgb(223, 196, 20);
+  --user-color-6-contrast: #000;
   --user-color-7: rgb(82, 35, 168);
   --user-color-7-contrast: #fff;
   --user-color-8: rgb(168, 35, 139);
   --user-color-8-contrast: #fff;
   --user-color-9: rgb(102, 34, 79);
   --user-color-9-contrast: #fff;
+
+  --max-width: 1200px;
 
 }
 
