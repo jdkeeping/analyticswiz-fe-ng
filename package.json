@@ -13,8 +13,8 @@
     "ion-start": "npx ionic serve",
     "version": "node scripts/bump-version.js",
     "postversion": "git push && git push --tags",
-    "deploy-to-cloudfront:dev": "./scripts/deploy-to-cloudfront.sh dev worktips",
-    "deploy-to-cloudfront:prod": "./scripts/deploy-to-cloudfront.sh prod worktips"
+    "deploy-to-cloudfront:dev": "./scripts/deploy-to-cloudfront.sh dev $npm_package_name",
+    "deploy-to-cloudfront:prod": "./scripts/deploy-to-cloudfront.sh prod $npm_package_name"
   },
   "private": true,
   "dependencies": {
