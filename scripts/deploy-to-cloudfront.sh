@@ -40,9 +40,9 @@ else
   echo "*** ENV input: $ENV"
 fi
 
-# npm install -g ionic
-npx ionic -v
-npm ci
+npm install @ionic/cli
+# npx ionic -v
+npm ci --force
 rm -rf www
 if [ "$ENV" = "prod" ]
 then
@@ -50,7 +50,7 @@ then
   npx ionic build --prod --engine=browser
 else
   echo "***** Compiling DEV Typescript"
-  npx ionic build --engine=browser
+  npx ionic build --configuration=development --engine=browser
 fi
 
 S3_PATH="s3://bh-$ENV-cloudfront-content/$S3_BUCKET/"
