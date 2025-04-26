@@ -6,19 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'bh-search-bar',
-  templateUrl: './bh-search-bar.component.html',
-  styleUrls: ['./bh-search-bar.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonInput,
-    IonButton,
-    IonIcon,
-    IonSpinner,
-    PipesModule
-  ]
+    selector: 'bh-search-bar',
+    templateUrl: './bh-search-bar.component.html',
+    styleUrls: ['./bh-search-bar.component.scss'],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonInput,
+        IonButton,
+        IonIcon,
+        IonSpinner,
+        PipesModule
+    ]
 })
 export class BhSearchBarComponent  implements OnInit, OnChanges {
   @Input() showSearchButton = true;

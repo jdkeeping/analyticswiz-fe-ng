@@ -15,21 +15,20 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'bh-login-form',
-  templateUrl: './bh-login-form.component.html',
-  styleUrls: ['./bh-login-form.component.scss'],
-  standalone: true,
-  imports: [
-    IonButton,
-    IonSpinner,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    BhInputComponent,
-    BhMessageBannerComponent,
-    AnalyticsClickDirective,
-    PipesModule
-  ]
+    selector: 'bh-login-form',
+    templateUrl: './bh-login-form.component.html',
+    styleUrls: ['./bh-login-form.component.scss'],
+    imports: [
+        IonButton,
+        IonSpinner,
+        FormsModule,
+        ReactiveFormsModule,
+        CommonModule,
+        BhInputComponent,
+        BhMessageBannerComponent,
+        AnalyticsClickDirective,
+        PipesModule
+    ]
 })
 export class BhLoginFormComponent implements OnInit {
   env = environment;

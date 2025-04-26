@@ -23,7 +23,10 @@ import {
  * ==============================
  * 2021-07-13 - MW - v1: Initial dev
  */
-@Pipe({ name: 'safe' })
+@Pipe({
+    name: 'safe',
+    standalone: false
+})
 export class SafePipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
 

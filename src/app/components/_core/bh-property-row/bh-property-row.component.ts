@@ -3,15 +3,14 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { IonContent } from "@ionic/angular/standalone";
 
 @Component({
-  selector: 'bh-property-row',
-  templateUrl: './bh-property-row.component.html',
-  styleUrls: ['./bh-property-row.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom,
-  standalone: true,
-  imports: [
-    CommonModule,
-    IonContent
-  ]
+    selector: 'bh-property-row',
+    templateUrl: './bh-property-row.component.html',
+    styleUrls: ['./bh-property-row.component.scss'],
+    encapsulation: ViewEncapsulation.ShadowDom,
+    imports: [
+        CommonModule,
+        IonContent
+    ]
 })
 export class BhPropertyRowComponent  implements OnInit {
 

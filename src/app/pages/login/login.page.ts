@@ -12,24 +12,23 @@ import { LanguagePopoverPage } from '../_core/language-popover/language-popover.
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonButton,
-    IonIcon,
-    CommonModule,
-    FormsModule,
-    BhLogoComponent,
-    BhToolbarComponent,
-    BhLoginFormComponent,
-    BhBackgroundBlueComponent
-  ]
+    selector: 'app-login',
+    templateUrl: './login.page.html',
+    styleUrls: ['./login.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        IonButton,
+        IonIcon,
+        CommonModule,
+        FormsModule,
+        BhLogoComponent,
+        BhToolbarComponent,
+        BhLoginFormComponent,
+        BhBackgroundBlueComponent
+    ]
 })
 export class LoginPage implements OnInit {
   env = environment;

@@ -9,19 +9,18 @@ import { NavPage } from 'src/app/models/_core/nav-page';
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: 'tabs.page.html',
-  styleUrls: ['tabs.page.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonIcon,
-    IonLabel,
-    AnalyticsClickDirective
-  ],
+    selector: 'app-tabs',
+    templateUrl: 'tabs.page.html',
+    styleUrls: ['tabs.page.scss'],
+    imports: [
+        CommonModule,
+        IonTabs,
+        IonTabBar,
+        IonTabButton,
+        IonIcon,
+        IonLabel,
+        AnalyticsClickDirective
+    ]
 })
 export class TabsPage implements OnInit, OnDestroy {
   pages: NavPage[] = [];

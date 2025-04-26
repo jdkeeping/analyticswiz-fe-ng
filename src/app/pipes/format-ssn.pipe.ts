@@ -17,7 +17,8 @@ import { HelperUtilitiesService } from '../services/_core/helper-utilities/helpe
  * 2021-07-13 - MW - v1: Initial dev
  */
 @Pipe({
-  name: 'formatSsn'
+    name: 'formatSsn',
+    standalone: false
 })
 export class FormatSsnPipe implements PipeTransform {
   constructor (

@@ -19,28 +19,27 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'app-check-for-updates',
-  templateUrl: './check-for-updates.page.html',
-  styleUrls: ['./check-for-updates.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonIcon,
-    IonSpinner,
-    IonButton,
-    CommonModule,
-    FormsModule,
-    BhHeaderComponent,
-    BhBodyComponent,
-    BhFooterComponent,
-    BhListCardComponent,
-    BhGroupBoxComponent,
-    AnalyticsClickDirective,
-    PipesModule
-  ]
+    selector: 'app-check-for-updates',
+    templateUrl: './check-for-updates.page.html',
+    styleUrls: ['./check-for-updates.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        IonIcon,
+        IonSpinner,
+        IonButton,
+        CommonModule,
+        FormsModule,
+        BhHeaderComponent,
+        BhBodyComponent,
+        BhFooterComponent,
+        BhListCardComponent,
+        BhGroupBoxComponent,
+        AnalyticsClickDirective,
+        PipesModule
+    ]
 })
 export class CheckForUpdatesPage implements OnInit {
   env = environment;

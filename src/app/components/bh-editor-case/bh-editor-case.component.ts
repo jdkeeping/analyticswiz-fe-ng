@@ -11,26 +11,25 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
-  selector: 'bh-editor-case',
-  templateUrl: './bh-editor-case.component.html',
-  styleUrls: ['./bh-editor-case.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    ReactiveFormsModule,
-    IonButton,
-    IonSegment,
-    IonSegmentButton,
-    IonIcon,
-    IonRouterLink,
-    BhGroupBoxComponent,
-    BhPropertyRowComponent,
-    BhPropertyCellComponent,
-    BhInputComponent,
-    AnalyticsClickDirective
-  ]
+    selector: 'bh-editor-case',
+    templateUrl: './bh-editor-case.component.html',
+    styleUrls: ['./bh-editor-case.component.scss'],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        ReactiveFormsModule,
+        IonButton,
+        IonSegment,
+        IonSegmentButton,
+        IonIcon,
+        IonRouterLink,
+        BhGroupBoxComponent,
+        BhPropertyRowComponent,
+        BhPropertyCellComponent,
+        BhInputComponent,
+        AnalyticsClickDirective
+    ]
 })
 export class BhEditorCaseComponent  implements OnInit {
   activeSegment: 'case' | 'error-report' | 'patient' | 'hl7' = 'case';

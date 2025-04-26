@@ -4,16 +4,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'bh-empty-message',
-  templateUrl: './bh-empty-message.component.html',
-  styleUrls: ['./bh-empty-message.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    IonButton,
-    IonIcon,
-    PipesModule
-  ]
+    selector: 'bh-empty-message',
+    templateUrl: './bh-empty-message.component.html',
+    styleUrls: ['./bh-empty-message.component.scss'],
+    imports: [
+        CommonModule,
+        IonButton,
+        IonIcon,
+        PipesModule
+    ]
 })
 export class BhEmptyMessageComponent  implements OnInit {
   @Input() showIcon = true;

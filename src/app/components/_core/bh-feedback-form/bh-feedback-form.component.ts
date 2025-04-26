@@ -9,20 +9,19 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'bh-feedback-form',
-  templateUrl: './bh-feedback-form.component.html',
-  styleUrls: ['./bh-feedback-form.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonIcon,
-    IonButton,
-    BhInputComponent,
-    BhConfirmationComponent,
-    AnalyticsClickDirective,
-    PipesModule
-  ]
+    selector: 'bh-feedback-form',
+    templateUrl: './bh-feedback-form.component.html',
+    styleUrls: ['./bh-feedback-form.component.scss'],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonIcon,
+        IonButton,
+        BhInputComponent,
+        BhConfirmationComponent,
+        AnalyticsClickDirective,
+        PipesModule
+    ]
 })
 export class BhFeedbackFormComponent implements OnInit {
   @Input() feature = 'this feature';

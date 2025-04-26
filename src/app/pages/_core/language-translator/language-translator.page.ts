@@ -9,25 +9,24 @@ import { BhGroupBoxComponent } from 'src/app/components/_core/bh-group-box/bh-gr
 import { NotificationsService } from 'src/app/services/_core/notifications/notifications.service';
 
 @Component({
-  selector: 'app-language-translator',
-  templateUrl: './language-translator.page.html',
-  styleUrls: ['./language-translator.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonList,
-    IonItem,
-    IonIcon,
-    IonButton,
-    IonProgressBar,
-    IonSpinner,
-    CommonModule,
-    FormsModule,
-    BhGroupBoxComponent
-  ]
+    selector: 'app-language-translator',
+    templateUrl: './language-translator.page.html',
+    styleUrls: ['./language-translator.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        IonList,
+        IonItem,
+        IonIcon,
+        IonButton,
+        IonProgressBar,
+        IonSpinner,
+        CommonModule,
+        FormsModule,
+        BhGroupBoxComponent
+    ]
 })
 export class LanguageTranslatorPage implements OnInit {
   initLanguages: Language[] = [];

@@ -14,26 +14,25 @@ import { BhPropertyCellComponent } from 'src/app/components/_core/bh-property-ce
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'app-my-account',
-  templateUrl: './my-account.page.html',
-  styleUrls: ['./my-account.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    BhHeaderComponent,
-    BhBodyComponent,
-    BhFooterComponent,
-    BhUserIconComponent,
-    BhGroupBoxComponent,
-    BhPropertyRowComponent,
-    BhPropertyCellComponent,
-    PipesModule
-  ]
+    selector: 'app-my-account',
+    templateUrl: './my-account.page.html',
+    styleUrls: ['./my-account.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        CommonModule,
+        FormsModule,
+        BhHeaderComponent,
+        BhBodyComponent,
+        BhFooterComponent,
+        BhUserIconComponent,
+        BhGroupBoxComponent,
+        BhPropertyRowComponent,
+        BhPropertyCellComponent,
+        PipesModule
+    ]
 })
 export class MyAccountPage implements OnInit {
   authUser: User;

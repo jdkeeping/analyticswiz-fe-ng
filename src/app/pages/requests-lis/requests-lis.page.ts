@@ -7,21 +7,20 @@ import { BhFooterComponent } from 'src/app/components/_core/bh-footer/bh-footer.
 import { BhBodyComponent } from 'src/app/components/_core/bh-body/bh-body.component';
 
 @Component({
-  selector: 'app-requests-lis',
-  templateUrl: './requests-lis.page.html',
-  styleUrls: ['./requests-lis.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    BhHeaderComponent,
-    BhBodyComponent,
-    BhFooterComponent
-  ]
+    selector: 'app-requests-lis',
+    templateUrl: './requests-lis.page.html',
+    styleUrls: ['./requests-lis.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        CommonModule,
+        FormsModule,
+        BhHeaderComponent,
+        BhBodyComponent,
+        BhFooterComponent
+    ]
 })
 export class RequestsLisPage implements OnInit {
 

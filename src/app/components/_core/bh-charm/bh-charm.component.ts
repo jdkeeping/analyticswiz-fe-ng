@@ -7,16 +7,15 @@ import { AuthService } from 'src/app/services/_core/auth/auth.service';
 import { IonIcon } from "@ionic/angular/standalone";
 
 @Component({
-  selector: 'bh-charm',
-  templateUrl: './bh-charm.component.html',
-  styleUrls: ['./bh-charm.component.scss'],
-  standalone: true,
-  imports: [IonIcon,
-    CommonModule,
-    RouterModule,
-    AnalyticsClickDirective,
-    IonIcon
-  ]
+    selector: 'bh-charm',
+    templateUrl: './bh-charm.component.html',
+    styleUrls: ['./bh-charm.component.scss'],
+    imports: [IonIcon,
+        CommonModule,
+        RouterModule,
+        AnalyticsClickDirective,
+        IonIcon
+    ]
 })
 export class BhCharmComponent  implements OnInit {
   @Input() type: 'user' | 'icon' = 'user';

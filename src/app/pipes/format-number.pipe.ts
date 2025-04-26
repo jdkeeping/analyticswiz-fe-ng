@@ -16,7 +16,8 @@ import { Pipe, PipeTransform } from '@angular/core';
  * 2024-05-20 - MW - v1: Initial dev
  */
 @Pipe({
-  name: 'formatNumber'
+    name: 'formatNumber',
+    standalone: false
 })
 export class FormatNumberPipe implements PipeTransform {
   constructor (

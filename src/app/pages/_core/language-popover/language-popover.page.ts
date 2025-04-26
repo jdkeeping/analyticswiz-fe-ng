@@ -6,20 +6,19 @@ import { Language } from 'src/app/models/translation-dict';
 import { TranslatorService } from 'src/app/services/_core/translator/translator.service';
 
 @Component({
-  selector: 'app-language-popover',
-  templateUrl: './language-popover.page.html',
-  styleUrls: ['./language-popover.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonList,
-    IonItem,
-    CommonModule,
-    FormsModule
-  ]
+    selector: 'app-language-popover',
+    templateUrl: './language-popover.page.html',
+    styleUrls: ['./language-popover.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        IonList,
+        IonItem,
+        CommonModule,
+        FormsModule
+    ]
 })
 export class LanguagePopoverPage implements OnInit {
   languages: Language[];

@@ -17,7 +17,8 @@ import { HelperUtilitiesService } from '../services/_core/helper-utilities/helpe
  * 2021-07-13 - MW - v1: Initial dev
  */
 @Pipe({
-  name: 'formatState'
+    name: 'formatState',
+    standalone: false
 })
 export class FormatStatePipe implements PipeTransform {
   constructor(public helpers: HelperUtilitiesService) { }

@@ -18,7 +18,8 @@ import { TranslatorService } from '../services/_core/translator/translator.servi
  * 2023-11-21 - MW - v1: Initial dev
  */
 @Pipe({
-  name: 'translate'
+    name: 'translate',
+    standalone: false
 })
 export class TranslatePipe implements PipeTransform {
   constructor(

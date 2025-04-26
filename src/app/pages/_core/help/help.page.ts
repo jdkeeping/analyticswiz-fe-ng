@@ -13,24 +13,23 @@ import { environment } from 'src/environments/environment';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'app-help',
-  templateUrl: './help.page.html',
-  styleUrls: ['./help.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    BhHeaderComponent,
-    BhBodyComponent,
-    BhFooterComponent,
-    BhListCardComponent,
-    BhGroupBoxComponent,
-    PipesModule
-  ]
+    selector: 'app-help',
+    templateUrl: './help.page.html',
+    styleUrls: ['./help.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        CommonModule,
+        FormsModule,
+        BhHeaderComponent,
+        BhBodyComponent,
+        BhFooterComponent,
+        BhListCardComponent,
+        BhGroupBoxComponent,
+        PipesModule
+    ]
 })
 export class HelpPage implements OnInit {
   appNameEncoded = ('Baystate Health ' + environment.appDescription).replace(' ', '%20');

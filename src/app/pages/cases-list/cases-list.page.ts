@@ -18,33 +18,32 @@ import { VerlockerService } from 'src/app/services/_core/verlocker/verlocker.ser
 import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
-  selector: 'app-cases-list',
-  templateUrl: 'cases-list.page.html',
-  styleUrls: ['cases-list.page.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonMenu,
-    IonMenuToggle,
-    IonButton,
-    IonContent,
-    IonFooter,
-    BhHeaderComponent,
-    BhCardOutlineComponent,
-    BhBodyComponent,
-    BhFooterComponent,
-    BhGridComponent,
-    BhInputComponent,
-    BhEditorCaseComponent,
-    BhFeedbackFormComponent,
-    BhSearchBarComponent,
-    BhEmptyMessageComponent
-  ],
+    selector: 'app-cases-list',
+    templateUrl: 'cases-list.page.html',
+    styleUrls: ['cases-list.page.scss'],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        IonHeader,
+        IonToolbar,
+        IonTitle,
+        IonMenu,
+        IonMenuToggle,
+        IonButton,
+        IonContent,
+        IonFooter,
+        BhHeaderComponent,
+        BhCardOutlineComponent,
+        BhBodyComponent,
+        BhFooterComponent,
+        BhGridComponent,
+        BhInputComponent,
+        BhEditorCaseComponent,
+        BhFeedbackFormComponent,
+        BhSearchBarComponent,
+        BhEmptyMessageComponent
+    ]
 })
 export class CasesListPage implements OnInit {
   metrics: any[] = [

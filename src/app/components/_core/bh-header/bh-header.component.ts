@@ -13,20 +13,19 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { BhSearchBarComponent } from '../bh-search-bar/bh-search-bar.component';
 
 @Component({
-  selector: 'bh-header',
-  templateUrl: './bh-header.component.html',
-  styleUrls: ['./bh-header.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    IonIcon,
-    BhLogoComponent,
-    BhCharmComponent,
-    BhSearchBarComponent,
-    AnalyticsClickDirective,
-    PipesModule
-  ]
+    selector: 'bh-header',
+    templateUrl: './bh-header.component.html',
+    styleUrls: ['./bh-header.component.scss'],
+    imports: [
+        CommonModule,
+        RouterModule,
+        IonIcon,
+        BhLogoComponent,
+        BhCharmComponent,
+        BhSearchBarComponent,
+        AnalyticsClickDirective,
+        PipesModule
+    ]
 })
 export class BhHeaderComponent  implements OnInit, OnDestroy {
   @Input() fixed = false;

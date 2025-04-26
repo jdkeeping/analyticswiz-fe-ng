@@ -17,7 +17,8 @@ import { HelperUtilitiesService } from '../services/_core/helper-utilities/helpe
  * 2021-07-13 - MW - v1: Initial dev
  */
 @Pipe({
-  name: 'formatRole'
+    name: 'formatRole',
+    standalone: false
 })
 export class FormatRolePipe implements PipeTransform {
   constructor() { }

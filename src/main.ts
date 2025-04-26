@@ -12,6 +12,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { InterceptorService } from './app/services/_core/interceptor/interceptor.service';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { SharedModule } from './app/shared/shared.module';
+import { provideRedux } from '@reduxjs/angular-redux';
+import { store } from './app/store';
 
 if (environment.production) {
   enableProdMode();
@@ -29,5 +31,6 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
     provideEnvironmentNgxMask(),
-  ],
+    provideRedux({ store })
+],
 });

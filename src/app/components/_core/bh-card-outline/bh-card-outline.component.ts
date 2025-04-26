@@ -4,15 +4,14 @@ import { RouterModule } from '@angular/router';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'bh-card-outline',
-  templateUrl: './bh-card-outline.component.html',
-  styleUrls: ['./bh-card-outline.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    PipesModule
-  ]
+    selector: 'bh-card-outline',
+    templateUrl: './bh-card-outline.component.html',
+    styleUrls: ['./bh-card-outline.component.scss'],
+    imports: [
+        CommonModule,
+        RouterModule,
+        PipesModule
+    ]
 })
 export class BhCardOutlineComponent  implements OnInit, AfterViewInit {
   @Input() heading: string;

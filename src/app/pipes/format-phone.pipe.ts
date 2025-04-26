@@ -17,7 +17,8 @@ import { HelperUtilitiesService } from '../services/_core/helper-utilities/helpe
  * 2021-07-13 - MW - v1: Initial dev
  */
 @Pipe({
-  name: 'formatPhone'
+    name: 'formatPhone',
+    standalone: false
 })
 export class FormatPhonePipe implements PipeTransform {
   constructor(public helpers: HelperUtilitiesService) { }

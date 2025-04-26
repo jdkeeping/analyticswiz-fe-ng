@@ -8,18 +8,17 @@ import { IonIcon, IonCheckbox } from "@ionic/angular/standalone";
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'bh-grid',
-  templateUrl: './bh-grid.component.html',
-  styleUrls: ['./bh-grid.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    PipesModule,
-    IonIcon,
-    IonCheckbox
-  ]
+    selector: 'bh-grid',
+    templateUrl: './bh-grid.component.html',
+    styleUrls: ['./bh-grid.component.scss'],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        PipesModule,
+        IonIcon,
+        IonCheckbox
+    ]
 })
 export class BhGridComponent implements OnChanges, AfterViewInit {
   @Input() columnDefinitions: GridColumnDefinition[] = [];

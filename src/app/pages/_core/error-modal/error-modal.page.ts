@@ -8,17 +8,16 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { IonContent, IonButton, IonIcon } from "@ionic/angular/standalone";
 
 @Component({
-  selector: 'app-error-modal',
-  templateUrl: './error-modal.page.html',
-  styleUrls: ['./error-modal.page.scss'],
-  standalone: true,
-  imports: [IonContent,
-    CommonModule,
-    FormsModule,
-    PipesModule,
-    IonButton,
-    IonIcon
-  ]
+    selector: 'app-error-modal',
+    templateUrl: './error-modal.page.html',
+    styleUrls: ['./error-modal.page.scss'],
+    imports: [IonContent,
+        CommonModule,
+        FormsModule,
+        PipesModule,
+        IonButton,
+        IonIcon
+    ]
 })
 export class ErrorModalPage implements OnInit {
   @Input() apiError: ApiError = {};

@@ -4,16 +4,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'bh-confirmation',
-  templateUrl: './bh-confirmation.component.html',
-  styleUrls: ['./bh-confirmation.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    IonIcon,
-    IonButton,
-    PipesModule
-  ]
+    selector: 'bh-confirmation',
+    templateUrl: './bh-confirmation.component.html',
+    styleUrls: ['./bh-confirmation.component.scss'],
+    imports: [
+        CommonModule,
+        IonIcon,
+        IonButton,
+        PipesModule
+    ]
 })
 export class BhConfirmationComponent  implements OnInit {
   @Input() ionIcon = 'checkmark-circle-outline';

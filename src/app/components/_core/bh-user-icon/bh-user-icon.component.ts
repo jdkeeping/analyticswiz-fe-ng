@@ -7,15 +7,14 @@ import { AuthService } from 'src/app/services/_core/auth/auth.service';
 import { HelperUtilitiesService } from 'src/app/services/_core/helper-utilities/helper-utilities.service';
 
 @Component({
-  selector: 'bh-user-icon',
-  templateUrl: './bh-user-icon.component.html',
-  styleUrls: ['./bh-user-icon.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    IonIcon
-  ]
+    selector: 'bh-user-icon',
+    templateUrl: './bh-user-icon.component.html',
+    styleUrls: ['./bh-user-icon.component.scss'],
+    imports: [
+        CommonModule,
+        RouterModule,
+        IonIcon
+    ]
 })
 export class BhUserIconComponent  implements OnChanges {
   @Input() userFullName: string;

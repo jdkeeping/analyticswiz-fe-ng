@@ -10,24 +10,23 @@ import { BhListCardComponent } from 'src/app/components/_core/bh-list-card/bh-li
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'app-help-forgot-pwd',
-  templateUrl: './help-forgot-pwd.page.html',
-  styleUrls: ['./help-forgot-pwd.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    BhHeaderComponent,
-    BhBodyComponent,
-    BhFooterComponent,
-    BhListCardComponent,
-    BhGroupBoxComponent,
-    PipesModule
-  ]
+    selector: 'app-help-forgot-pwd',
+    templateUrl: './help-forgot-pwd.page.html',
+    styleUrls: ['./help-forgot-pwd.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        CommonModule,
+        FormsModule,
+        BhHeaderComponent,
+        BhBodyComponent,
+        BhFooterComponent,
+        BhListCardComponent,
+        BhGroupBoxComponent,
+        PipesModule
+    ]
 })
 export class HelpForgotPwdPage implements OnInit {
 

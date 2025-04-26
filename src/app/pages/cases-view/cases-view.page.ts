@@ -8,22 +8,21 @@ import { BhFooterComponent } from 'src/app/components/_core/bh-footer/bh-footer.
 import { BhEditorCaseComponent } from 'src/app/components/bh-editor-case/bh-editor-case.component';
 
 @Component({
-  selector: 'app-cases-view',
-  templateUrl: './cases-view.page.html',
-  styleUrls: ['./cases-view.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonTitle,
-    IonToolbar,
-    CommonModule,
-    FormsModule,
-    BhHeaderComponent,
-    BhBodyComponent,
-    BhFooterComponent,
-    BhEditorCaseComponent
-  ]
+    selector: 'app-cases-view',
+    templateUrl: './cases-view.page.html',
+    styleUrls: ['./cases-view.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonTitle,
+        IonToolbar,
+        CommonModule,
+        FormsModule,
+        BhHeaderComponent,
+        BhBodyComponent,
+        BhFooterComponent,
+        BhEditorCaseComponent
+    ]
 })
 export class CasesViewPage implements OnInit {
 

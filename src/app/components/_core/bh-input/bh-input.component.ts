@@ -7,36 +7,35 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
-  selector: 'bh-input',
-  templateUrl: './bh-input.component.html',
-  styleUrls: ['./bh-input.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => BhInputComponent),
-      multi: true
-    },
-    // { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
-    // { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT },
-  ],
-  standalone: true,
-  imports: [
-    IonTextarea,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    IonLabel,
-    IonCheckbox,
-    IonItem,
-    IonInput,
-    IonIcon,
-    IonRadio,
-    IonRadioGroup,
-    IonNote,
-    IonCheckbox,
-    PipesModule,
-    NgxMaskDirective
-  ]
+    selector: 'bh-input',
+    templateUrl: './bh-input.component.html',
+    styleUrls: ['./bh-input.component.scss'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => BhInputComponent),
+            multi: true
+        },
+        // { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
+        // { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT },
+    ],
+    imports: [
+        IonTextarea,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        IonLabel,
+        IonCheckbox,
+        IonItem,
+        IonInput,
+        IonIcon,
+        IonRadio,
+        IonRadioGroup,
+        IonNote,
+        IonCheckbox,
+        PipesModule,
+        NgxMaskDirective
+    ]
 })
 export class BhInputComponent  implements ControlValueAccessor, OnInit, OnChanges {
   @Input() formGroup: FormGroup;

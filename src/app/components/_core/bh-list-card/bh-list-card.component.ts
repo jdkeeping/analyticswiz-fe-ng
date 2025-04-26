@@ -6,17 +6,16 @@ import { AnalyticsClickDirective } from 'src/app/directives/analytics-click/anal
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'bh-list-card',
-  templateUrl: './bh-list-card.component.html',
-  styleUrls: ['./bh-list-card.component.scss'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    IonIcon,
-    AnalyticsClickDirective,
-    PipesModule
-  ]
+    selector: 'bh-list-card',
+    templateUrl: './bh-list-card.component.html',
+    styleUrls: ['./bh-list-card.component.scss'],
+    imports: [
+        CommonModule,
+        RouterModule,
+        IonIcon,
+        AnalyticsClickDirective,
+        PipesModule
+    ]
 })
 export class BhListCardComponent implements OnInit, AfterViewInit {
   @Input() ionIcon;

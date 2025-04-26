@@ -10,29 +10,28 @@ import { BhGroupBoxComponent } from 'src/app/components/_core/bh-group-box/bh-gr
 import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @Component({
-  selector: 'app-language-modal',
-  templateUrl: './language-modal.page.html',
-  styleUrls: ['./language-modal.page.scss'],
-  standalone: true,
-  imports: [
-    IonContent,
-    IonHeader,
-    IonFooter,
-    IonButton,
-    IonTitle,
-    IonToolbar,
-    IonButtons,
-    IonList,
-    IonItem,
-    IonCheckbox,
-    IonLabel,
-    BhInputComponent,
-    BhGroupBoxComponent,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    PipesModule
-  ]
+    selector: 'app-language-modal',
+    templateUrl: './language-modal.page.html',
+    styleUrls: ['./language-modal.page.scss'],
+    imports: [
+        IonContent,
+        IonHeader,
+        IonFooter,
+        IonButton,
+        IonTitle,
+        IonToolbar,
+        IonButtons,
+        IonList,
+        IonItem,
+        IonCheckbox,
+        IonLabel,
+        BhInputComponent,
+        BhGroupBoxComponent,
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        PipesModule
+    ]
 })
 export class LanguageModalPage implements OnInit {
   form1: FormGroup = this.formBuilder.group({

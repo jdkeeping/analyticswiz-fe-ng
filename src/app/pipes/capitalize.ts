@@ -3,7 +3,8 @@ import { HelperUtilitiesService } from '../services/_core/helper-utilities/helpe
 
 
 @Pipe({
-  name: 'capitalize'
+    name: 'capitalize',
+    standalone: false
 })
 export class CapitalizePipe implements PipeTransform {
   constructor(
