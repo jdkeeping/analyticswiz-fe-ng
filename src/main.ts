@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@a
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { InterceptorService } from './app/services/_core/interceptor/interceptor.service';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { SharedModule } from './app/shared/shared.module';
 
 if (environment.production) {
   enableProdMode();
@@ -24,6 +25,7 @@ bootstrapApplication(AppComponent, {
     provideIonicAngular(),
     importProvidersFrom(IonicStorageModule.forRoot()),
     importProvidersFrom(IonicModule),
+    importProvidersFrom(SharedModule),
     provideRouter(routes),
     provideHttpClient(withInterceptorsFromDi()),
     provideEnvironmentNgxMask(),

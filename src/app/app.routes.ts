@@ -52,4 +52,9 @@ export const routes: Routes = [
     path: 'language-translator',
     loadComponent: () => import('./pages/_core/language-translator/language-translator.page').then( m => m.LanguageTranslatorPage)
   },
+  // {
+  //   path: 'home',
+  //   canActivate: [LoginRouteGuardService],
+  //   loadComponent: () => import('./pages/home/home.page').then( m => m.HomePage)
+  // },
 ];

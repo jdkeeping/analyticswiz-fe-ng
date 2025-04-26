@@ -1,6 +1,7 @@
 import { CasesViewPage } from './../cases-view/cases-view.page';
 import { Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { LoginRouteGuardService } from 'src/app/services/_core/login-route-guard/login-route-guard.service';
 
 export const routes: Routes = [
   {
@@ -8,9 +9,10 @@ export const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'cases',
+        path: 'home',
+        canActivate: [LoginRouteGuardService],
         loadComponent: () =>
-          import('../cases-list/cases-list.page').then((m) => m.CasesListPage),
+          import('../home/home.page').then((m) => m.HomePage),
       },
       {
         path: 'cases/:caseId',
@@ -34,14 +36,14 @@ export const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/cases',
+        redirectTo: '/tabs/home',
         pathMatch: 'full',
       },
     ],
   },
   {
     path: '',
-    redirectTo: '/tabs/cases',
+    redirectTo: '/tabs/home',
     pathMatch: 'full',
   },
 ];

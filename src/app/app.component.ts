@@ -95,7 +95,7 @@ export class AppComponent implements OnInit {
   ) {
     this.initializeApp();
     this.subscribeToLoader();
-    this.checkVersion();
+   // this.checkVersion();
   }
 
   @HostListener('window:resize', ['$event'])

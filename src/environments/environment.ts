@@ -9,10 +9,10 @@ export const environment = {
   production: false,
 
   // App Name/ID
-  appName: 'BHSTARTER',
+  appName: '  ',
 
   // App Description (full name)
-  appDescription: 'BH Starter',
+  appDescription: 'AnalyticsWiz',
 
   // App Version Number
   appVersion: '8.0.0',

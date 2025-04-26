@@ -9,10 +9,10 @@ export const environment = {
   production: true,
 
   // App Name/ID
-  appName: 'BHSTARTER',
+  appName: 'ANALYTICSWIZ',
 
   // App Description (full name)
-  appDescription: 'BH Starter',
+  appDescription: 'AnalyticsWiz',
 
   // App Version Number
   appVersion: '8.0.0',
@@ -24,7 +24,7 @@ export const environment = {
   webUrl: 'https://dev.bhstarter.apps.baystatehealth.org',
 
   // App's REST Service API Root URL
-  apiUrl: 'https://mobiledev.api.baystatehealth.org/shuttleme',
+  //apiUrl: 'https://mobiledev.api.baystatehealth.org/shuttleme',
 
   // AWS Cognito API Root URL
   awsCognitoUrl: 'https://bh-prod-auth.auth.us-east-1.amazoncognito.com',
