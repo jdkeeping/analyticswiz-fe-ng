@@ -11,16 +11,12 @@ import { BhFooterComponent } from 'src/app/components/_core/bh-footer/bh-footer.
     templateUrl: './requests-cis.page.html',
     styleUrls: ['./requests-cis.page.scss'],
     imports: [
-        IonContent,
-        IonHeader,
-        IonTitle,
-        IonToolbar,
-        CommonModule,
-        FormsModule,
-        BhHeaderComponent,
-        BhBodyComponent,
-        BhFooterComponent
-    ]
+    IonContent,
+    CommonModule,
+    FormsModule,
+    BhHeaderComponent,
+    BhBodyComponent
+]
 })
 export class RequestsCisPage implements OnInit {
 

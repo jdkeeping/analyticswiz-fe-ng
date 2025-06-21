@@ -142,7 +142,7 @@ export class InterceptorService implements HttpInterceptor {
         // console.log('**** refreshToken: Prepare refresh token request', refreshToken);
         const res = await firstValueFrom(this.authService.refreshSSOToken(refreshToken));
         // console.log('**** refreshToken: Received refresh payload', res);
-        if (res) {
+        if (res && res.access_token) {
           token = res.access_token;
           // refreshToken = res.refresh_token;
           // this.storageService.saveData('refreshToken', refreshToken, true);
