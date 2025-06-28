@@ -30,3 +30,9 @@ export interface UserMeta {
   firstName?: string;
   lastName?: string;
 }
+
+export interface IUser {
+  id: string;
+  email: string;
+  createdAt?: Date;
+}

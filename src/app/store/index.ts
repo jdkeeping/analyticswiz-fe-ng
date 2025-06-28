@@ -7,10 +7,14 @@ export interface RootState {
 }
 
 const rootReducer = (state: RootState | undefined, action: any): RootState => {
+  if (state === undefined) {
+    return {};
+  }
+
   if(action.type === 'logout/updateLogout') {
     return {};
   }
-    return state;
+  return state;
 }
 
 export const store = configureStore({
